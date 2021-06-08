@@ -55,3 +55,5 @@ Carrito de compras
 
     https://www.amazon.com/-/es/gp/cart/view.html?ref_=nav_cart
 	
+## Wireframe
+https://www.figma.com/file/3nCbvSggutMiQEAiOLq4Zd/Wireframe-BeiStore?node-id=0%3A1
