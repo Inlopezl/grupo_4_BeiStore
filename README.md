@@ -57,3 +57,24 @@ Carrito de compras
 	
 ## Wireframe
 https://www.figma.com/file/3nCbvSggutMiQEAiOLq4Zd/Wireframe-BeiStore?node-id=0%3A1
+
+## Paleta de colores
+
+#F20789 
+
+#3805F2
+
+#021140
+
+#364159
+
+#57F2F2
+
+https://color.adobe.com/es/color%20theme_p1-color-theme-17909167
+
+## Tipografia
+
+Roboto
+
+
+
