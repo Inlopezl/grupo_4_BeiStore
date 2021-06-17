@@ -1,0 +1,14 @@
+{
+  "name": "beistore",
+  "version": "1.0.0",
+  "description": "proyect Digital House Grupo 4",
+  "main": "index.js",
+  "scripts": {
+    "test": "run start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
