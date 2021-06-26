@@ -7,10 +7,11 @@
     <script src="https://kit.fontawesome.com/c055fe99e8.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/styles/normalize.css">
     <link rel="stylesheet" href="/styles/reset.css">
-    <link rel="stylesheet" href="/styles/home.css">
     <link rel="stylesheet" href="/styles/header.css">
     <link rel="stylesheet" href="/styles/footer.css">
     <link rel="stylesheet" href="/styles/fonts.css">
+    <!-- nuevos estilos -->
+    <link rel="stylesheet" href="/styles/form.css">
     <title>BeiStore</title>
 </head>
 <body>
@@ -34,61 +35,13 @@
     </header>
     <!-- fin de la cabecera -->
     <main>
-        <img src="/images/banner.jpg" alt="banner">
-        <!-- categorias -->
-        <section class="category">
-            <h2>Categorias</h2>
-            <article>
-                <img src="/images/categorias/articulo1.jpg" alt="articulo">
-                <a href="/">name-category</a>
-            </article>
-            <article>
-                <img src="/images/categorias/articulo2.jpg" alt="articulo">
-                <a href="/">name-category</a>
-            </article>
-            <article>
-                <img src="/images/categorias/articulo3.jpg" alt="articulo">
-                <a href="/">name-category</a>
-            </article>
-            <article>
-                <img src="/images/categorias/articulo4.jpg" alt="articulo">
-                <a href="/">name-category</a>
-            </article>
-            <article>
-                <img src="/images/categorias/articulo5.jpg" alt="articulo">
-                <a href="/">name-category</a>
-            </article>
-        </section>
-        <section class="destacados">
-            <h2>Productos destacados</h3>
-            <article>
-                <img src="/images/destacados/destacado.jpg" alt="destacado">
-                <p class="name-producto">name destacado</p>
-                <p class="precio">##.##</p>
-                <p class="off">##.##%</p>
-                <button>Comprar</button>
-            </article>
-            <article>
-                <img src="/images/destacados/destacado2.jpg" alt="destacado">
-                <p class="name-producto">name destacado</p>
-                <p class="precio">##.##</p>
-                <p class="off">##.##%</p>
-                <button>Comprar</button>
-            </article>
-            <article>
-                <img src="/images/destacados/destacado3.jpg" alt="destacado">
-                <p class="name-producto">name destacado</p>
-                <p class="precio">##.##</p>
-                <p class="off">##.##%</p>
-                <button>Comprar</button>
-            </article>
-            <article>
-                <img src="/images/destacados/destacado4.jpg" alt="destacado">
-                <p class="name-producto">name destacado</p>
-                <p class="precio">##.##</p>
-                <p class="off">##.##%</p>
-                <button>Comprar</button>
-            </article>
+        <section>
+            <form action="" method="POST">
+                <input type="text" name="user" id="user" placeholder="Nombre de Usuario">
+                <input type="password" name="password" id="password" placeholder="Contraseña">
+                <button type="submit" class="">Ingresar</button>
+            </form>
+            <p>¿No tenes una cuenta? <a href="/register">Creá una cuenta</a>.</p>
         </section>
     </main>
     <!-- inicio footer  -->
@@ -122,5 +75,6 @@
         <p>Copyright © 2021 Beistore</p>
     </footer>
     <!-- fin footer  -->
+    
 </body>
 </html>

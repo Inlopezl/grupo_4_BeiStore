@@ -32,7 +32,7 @@ main form input{
     border-radius: 8px;
     margin: 10px 0px;
 }
-.button-registro{
+.button-registro,main section form button[type ="submit"]{
     width: 100%;
     border: 0px;
     padding: 10px;
@@ -47,6 +47,7 @@ main section>p{
     color: #fff;
     width: 90%;
     font-size: .9rem;
+    margin: 5px 0px;
 }
 main section>p a{
     color: #57F2F2;
