@@ -36,12 +36,17 @@ header button{
 header i{
     color: #364159;
 }
+header nav i{
+    color: #fff;
+    margin: 0px 10px;
+}
 
 header nav{
     width: 100%;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    margin-top: 10px;
 }
 header nav ul{
     display: flex;
