@@ -46,8 +46,22 @@ footer i{
     color: #fff;
 }
 footer>p{
+    width: 100%;
+    text-align: center;
     margin-top: 40px;
     margin-bottom: 10px;
     color: #fff;
     font-family: 'Roboto', sans-serif;
+}
+
+@media (min-width:1024px)  {
+    footer{
+        justify-content: space-around;
+    }
+    footer article{
+        width:15% ;
+    }
+    .redes{
+        width: 40%;
+    }
 }

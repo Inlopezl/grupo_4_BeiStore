@@ -15,9 +15,8 @@ main section{
     padding-bottom: 30px;
 }
 main h2{
-    width: 100%;
+    width: 90%;
     font-weight: bold;
-    padding-left: 10vw;
 }
 main article{
     width:90%;
@@ -76,4 +75,33 @@ main article a{
     color: #021140;
     font-weight: bold;
     margin-top: 10px;
+}
+@media (min-width:768px) {
+    .category{
+        justify-content: space-around;
+    }
+    main section article{
+        width: 30%;
+    }
+    .category article img{
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+    }
+    .destacados{
+        justify-content: space-between;
+        width: 90%;
+        margin: auto;
+    }
+    .destacados article{
+        width: 40%;
+    }
+}
+@media (min-width:1024px) {
+    main section article{
+        width: 15%;
+    }
+    .destacados article{
+        width: 20%;
+    }
 }
