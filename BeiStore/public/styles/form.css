@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+}
+
+/* #F20789
+
+#3805F2 violeta
+
+#021140 azul oscuro
+
+#364159 gris oscuro
+
+#57F2F2 cian
+*/
+
+main{
+    background-color: #021140;
+}
+main section{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding: 35px 0px;
+}
+main form{
+    width: 90%;
+}
+main form input{
+    width: 100%;
+    padding: 10px;
+    border: 0px;
+    border-radius: 8px;
+    margin: 10px 0px;
+}
+.button-registro{
+    width: 100%;
+    border: 0px;
+    padding: 10px;
+    margin: 10px 0px;
+    border-radius: 8px;
+    background-color: #57F2F2;
+    color: #021140;
+    font-weight: bold;
+    text-align: center;
+}
+main section>p{
+    color: #fff;
+    width: 90%;
+    font-size: .9rem;
+}
+main section>p a{
+    color: #57F2F2;
+}
