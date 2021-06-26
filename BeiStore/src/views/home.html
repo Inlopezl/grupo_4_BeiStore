@@ -4,11 +4,118 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomeBS</title>
+    <script src="https://kit.fontawesome.com/c055fe99e8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/styles/normalize.css">
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/home.css">
+    <link rel="stylesheet" href="/styles/header.css">
+    <link rel="stylesheet" href="/styles/footer.css">
+    <link rel="stylesheet" href="/styles/fonts.css">
+    <title>BeiStore</title>
 </head>
 <body>
-    <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit rerum ipsam animi. Maiores tempora provident nam et commodi debitis. Tenetur explicabo doloremque ipsa deserunt repellendus? Magni, necessitatibus. Molestiae, modi. Debitis!
-    </p>
+    <!-- comienzo cabecera -->
+    <header>
+        <a href="/home">
+            <img src="/images/logo.png" alt="logo">
+        </a>
+        <form action="/" method="GET">
+            <input type="text" name="search" placeholder="Buscar">
+            <button type="submit">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+        <nav>
+            <ul>
+                <li><a href="">Cuenta</a></li>
+                <li><a href="">Carrito</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- fin de la cabecera -->
+    <main>
+        <img src="/images/banner.jpg" alt="banner">
+        <!-- categorias -->
+        <section class="category">
+            <h2>Categorias</h2>
+            <article>
+                <img src="/images/articulo1.jpg" alt="articulo">
+                <a href="/">name-category</a>
+            </article>
+            <article>
+                <img src="/images/articulo2.jpg" alt="articulo">
+                <a href="/">name-category</a>
+            </article>
+            <article>
+                <img src="/images/articulo3.jpg" alt="articulo">
+                <a href="/">name-category</a>
+            </article>
+            <article>
+                <img src="/images/articulo4.jpg" alt="articulo">
+                <a href="/">name-category</a>
+            </article>
+            <article>
+                <img src="/images/articulo5.jpg" alt="articulo">
+                <a href="/">name-category</a>
+            </article>
+        </section>
+        <section class="destacados">
+            <h3>Productos destacados</h3>
+            <article>
+                <img src="/images/destacado1.jpg" alt="destacado">
+                <p class="name-producto">name destacado</p>
+                <p class="precio">##.##</p>
+                <p class="off">##.##%</p>
+            </article>
+            <article>
+                <img src="/images/destacado1.jpg" alt="destacado">
+                <p class="name-producto">name destacado</p>
+                <p class="precio">##.##</p>
+                <p class="off">##.##%</p>
+            </article>
+            <article>
+                <img src="/images/destacado1.jpg" alt="destacado">
+                <p class="name-producto">name destacado</p>
+                <p class="precio">##.##</p>
+                <p class="off">##.##%</p>
+            </article>
+            <article>
+                <img src="/images/destacado1.jpg" alt="destacado">
+                <p class="name-producto">name destacado</p>
+                <p class="precio">##.##</p>
+                <p class="off">##.##%</p>
+            </article>
+        </section>
+    </main>
+    <!-- inicio footer  -->
+    <footer>
+        <article>
+            <h4>titulo</h4>
+            <p>descripcion</p>
+        </article>
+        <article>
+            <h4>titulo</h4>
+            <p>descripcion</p>
+        </article>
+        <article>
+            <h4>titulo</h4>
+            <p>descripcion</p>
+        </article>
+        <article>
+            <form action="/" method="POST">
+                <input type="email" name="email" placeholder="E-mail">
+            </form>
+            <a href="/">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="/">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="/">
+                <i class="fab fa-google-plus-g"></i>
+            </a>
+        </article>
+    </footer>
+    <!-- fin footer  -->
 </body>
 </html>
