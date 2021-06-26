@@ -21,8 +21,11 @@ main section{
     flex-flow: row wrap;
     justify-content: center;
     padding: 35px 0px;
+    max-width: 570px;
+    margin: auto;
 }
 main form{
+    margin: 50px auto;
     width: 90%;
 }
 main form input{
@@ -51,4 +54,5 @@ main section>p{
 }
 main section>p a{
     color: #57F2F2;
+    
 }

@@ -43,6 +43,7 @@ main h2{
 
 .producto-del-carrito img{
     width: 30%;
+    max-height: 125px;
     border-radius: 8px 0px 0px 8px;
     margin-right: 10px;
     border-right: #364159 solid 2px;
@@ -97,4 +98,19 @@ main h2{
     padding: 10px;
     margin: 5px 0px;
     text-align: center;
+}
+
+@media (min-width:768px) {
+    .productos{
+        width: 60%;
+    }
+    .ticket{
+        width: 40%;
+    }
+    main{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        align-items:center;
+    }
 }
