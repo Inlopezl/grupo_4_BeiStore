@@ -1,0 +1,79 @@
+*{
+    box-sizing: border-box;
+}
+
+.category{
+    padding: 20px 0px;
+}
+main img{
+    width: 100%;
+}
+main section{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+main h2{
+    width: 100%;
+    font-weight: bold;
+    padding-left: 10vw;
+}
+main article{
+    width:90%;
+    text-align: center;
+    margin: 20px 0px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+main article a{
+    text-decoration: none;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #021140;
+    width: 100%;
+}
+
+.category article img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.destacados article{
+    background-color: #021140;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+.name-producto{
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: 100%;
+    margin: 8px 0px;
+}
+.precio{
+    color: #fff;
+    width: 60%;
+    text-align: left;
+}
+.off{
+    color: #57F2F2;
+    width: 30%;
+}
+.destacados button{
+    border: 0;
+    border-radius: 8px;
+    width: 100%;
+    padding: 10px;
+    background-color: #57F2F2;
+    color: #021140;
+    font-weight: bold;
+    margin-top: 10px;
+}
