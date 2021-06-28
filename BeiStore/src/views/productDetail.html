@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/c055fe99e8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/styles/normalize.css">
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/home.css">
+    <link rel="stylesheet" href="/styles/productView.css">
+    <link rel="stylesheet" href="/styles/header.css">
+    <link rel="stylesheet" href="/styles/footer.css">
+    <link rel="stylesheet" href="/styles/fonts.css">
+    <title>BeiStore</title>
+</head>
+<body>
+    <!-- comienzo cabecera -->
+    <header>
+        <a href="/home">
+            <img src="/images/logo.png" alt="logo">
+        </a>
+        <form action="/" method="GET">
+            <input type="text" name="search" placeholder="Buscar">
+            <button type="submit">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+        <nav>
+            <ul>
+                <li><a href="/login"><i class="fas fa-user"></i>Cuenta</a></li>
+                <li><a href="/productCart"><i class="fas fa-shopping-cart"></i>Carrito</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- fin de la cabecera -->
+    
+    
+    <main>
+        
+        <section class="product">
+
+            <article class="top">
+                
+                <p>Nombre producto</p>               
+
+            </article>
+
+            <article class="bot">
+                <img src="/images/categorias/articulo1.jpg" alt=""> 
+                <p>Id producto:</p>
+                <p>Stock:</p>
+                <p class="price">$999</p>
+                <button type="submit">Agregar al Carrito</button>
+            </article>
+
+        </section>
+        
+
+        <section>
+
+             <article>
+            
+                <h4>Descripción de producto</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing blanditiis incidunt, praesentium soluta officia ullam fugit delectus expedita eos.</p>
+            
+            </article>
+
+        </section>
+
+    </main>
+
+
+    <!-- inicio footer  -->
+    <footer>
+        <article>
+            <h4>Titulo</h4>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum necessitatibus modi fugiat.</p>
+        </article>
+        <article>
+            <h4>Titulo</h4>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum necessitatibus modi fugiat.</p>
+        </article>
+        <article>
+            <h4>Titulo</h4>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum necessitatibus modi fugiat.</p>
+        </article>
+
+
+
+     
+        <article class="redes">
+            <form action="/" method="POST">
+                <input type="email" name="email" placeholder="E-mail">
+            </form>
+            <a href="/">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="/">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="/">
+                <i class="fab fa-google-plus-g"></i>
+            </a>
+        </article>
+        <p>Copyright © 2021 Beistore</p>
+    </footer>
+    <!-- fin footer  -->
+</body>
+</html>
