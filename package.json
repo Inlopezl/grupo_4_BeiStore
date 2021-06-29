@@ -4,7 +4,8 @@
   "description": "proyect Digital House Grupo 4",
   "main": "index.js",
   "scripts": {
-    "test": "run start"
+    "test": "run start",
+    "start": "node ./src/index.js"
   },
   "author": "",
   "license": "ISC",
