@@ -14,3 +14,8 @@ app.use(express.static(path.resolve(__dirname, '../public')));
 const homeRouter = require('./routers/home');
 app.use(homeRouter);
 
+const productRouter = require('./routers/product');
+app.use(productRouter);
+
+const userRouter = require('./routers/user');
+app.use(userRouter);
