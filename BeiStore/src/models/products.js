@@ -47,6 +47,7 @@ models = {
                 element.name = data.nombre;
                 element.descrition = data.descripcion;
                 element.categoria = data.categoria;
+                element.descuento = data.descuento;
                 element.image = images;
                 element.price = data.price;
             }

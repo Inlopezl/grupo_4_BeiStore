@@ -1,14 +1,21 @@
 [
   {
     "id": 1,
-    "name": "producto",
-    "descrition": "descricion  ",
+    "name": "producto 1",
+    "descrition": "producto base ",
+    "categoria": "destacado",
     "image": [],
+    "price": "00"
+  },
+  {
+    "id": 2,
+    "name": "producto prueba ",
+    "descrition": "base 1",
     "categoria": [
-      "PC",
-      "momory-ram",
+      "destacado",
       "accesorios"
     ],
-    "price": "10"
+    "image": [],
+    "price": "10000"
   }
 ]

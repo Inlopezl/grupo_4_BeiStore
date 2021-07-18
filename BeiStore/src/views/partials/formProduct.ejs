@@ -8,6 +8,10 @@
     <fieldset class="categoria">
         <label>Categoria</label>
         <label>
+            <input type="checkbox" name="categoria" value="destacado" <%= (typePage != 'create' && producto[0].categoria.indexOf('destacado') != -1 )? 'checked' : '' %> >
+            <p>Destacado</p>
+        </label>
+        <label>
             <input type="checkbox" name="categoria" value="PC" <%= (typePage != 'create' && producto[0].categoria.indexOf('PC') != -1 )? 'checked' : '' %>>
             <p>PC</p>
         </label>
@@ -20,6 +24,7 @@
             <p>Accesorios</p>
         </label>
     </fieldset>
-    <input type="number" name="price" placeholder="Precio" required  value = <%= typePage == 'create'? '' : `${producto[0].price}` %> >
+    <input type="number" name="descuento" placeholder="Descuento" max="100" min="0" value = <%= typePage == 'create'? '' : `${producto[0].descuento}` %>>
+    <input type="number" name="price" min="0" placeholder="Precio" required  value = <%= typePage == 'create'? '' : `${producto[0].price}` %> >
     <button type="submit">Enviar</button>
 </form>
