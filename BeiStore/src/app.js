@@ -11,6 +11,11 @@ app.set('views', path.resolve(__dirname, 'views'));
 //carpeta publica
 app.use(express.static(path.resolve(__dirname, '../public')));
 
+//method override
+const method = require('method-override');
+app.use(method('_method'));
+
+//rutas
 const homeRouter = require('./routers/home');
 app.use(homeRouter);
 

@@ -1,9 +1,14 @@
 [
   {
     "id": 1,
-    "name": "nombre",
-    "description": "description",
-    "price": 12,
-    "image": "image"
+    "name": "producto",
+    "descrition": "descricion  ",
+    "image": [],
+    "categoria": [
+      "PC",
+      "momory-ram",
+      "accesorios"
+    ],
+    "price": "10"
   }
 ]

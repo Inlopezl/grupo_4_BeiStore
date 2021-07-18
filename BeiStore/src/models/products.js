@@ -35,16 +35,20 @@ models = {
         fs.writeFileSync(this.directory(), JSON.stringify(products, null, 2));
         return true;
     },
-    edit: function(data, file, id){
+    edit: function(data, files, id){
         let products = this.all();
         let images = [];
         files.forEach(element => images.push(element.filename));
+        console.log(data);
         products.forEach(element => {
+            console.log(element);
+            console.log(id)
             if(element.id == id){
-                element.name = data.name;
-                element.description = data.description;
+                element.name = data.nombre;
+                element.descrition = data.descripcion;
+                element.categoria = data.categoria;
                 element.image = images;
-                price = data.price;
+                element.price = data.price;
             }
         });
         fs.writeFileSync(this.directory(), JSON.stringify(products, null, 2));

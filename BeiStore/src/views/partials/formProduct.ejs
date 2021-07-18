@@ -1,0 +1,25 @@
+<form action= <%= action %>  method = 'POST' enctype="multipart/form-data" >
+    <input type="text" name="nombre" placeholder="Nombre" required  <%= typePage == 'create'? '' : `value = ${producto[0].name} ` %> >
+    <textarea name="descripcion" cols="30" rows="10" placeholder="Descricion" required><%= typePage == 'create'? '' : `${producto[0].descrition}` %></textarea>
+    <fieldset>
+        <label for="imagen">Imagenes del producto</label>
+        <input type="file" name="imagen" id="imagen" multiple>
+    </fieldset>
+    <fieldset class="categoria">
+        <label>Categoria</label>
+        <label>
+            <input type="checkbox" name="categoria" value="PC" <%= (typePage != 'create' && producto[0].categoria.indexOf('PC') != -1 )? 'checked' : '' %>>
+            <p>PC</p>
+        </label>
+        <label>
+            <input type="checkbox" name="categoria" value="momory-ram" <%= (typePage != 'create' && producto[0].categoria.indexOf('momory-ram') != -1 )? 'checked' : '' %> >
+            <p>Memoria RAM</p>
+        </label>
+        <label>
+            <input type="checkbox" name="categoria" value="accesorios" <%= (typePage != 'create' && producto[0].categoria.indexOf('accesorios') != -1 )? 'checked' : '' %> >
+            <p>Accesorios</p>
+        </label>
+    </fieldset>
+    <input type="number" name="price" placeholder="Precio" required  value = <%= typePage == 'create'? '' : `${producto[0].price}` %> >
+    <button type="submit">Enviar</button>
+</form>
