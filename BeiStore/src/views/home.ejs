@@ -34,34 +34,17 @@
         </section>
         <section class="destacados">
             <h2>Productos destacados</h2>
-            <article>
-                <img src="/images/destacados/destacado.jpg" alt="destacado">
-                <p class="name-producto">name destacado</p>
-                <p class="precio">##.##</p>
-                <p class="off">##.##%</p>
-                <button>Comprar</button>
-            </article>
-            <article>
-                <img src="/images/destacados/destacado2.jpg" alt="destacado">
-                <p class="name-producto">name destacado</p>
-                <p class="precio">##.##</p>
-                <p class="off">##.##%</p>
-                <button>Comprar</button>
-            </article>
-            <article>
-                <img src="/images/destacados/destacado3.jpg" alt="destacado">
-                <p class="name-producto">name destacado</p>
-                <p class="precio">##.##</p>
-                <p class="off">##.##%</p>
-                <button>Comprar</button>
-            </article>
-            <article>
-                <img src="/images/destacados/destacado4.jpg" alt="destacado">
-                <p class="name-producto">name destacado</p>
-                <p class="precio">##.##</p>
-                <p class="off">##.##%</p>
-                <button>Comprar</button>
-            </article>
+            <% productos.forEach(producto => { %>
+                <article>
+                    <img src="/images/destacados/destacado.jpg" alt="destacado">
+                    <a href="/productDetail/<%= producto.id%>">
+                        <p class="name-producto"><%= producto.name%></p>
+                    </a>
+                    <p class="precio">$ <%= producto.price %></p>
+                    <p class="off"> <%= producto.descuento %>%</p>
+                    <button>Comprar</button>
+                </article>
+            <% }) %>
         </section>
     </main>
     <%- include('./partials/footer') %> 

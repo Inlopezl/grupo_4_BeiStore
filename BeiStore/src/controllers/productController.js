@@ -4,7 +4,7 @@ module.exports = {
         res.render('products/productCart');
     },
     indexDetail: (req, res) =>{
-        res.render('products/productDetail');
+        res.render('products/productDetail', {producto : product.one(req.params.id)[0]});
     },
     indexCreate: (req, res) => {
         res.render('products/productCreate', { action: '/admin/createProduct' , typePage: 'create', title: 'Crear un producto'});

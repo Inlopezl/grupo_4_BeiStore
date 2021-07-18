@@ -28,6 +28,7 @@ models = {
             name: data.nombre,
             descrition: data.descripcion,
             categoria: data.categoria,
+            descuento: data.descuento,
             image: images,
             price: data.price
         }

@@ -1,21 +1,26 @@
 [
   {
     "id": 1,
-    "name": "producto 1",
-    "descrition": "producto base ",
-    "categoria": "destacado",
-    "image": [],
-    "price": "00"
-  },
-  {
-    "id": 2,
-    "name": "producto prueba ",
-    "descrition": "base 1",
+    "name": "destacado",
+    "descrition": "descripcion mas larga ",
     "categoria": [
       "destacado",
       "accesorios"
     ],
+    "descuento": "50",
     "image": [],
-    "price": "10000"
+    "price": "1222"
+  },
+  {
+    "id": 2,
+    "name": "producto",
+    "descrition": "ndsnf",
+    "categoria": [
+      "destacado",
+      "accesorios"
+    ],
+    "descuento": "100",
+    "image": [],
+    "price": "213"
   }
 ]

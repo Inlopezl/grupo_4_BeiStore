@@ -18,7 +18,7 @@ const upload = multer({storage: storage})
 const controller = require('../controllers/productController');
 
 router.get('/productCart', controller.indexCart);
-router.get('/productDetail', controller.indexDetail);
+router.get('/productDetail/:id', controller.indexDetail);
 router.get('/admin/createProduct', controller.indexCreate);
 router.post('/admin/createProduct', [upload.any()], controller.create);
 router.get('/admin/editProduct/:id', controller.indexEdit);
