@@ -18,15 +18,17 @@ models = {
         const product = products.filter(element => element.id == id);
         return product; 
     },
-    new: function(data, file){
-        console.log(file);
+    new: function(data, files){
+        console.log(files);
+        let images = [];
+        files.forEach(element => images.push(element.filename));
         let products = this.all();
         let newProduct = {
             id: products.length > 0 ? products[products.length - 1].id + 1 : 1,
             name: data.nombre,
             descrition: data.descripcion,
             categoria: data.categoria,
-            // image: file.filename,
+            image: images,
             price: data.price
         }
         products.push(newProduct);
@@ -35,11 +37,13 @@ models = {
     },
     edit: function(data, file, id){
         let products = this.all();
+        let images = [];
+        files.forEach(element => images.push(element.filename));
         products.forEach(element => {
             if(element.id == id){
                 element.name = data.name;
                 element.description = data.description;
-                // element.image = file.filename;
+                element.image = images;
                 price = data.price;
             }
         });

@@ -10,7 +10,7 @@ module.exports = {
         res.render('products/productCreate');
     },
     create: (req, res)=>{
-        let newProduct = product.new(req.body, req.file);
+        let newProduct = product.new(req.body, req.files);
         return newProduct == true? res.redirect('/home'): res.send('Error');
     },
     edit: (req, res)=>{

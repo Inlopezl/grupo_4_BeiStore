@@ -5,43 +5,5 @@
     "description": "description",
     "price": 12,
     "image": "image"
-  },
-  {
-    "id": 2,
-    "price": "12"
-  },
-  {
-    "id": 3,
-    "price": "213214312"
-  },
-  {
-    "id": 4,
-    "name": "QEWYUHDKJASD",
-    "descrition": "ADBJAKSBD",
-    "categoria": [
-      "cat1",
-      "cat1"
-    ],
-    "price": "123"
-  },
-  {
-    "id": 5,
-    "name": "bsndmadfsa",
-    "descrition": "dxsfjdkfbns",
-    "categoria": [
-      "cat1",
-      "cat1"
-    ],
-    "price": "12132"
-  },
-  {
-    "id": 6,
-    "name": "sads",
-    "descrition": "qsdx",
-    "categoria": [
-      "cat1",
-      "cat1"
-    ],
-    "price": "12"
   }
 ]
