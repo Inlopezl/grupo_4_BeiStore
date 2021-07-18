@@ -34,6 +34,7 @@ main form input{
     border: 0px;
     border-radius: 8px;
     margin: 10px 0px;
+    background-color: #fff;
 }
 .button-registro,main section form button[type ="submit"]{
     width: 100%;
@@ -55,4 +56,41 @@ main section>p{
 main section>p a{
     color: #57F2F2;
     
+}
+
+form textarea{
+    border-radius: 10px;
+    max-width: 100%;
+    min-width: 100%;
+    margin: 10px 0px;
+    padding: 10px;
+}
+
+main section h2{
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.5rem;
+    
+}
+
+main form fieldset{
+    margin-top: 10px;
+}
+
+main form label {
+    color: #fff;
+}
+
+.categoria{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center
+}
+.categoria label{
+    display: flex;
+    flex-flow: row wrap;
+}
+.categoria p{
+
 }

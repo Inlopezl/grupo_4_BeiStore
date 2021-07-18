@@ -5,5 +5,7 @@ module.exports = {
     indexDetail: (req, res) =>{
         res.render('products/productDetail');
     },
-    
+    indexCreate: (req, res) => {
+        res.render('products/productCreate');
+    }
 }
