@@ -90,7 +90,13 @@ main form label {
 .categoria label{
     display: flex;
     flex-flow: row wrap;
+    width: 100%;
+    align-items: center;
 }
 .categoria p{
-
+    width: 80%;
+}
+.categoria input{
+    width: 20px;
+    margin: 10px;
 }
