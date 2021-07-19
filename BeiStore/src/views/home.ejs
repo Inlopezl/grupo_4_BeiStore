@@ -36,7 +36,7 @@
             <h2>Productos destacados</h2>
             <% productos.forEach(producto => { %>
                 <article>
-                    <img src="/images/destacados/destacado.jpg" alt="destacado">
+                    <img src="/images/productos/<%= producto.image[0]%>" alt="destacado">
                     <a href="/productDetail/<%= producto.id%>">
                         <p class="name-producto"><%= producto.name%></p>
                     </a>

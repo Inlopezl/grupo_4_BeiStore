@@ -26,5 +26,13 @@
     </fieldset>
     <input type="number" name="descuento" placeholder="Descuento" max="100" min="0" value = <%= typePage == 'create'? '' : `${producto[0].descuento}` %>>
     <input type="number" name="price" min="0" placeholder="Precio" required  value = <%= typePage == 'create'? '' : `${producto[0].price}` %> >
-    <button type="submit">Enviar</button>
+    
+    <button type="submit" class="btn-submit">Enviar</button>
 </form>
+
+<%if(typePage == 'edit'){%>
+    <h2>Eliminar Producto</h2>
+    <form action="/admin/deleteProduct/<%=producto[0].id%>?_method=DELETE" method="POST" class="form-delete">
+        <button type="submit" class="delete">Eliminar</button>
+    </form>
+<%}%>

@@ -1,26 +1,17 @@
 [
   {
-    "id": 1,
-    "name": "destacado",
-    "descrition": "descripcion mas larga ",
+    "id": 3,
+    "name": "Memoria OEM DDR4 4GB 2666MHz",
+    "descrition": "ESPECIFICACIONES:\r\n\r\nMarca: HyperX\r\nModelo: Fury (HX426C16FB3/8)\r\n-Descripción del producto: HyperX FURY - DDR4 - 8 GB - DIMM\r\n-Tipo de producto: Memoria RAM\r\n-Capacidad: 8 GB\r\n-Tipo de memoria: DDR4 SDRAM - DIMM\r\n-Comprobación integridad datos: No ECC\r\n-Velocidad: 2666 MHz (PC4-21300)\r\n-Tiempos de latencia:CL16 (15-17-17)\r\n-Tensión:1.2 V\r\nSKU 25552",
     "categoria": [
       "destacado",
-      "accesorios"
+      "PC",
+      "momory-ram"
     ],
-    "descuento": "50",
-    "image": [],
-    "price": "1222"
-  },
-  {
-    "id": 2,
-    "name": "producto",
-    "descrition": "ndsnf",
-    "categoria": [
-      "destacado",
-      "accesorios"
+    "descuento": "10",
+    "image": [
+      "product1626656332159.jpg"
     ],
-    "descuento": "100",
-    "image": [],
-    "price": "213"
+    "price": "2500"
   }
 ]

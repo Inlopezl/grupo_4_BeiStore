@@ -22,6 +22,7 @@ router.get('/productDetail/:id', controller.indexDetail);
 router.get('/admin/createProduct', controller.indexCreate);
 router.post('/admin/createProduct', [upload.any()], controller.create);
 router.get('/admin/editProduct/:id', controller.indexEdit);
-router.put('/admin/editProduct/:id', [upload.any()], controller.edit);
+router.put('/admin/editProduct/:id', [upload.any()], controller.edit); 
+router.delete('/admin/deleteProduct/:id', controller.delete); 
 
 module.exports = router;

@@ -36,16 +36,22 @@ main form input{
     margin: 10px 0px;
     background-color: #fff;
 }
-.button-registro,main section form button[type ="submit"]{
+.btn-submit, .delete{
     width: 100%;
     border: 0px;
     padding: 10px;
-    margin: 10px 0px;
     border-radius: 8px;
-    background-color: #57F2F2;
     color: #021140;
     font-weight: bold;
     text-align: center;
+}
+.btn-submit{
+    margin: 10px 0px;
+    background-color: #57F2F2;
+}
+.delete{
+    background-color: #F20789;
+    margin-top: 5px;
 }
 main section>p{
     color: #fff;
@@ -99,4 +105,8 @@ main form label {
 .categoria input{
     width: 20px;
     margin: 10px;
+}
+
+.form-delete{
+    margin-top: 5px;
 }

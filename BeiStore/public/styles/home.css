@@ -60,6 +60,9 @@ main article a{
     flex-flow: row wrap;
     justify-content: space-between;
 }
+.destacados img{
+    border: #fff solid 10px;
+}
 .name-producto{
     color: #fff;
     font-size: 1.2rem;
