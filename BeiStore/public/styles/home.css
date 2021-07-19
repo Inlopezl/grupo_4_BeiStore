@@ -5,6 +5,9 @@
 .category{
     padding: 20px 0px;
 }
+.category article img{
+    display: none;
+}
 main img{
     width: 100%;
 }
@@ -17,22 +20,28 @@ main section{
 main h2{
     width: 90%;
     font-weight: bold;
+    text-align: left;
+    font-size: 1.2rem ;
+    margin-bottom: 8px;
 }
 main article{
     width:90%;
     text-align: center;
-    margin: 20px 0px;
+    /* margin: 20px 0px; */
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
 }
+
 main article a{
     text-decoration: none;
     text-align: center;
-    margin-top: 10px;
+    padding: 10px;
+    /* margin-top: 10px; */
     font-weight: bold;
     font-size: 1rem;
-    color: #021140;
+    color: #fff;
+    background-color: #021140;
     width: 100%;
 }
 
@@ -46,6 +55,7 @@ main article a{
     background-color: #021140;
     border-radius: 8px;
     padding: 20px;
+    margin-top: 20px;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -83,7 +93,12 @@ main article a{
     main section article{
         width: 30%;
     }
+    .category article a{
+        background-color: #fff;
+        color: #021140;
+    }
     .category article img{
+        display: block;
         width: 150px;
         height: 150px;
         border-radius: 50%;
