@@ -1,6 +1,6 @@
-<form action= <%= action %>  method = 'POST' enctype="multipart/form-data" >
-    <input type="text" name="nombre" placeholder="Nombre" required  <%= typePage == 'create'? '' : `value = ${producto[0].name} ` %> >
-    <textarea name="descripcion" cols="30" rows="10" placeholder="Descricion" required><%= typePage == 'create'? '' : `${producto[0].descrition}` %></textarea>
+<form action=<%=action %> method = 'POST' enctype="multipart/form-data">
+    <input type="text" name="nombre" placeholder="Nombre" required <%=t ypePage=='create' ? '' : `value=$ {producto[0].name} ` %> >
+    <textarea name="descripcion" cols="30" rows="10" placeholder="Descripcion" required><%= typePage == 'create'? '' : `${producto[0].descrition}` %></textarea>
     <fieldset>
         <label for="imagen">Imagenes del producto</label>
         <input type="file" name="imagen" id="imagen" multiple>
@@ -24,9 +24,9 @@
             <p>Accesorios</p>
         </label>
     </fieldset>
-    <input type="number" name="descuento" placeholder="Descuento" max="100" min="0" value = <%= typePage == 'create'? '' : `${producto[0].descuento}` %>>
-    <input type="number" name="price" min="0" placeholder="Precio" required  value = <%= typePage == 'create'? '' : `${producto[0].price}` %> >
-    
+    <input type="number" name="descuento" placeholder="Descuento" max="100" min="0" value=< %=t ypePage=='create' ? '' : `${producto[0].descuento}` %>>
+    <input type="number" name="price" min="0" placeholder="Precio" required value=< %=t ypePage=='create' ? '' : `${producto[0].price}` %> >
+
     <button type="submit" class="btn-submit">Enviar</button>
 </form>
 
@@ -35,4 +35,4 @@
     <form action="/admin/deleteProduct/<%=producto[0].id%>?_method=DELETE" method="POST" class="form-delete">
         <button type="submit" class="delete">Eliminar</button>
     </form>
-<%}%>
+    <%}%>
