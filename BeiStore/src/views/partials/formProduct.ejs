@@ -46,7 +46,7 @@
 
 <%if(typePage == 'edit'){%>
     <h2>Eliminar Producto</h2>
-    <form action="/admin/deleteProduct/<%=producto.id%>?_method=DELETE" method="POST" class="form-delete">
+    <form action="/products/delete/<%=producto.id%>?_method=DELETE" method="POST" class="form-delete">
         <button type="submit" class="delete">Eliminar</button>
     </form>
-    <%}%>
+<%}%>

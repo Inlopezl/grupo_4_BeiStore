@@ -44,8 +44,8 @@
     "name": "Procesador Amd Ryzen 3 3200g Am4",
     "descrition": "N.° de nucleos de CPU : 4\r\nN.° de subprocesos: 4\r\nN.° de nucleos de GPU: 8\r\nReloj base: 3.6GHz\r\nReloj de aumento max: Hasta 4.0GHz\r\nCache L1 total: 384KB\r\nCache L2 total: 2MB\r\nCache L3 total: 4MB\r\nDesbloqueados: Si\r\nCMOS: 12nm FinFET\r\nPaquete: AM4\r\nVersion de PCI Express: PCIe® 3.0 x8\r\nSolucion termica: Wraith Stealth\r\nThermal Solution (MPK): Wraith Stealth\r\nTDP-TDP predeterminado: 65W\r\ncTDP: 45-65W\r\nTemp. max: 95°C\r\nVelocidad maxima de memoria: Up to 2933MHz\r\nTipo de memoria: DDR4\r\nCanales de memoria: 2",
     "categoria": [
-      "PC",
-      "destacado"
+      "destacado",
+      "PC"
     ],
     "descuento": "20",
     "image": [

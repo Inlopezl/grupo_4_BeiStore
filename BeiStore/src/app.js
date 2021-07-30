@@ -20,7 +20,7 @@ const homeRouter = require('./routers/home');
 app.use(homeRouter);
 
 const productRouter = require('./routers/product');
-app.use(productRouter);
+app.use('/products', productRouter);
 
 const userRouter = require('./routers/user');
 app.use(userRouter);
