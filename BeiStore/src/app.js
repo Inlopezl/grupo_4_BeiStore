@@ -24,3 +24,9 @@ app.use(productRouter);
 
 const userRouter = require('./routers/user');
 app.use(userRouter);
+
+// ruta errores 
+app.use((req, res, next) => {
+    res.status(404).render('not-found');
+    next();
+})

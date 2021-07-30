@@ -1,0 +1,27 @@
+main{
+    background-color: #021140;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    height: 70vh;
+    width: 100%;
+    padding: 25px 0px;
+}
+main section{
+    width: 90%;
+}
+
+main section h2{
+    color: #fff;
+    font-weight: bold;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+section p{
+    color: #fff;
+    font-size: 1.2rem;
+}
+a{
+    color: #57F2F2;
+}
