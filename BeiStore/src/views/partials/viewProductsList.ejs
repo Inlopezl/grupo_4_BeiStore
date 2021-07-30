@@ -1,0 +1,14 @@
+<section class="destacados">
+    <h2><%= titleProduct %></h2>
+    <% productos.forEach(producto => { %>
+        <article>
+            <img src="/images/productos/<%= producto.image[0]%>" alt="destacado">
+            <a href="/products/<%= producto.id%>">
+                <p class="name-producto"><%= producto.name%></p>
+            </a>
+            <p class="precio">$ <%= producto.price %></p>
+            <p class="off"> <%= producto.descuento %>%</p>
+            <button>Comprar</button>
+        </article>
+    <% }) %>
+</section>

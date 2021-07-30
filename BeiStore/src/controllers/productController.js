@@ -1,16 +1,19 @@
 const product = require('../models/products');
 module.exports = {
     indexCart: (req, res) => {
-        res.render('products/productCart');
+        res.render('products/cart');
     },
     indexDetail: (req, res) =>{
-        res.render('products/productDetail', {producto : product.one(req.params.id)});
+        res.render('products/detail', {producto : product.one(req.params.id)});
     },
     indexCreate: (req, res) => {
-        res.render('products/productCreate', { action: '/products/save' , typePage: 'create', title: 'Crear un producto'});
+        res.render('products/form', { action: '/products/save' , typePage: 'create', title: 'Crear un producto'});
     },
     indexEdit:(req,res) =>{
-        res.render('products/productCreate', { action: `/products/update/${product.one(req.params.id).id}?_method=PUT` , typePage: 'edit', title: 'Editar producto', producto: product.one(req.params.id)});
+        res.render('products/form', { action: `/products/update/${product.one(req.params.id).id}?_method=PUT` , typePage: 'edit', title: 'Editar producto', producto: product.one(req.params.id)});
+    },
+    indexList: (req, res)=>{
+        res.render('products/list', {productos: product.all(), titleProduct: 'Lista de Productos'}) 
     },
     save: (req, res)=>{
         let newProduct = product.new(req.body, req.files);

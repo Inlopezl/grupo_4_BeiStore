@@ -21,6 +21,7 @@ router.get('/create', controller.indexCreate);
 router.get('/:id', controller.indexDetail);
 router.get('/edit/:id', controller.indexEdit);
 router.get('/cart', controller.indexCart);
+router.get('/', controller.indexList);
 
 router.post('/save', [upload.any()], controller.save);
 
