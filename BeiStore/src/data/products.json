@@ -52,16 +52,5 @@
       "product1626733128356.jfif"
     ],
     "price": "20000"
-  },
-  {
-    "id": 5,
-    "name": "Erik ",
-    "descrition": "fdsf",
-    "categoria": "destacado",
-    "descuento": "10",
-    "image": [
-      "product1627649297698.jpg"
-    ],
-    "price": "12132"
   }
 ]
