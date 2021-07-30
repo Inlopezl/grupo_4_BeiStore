@@ -4,13 +4,13 @@ module.exports = {
         res.render('products/productCart');
     },
     indexDetail: (req, res) =>{
-        res.render('products/productDetail', {producto : product.one(req.params.id)[0]});
+        res.render('products/productDetail', {producto : product.one(req.params.id)});
     },
     indexCreate: (req, res) => {
         res.render('products/productCreate', { action: '/admin/createProduct' , typePage: 'create', title: 'Crear un producto'});
     },
     indexEdit:(req,res) =>{
-        res.render('products/productCreate', { action: `/admin/editProduct/${product.one(req.params.id)[0].id}?_method=PUT` , typePage: 'edit', title: 'Editar producto', producto: product.one(req.params.id)});
+        res.render('products/productCreate', { action: `/admin/editProduct/${product.one(req.params.id).id}?_method=PUT` , typePage: 'edit', title: 'Editar producto', producto: product.one(req.params.id)});
     },
     create: (req, res)=>{
         let newProduct = product.new(req.body, req.files);

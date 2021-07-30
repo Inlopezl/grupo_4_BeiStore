@@ -110,3 +110,36 @@ main form label {
 .form-delete{
     margin-top: 5px;
 }
+
+/* edicion de productos  */
+.card-images{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    width: 100%;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 6px;
+}
+.card-images p{
+    color: #021140;
+}
+.card-images img{
+    width: 100%;
+}
+.card-images input{
+    width: 30px;
+}
+
+.widthTercio{
+    width: 30%;
+}
+.widthFull{
+    width: 100%;
+}
+.center{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
