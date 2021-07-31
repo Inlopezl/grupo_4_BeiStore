@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const multerFolder = require('../middlewares/multerFolderMw');
+const CreateVerificator = require('../middlewares/products/createVerificator')
 
 const controller = require('../controllers/productController');
 
@@ -10,7 +11,7 @@ router.get('/edit/:id', controller.indexEdit);
 router.get('/cart', controller.indexCart);
 router.get('/', controller.indexList);
 
-router.post('/save', [multerFolder('product', 'productos/').any()], controller.save);
+router.post('/save', [multerFolder('product', 'productos/').any(), CreateVerificator], controller.save);
 
 router.put('/update/:id', [multerFolder('product', 'productos/').any()], controller.update); 
 

@@ -1,4 +1,6 @@
 const product = require('../models/products');
+const { validationResult } = require('express-validator');
+
 module.exports = {
     indexCart: (req, res) => {
         res.render('products/cart');
@@ -16,6 +18,10 @@ module.exports = {
         res.render('products/list', {productos: product.all(), titleProduct: 'Lista de Productos'}) 
     },
     save: (req, res)=>{
+        let errores = validationResult(req)
+        // if(!errores.isEmpty()){
+        //     res.send(errores.array());
+        // }
         let newProduct = product.new(req.body, req.files);
         return newProduct == true? res.redirect('/home'): res.send('Error');
     },

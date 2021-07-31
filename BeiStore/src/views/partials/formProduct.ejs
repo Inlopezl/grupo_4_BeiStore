@@ -4,7 +4,7 @@
     <textarea name="descripcion" cols="30" rows="10" placeholder="Descricion" required><%= typePage == 'create'? '' : `${producto.descrition}` %></textarea>
     
     <label for="imagen">Imagenes del producto</label>
-    <% if(typePage == 'edit'){%>
+    <% if(typePage == 'edit') {%>
         <fieldset class="center">
             <% producto.image.forEach(element =>{ %>
                 <label  class="card-images <%= (producto.image.length >= 3 )? 'widthTercio': 'widthFull' %>" >
