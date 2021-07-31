@@ -19,13 +19,6 @@ _Ivan Lopez_
 Estudiante de ing. informática, videógrafo, amante de lo espacial, 19 Años.
 Especialista en hacer un poco de todo. 
 ```
-_Bautista Nuñez_
-
-
-```
-Estudiante de Dirección de Negocios, deportista, 20 años.
-Primeros pasos en el mundo de la Programación.
-```
 
 _Erik Sucasaire_
 
