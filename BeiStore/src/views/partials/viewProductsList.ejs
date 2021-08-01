@@ -1,14 +1,14 @@
-<section class="destacados">
-    <h2><%= titleProduct %></h2>
+<section class="marginTB flex justAround">
+    <h2 class="title textL widthFull marginTB"><%= titleProduct %></h2>
     <% productos.forEach(producto => { %>
-        <article>
+        <article class="card-product bgcAzul flex justBet cajaResponsive">
             <img src="/images/productos/<%= producto.image[0]%>" alt="destacado">
-            <a href="/products/<%= producto.id%>">
+            <a href="/products/<%= producto.id%>" class="widthFull blanco title marginTB">
                 <p class="name-producto"><%= producto.name%></p>
             </a>
-            <p class="precio">$ <%= producto.price %></p>
-            <p class="off"> <%= producto.descuento %>%</p>
-            <button>Comprar</button>
+            <p class="blanco">$ <%= producto.price %></p>
+            <p class="cian"> <%= producto.descuento %>%</p>
+            <button class="btnCian">Comprar</button>
         </article>
     <% }) %>
 </section>

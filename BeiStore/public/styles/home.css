@@ -1,103 +1,36 @@
-*{
-    box-sizing: border-box;
-}
 
-.category{
-    padding: 20px 0px;
-}
+
 .category article img{
     display: none;
-}
-main img{
-    width: 100%;
-}
-main section{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    padding-bottom: 30px;
-}
-main h2{
-    width: 90%;
-    font-weight: bold;
-    text-align: left;
-    font-size: 1.2rem ;
-    margin-bottom: 8px;
-}
-main article{
-    width:90%;
-    text-align: center;
-    /* margin: 20px 0px; */
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-}
-
-main article a{
-    text-decoration: none;
-    text-align: center;
-    padding: 10px;
-    /* margin-top: 10px; */
-    font-weight: bold;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #021140;
-    width: 100%;
-}
-
-.category article img{
     width: 200px;
     height: 200px;
     border-radius: 50%;
 }
-.destacados{
-    margin: 25px 0px;
+
+main img{
+    width: 100%;
+}
+main section{
+    width: 90%;
 }
 
-.destacados article{
-    background-color: #021140;
-    border-radius: 8px;
-    padding: 20px;
-    margin-top: 20px;
-    display: flex;
+main article{
+    width:90%;
+    text-align: center;
+    /* display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: center; */
 }
-.destacados img{
-    border: #fff solid 10px;
+
+main article a{
+    text-decoration: none;
 }
-.name-producto{
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: bold;
-    width: 100%;
-    margin: 8px 0px;
-}
-.precio{
-    color: #fff;
-    width: 60%;
-    text-align: left;
-}
-.off{
-    color: #57F2F2;
-    width: 30%;
-}
-.destacados button{
-    border: 0;
-    border-radius: 8px;
-    width: 100%;
-    padding: 10px;
-    background-color: #57F2F2;
-    color: #021140;
-    font-weight: bold;
-    margin-top: 10px;
-}
+
+
+
 @media (min-width:768px) {
     .category{
         justify-content: space-around;
-    }
-    main section article{
-        width: 30%;
     }
     .category article a{
         background-color: #fff;
@@ -109,20 +42,9 @@ main article a{
         height: 150px;
         border-radius: 50%;
     }
-    .destacados{
-        justify-content: space-around;
-        width: 90%;
-        margin: 25px auto;
-    }
-    .destacados article{
-        width: 40%;
-    }
 }
 @media (min-width:1024px) {
     main section article{
         width: 15%;
-    }
-    .destacados article{
-        width: 20%;
     }
 }

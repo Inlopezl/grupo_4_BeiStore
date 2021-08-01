@@ -6,31 +6,18 @@
 </head>
 <body>
     <%- include('./partials/header')  %> 
-    <main>
+    <main class="flex justCenter">
         <img src="/images/banner.jpg" alt="banner">
         <!-- categorias -->
-        <section class="category">
-            <h2>Categorias</h2>
-            <article>
-                <img src="/images/categorias/articulo1.jpg" alt="articulo">
-                <a href="/">Destacado</a> 
-            </article>
-            <article>
-                <img src="/images/categorias/articulo2.jpg" alt="articulo">
-                <a href="/">PC</a>
-            </article>
-            <article>
-                <img src="/images/categorias/articulo3.jpg" alt="articulo">
-                <a href="/">otra categoria</a>
-            </article>
-            <article>
-                <img src="/images/categorias/articulo4.jpg" alt="articulo">
-                <a href="/">otra categoria</a>
-            </article>
-            <article>
-                <img src="/images/categorias/articulo5.jpg" alt="articulo">
-                <a href="/">otra categoria</a>
-            </article>
+        <section class="category flex justCenters">
+            <h2 class="title textL widthFull marginTB">Categorias</h2>
+            <% let categorias = ['Destacado', 'PC', 'otra categoria', 'otra categoria', 'otra categoria'] %> 
+            <% categorias.forEach(element => { %>
+                <article class="flex justCenter">
+                    <img src="/images/categorias/articulo1.jpg" alt="articulo">
+                    <a href="/" class="blanco bgcAzul widthFull title padding"><%= element  %></a> 
+                </article>
+            <% }) %>
         </section>
         <%- include('./partials/viewProductsList') %>
     </main>
