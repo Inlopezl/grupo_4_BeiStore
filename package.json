@@ -2,10 +2,10 @@
   "name": "beistore",
   "version": "1.0.0",
   "description": "proyect Digital House Grupo 4",
-  "main": "src/app.js",
+  "main": "./src/app.js",
   "scripts": {
     "test": "run start",
-    "start": "node src/app.js"
+    "start": "node ./src/app.js"
   },
   "author": "",
   "license": "ISC",
