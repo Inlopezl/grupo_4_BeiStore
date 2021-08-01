@@ -18,12 +18,13 @@ module.exports = {
         res.render('products/list', {productos: product.all(), titleProduct: 'Lista de Productos'}) 
     },
     save: (req, res)=>{
-        let errores = validationResult(req)
-        // if(!errores.isEmpty()){
-        //     res.send(errores.array());
-        // }
-        let newProduct = product.new(req.body, req.files);
-        return newProduct == true? res.redirect('/home'): res.send('Error');
+        let error = validationResult(req)
+        if(!error.isEmpty()){
+            res.render('products/form', { action: '/products/save' , typePage: 'create', title: 'Crear un producto', errores : error.mapped()})
+        } else{
+            let newProduct = product.new(req.body, req.files);
+            return newProduct == true? res.redirect('/home'): res.send('Error');
+        }
     },
     update: (req, res)=>{
         let editProduct = product.edit(req.body, req.files, req.params.id);

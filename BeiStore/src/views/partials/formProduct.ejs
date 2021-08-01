@@ -28,7 +28,13 @@
         <i class="fas fa-exclamation-circle"></i>
         <small>TextoError</small>
     </fieldset>
-    <fieldset class="widthFull flex">
+    <% if(locals && locals.errores){ %>
+        <% if (errores.category) { %>
+            <fieldset class="widthFull flex error">
+        <% } %>
+    <% } else { %> 
+        <fieldset class="widthFull flex">
+    <% } %>
         <label class="widthFull marginTBSmall">Categoria</label>
         <label class="flex widthFull alignCenter marginTBSmall">
             <input type="checkbox" name="category" value="destacado" <%= (typePage != 'create' && producto.category.indexOf('destacado') != -1 )? 'checked' : '' %> >
@@ -46,7 +52,11 @@
             <input type="checkbox" name="category" value="accesorios" <%= (typePage != 'create' && producto.category.indexOf('accesorios') != -1 )? 'checked' : '' %> >
             <p>Accesorios</p>
         </label>
-        <small>texteerroororo</small>
+        <% if(locals && locals.errores){ %>
+            <% if (errores.category) { %>
+                <small> <%=  errores.category.msg  %> </small>
+            <% } %>
+        <% } %>
     </fieldset>
     <fieldset class="">
         <input type="number" name="off" placeholder="Descuento" max="100" min="0" value = <%= typePage == 'create'? '' : `${producto.off}` %>>

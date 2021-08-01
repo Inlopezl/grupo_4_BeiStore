@@ -21,8 +21,6 @@ models = {
     new: function(data, files){
         let images = [];
         files.forEach(element => images.push(element.filename));
-        let category = [];
-        category.push(data.category);
 
         let products = this.all();
         let newProduct = {
@@ -66,9 +64,6 @@ models = {
             images = images.filter(element => element != data.deleteImage)
             fs.unlinkSync(path.resolve(__dirname,"../../public/images/productos/", data.deleteImage ))
         }
-        
-        let category = [];
-        category.push(data.category);
 
         products.forEach(element => {
             if(element.id == id){

@@ -54,5 +54,23 @@
       "product1626733128356.jfif"
     ],
     "price": "20000"
+  },
+  {
+    "id": 5,
+    "name": "sad",
+    "description": "sad",
+    "category": "accesorios",
+    "off": "12",
+    "image": [],
+    "price": "22"
+  },
+  {
+    "id": 6,
+    "name": "otra opcion",
+    "description": "sqws",
+    "category": "destacado",
+    "off": "12",
+    "image": [],
+    "price": "22"
   }
 ]
