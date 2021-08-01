@@ -7,8 +7,7 @@ module.exports = (name, folder) =>{
             cb(null, path.resolve(__dirname, '../../public/images/', folder) );
         },
         filename: (req, file, cb) => {
-            let fileName = name + '_' + Date.now() + path.extname(file.originalname)
-            console.log(file); 
+            let fileName = name + '_' + Date.now() + path.extname(file.originalname);
             cb(null, fileName);
         }
     })
