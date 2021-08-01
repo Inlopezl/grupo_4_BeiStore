@@ -1,0 +1,114 @@
+/* borderbox */
+*{box-sizing: border-box;}
+
+/* etiquetas base */
+img{width: 100%;}
+main{
+    display: flex; 
+    justify-content: space-around; 
+    flex-flow: wrap row; 
+    width: 100%;
+    min-height: 60vh;
+}
+
+main section{width: 90%;}
+
+/* dimenciones */
+.widthFull{width: 100%;}
+.widthSeven{width: 70%;}
+.widthHalf{width: 50%;}
+.widthThird{width: 30%;}
+
+
+
+/* colores */
+.blanco{color: #fff;}
+.cian{color: #57F2F2;}
+.violeta{color: #3805F2;}
+.azul{color: #021140;}
+.rosa{color: #F20789;}
+
+.bgcCian{background-color: #57F2F2;}
+.bgcVioleta{background-color: #3805F2;}
+.bgcAzul{background-color: #021140;}
+.bgcRosa{background-color: #F20789;}
+
+.hoverCian{background-color: #57F2F2;}
+
+/* posicionamiento con flex */
+.flex{display: flex;flex-flow: row wrap;}
+.justAround{justify-content: space-around;}
+.justBet{justify-content: space-between;}
+.justCenter{justify-content: center;}
+.alignCenter{align-items: center;}
+
+/* Margin and padding */
+.marginTB{margin: 15px 0px;}
+.marginTBSmall{margin: 5px 0px;}
+
+.paddingTB{padding: 20px 0px;}
+.padding{padding: 15px;}
+
+.borderRadius{border-radius: 8px;}
+
+/* estilos de Botones */
+.btnCian{
+    border: 0;
+    border-radius: 8px;
+    width: 100%;
+    padding: 10px;
+    background-color: #57F2F2;
+    color: #021140;
+    font-weight: bold;
+    margin: 10px 0px;
+    transition: all .35s;
+}
+
+.btnRosa{
+    border: 0;
+    border-radius: 8px;
+    width: 100%;
+    padding: 10px;
+    background-color: #F20789;
+    color: #fff;
+    font-weight: bold;
+    margin: 10px 0px;
+    transition: all .35s;
+}
+.btnCian:hover, .btnRosa:hover{
+    color: #fff;
+    background-color: #3805F2;
+}
+
+
+/* ajustes de text  */
+.title{font-weight: bold;font-size: 1.2rem;}
+.textR{text-align: right;}
+.textL{text-align: left;}
+.textC{text-align: center;}
+.textFamily{font-family: 'Roboto', sans-serif; }
+
+
+/* card de productos */
+.card-product{
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+}
+.cajaResponsive{
+    width: 100%;
+}
+
+@media (min-width:768px) {
+    .cajaResponsive{
+        width: 40%;
+    }
+}
+
+@media (min-width:1024px){
+    .cajaResponsive{
+        width: 20%;
+        margin-left: 5px;
+    }
+}
+

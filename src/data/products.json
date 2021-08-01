@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "   Memoria OEM DDR4 4GB 2666MHz",
+    "descrition": "ESPECIFICACIONES:\r\n\r\nMarca: HyperX\r\nModelo: Fury (HX426C16FB3/8)\r\n-Descripción del producto: HyperX FURY - DDR4 - 8 GB - DIMM\r\n-Tipo de producto: Memoria RAM\r\n-Capacidad: 8 GB\r\n-Tipo de memoria: DDR4 SDRAM - DIMM\r\n-Comprobación integridad datos: No ECC\r\n-Velocidad: 2666 MHz (PC4-21300)\r\n-Tiempos de latencia:CL16 (15-17-17)\r\n-Tensión:1.2 V\r\nSKU 25552",
+    "categoria": [
+      "destacado",
+      "PC",
+      "momory-ram"
+    ],
+    "descuento": "10",
+    "image": [
+      "product1626656332159.jpg"
+    ],
+    "price": "2500"
+  },
+  {
+    "id": 2,
+    "name": " Gabinete Pc ",
+    "descrition": "- Diseño con gran ventilación para mejorar las temperaturas.\r\n- Tratamiento de zincado para una mayor refrigeración\r\n- Estructura de chapa de acero SGCC de alta calidad\r\n- Jack de Audio (micrófono + auriculares)\r\n- Soporte para coolers 120mm x 2\r\n- Soporte para cooler 80mm x 1\r\n- USB 2.0 x 1\r\n- USB 3.0 x 1\r\n- Bahías para disco 5.25\": 2\r\n- Bahías para disco 3.25\": 2\r\n- Dimensiones: 380x175x408",
+    "categoria": "destacado",
+    "descuento": "21",
+    "image": [
+      "product1626732821160.jpeg"
+    ],
+    "price": "2700"
+  },
+  {
+    "id": 3,
+    "name": "   Mother GIGABYTE A320",
+    "descrition": "UPC\r\nProcesador AMD Ryzen ™\r\nAMD 7ma generación A-series / procesador Athlon ™\r\n\r\nChipset: AMD A320\r\nZócalo: AM4\r\nMemoria: 2 zócalos DIMM DDR4 que admiten hasta 32 GB de memoria del sistema\r\nAudio: códec Realtek® ALC887\r\nLAN: chip LAN Realtek® GbE (10/100/1000 Mbit)\r\n\r\nConectores de E / S internos\r\nConector de alimentación principal ATX de 1 x 24 pines\r\nConector de alimentación ATX 12V de 1 x 8 pines\r\n1 x encabezado del ventilador de la CPU\r\n1 x encabezado del ventilador del sistema\r\n1 x M.2 conector de enchufe 3\r\n4 x conectores SATA 6Gb / s\r\n1 x encabezado del panel frontal\r\n1 x encabezado de audio del panel frontal\r\n1 x encabezado de salida S / PDIF\r\n1 x USB 3.1 Gen 1 encabezado\r\n2 x USB 2.0 / 1.1 encabezados\r\n1 encabezado de módulo de plataforma confiable (TPM) (pin 2x10, solo para el módulo GC-TPM2.0)\r\n1 x encabezado de altavoz\r\n1 x Puente CMOS transparente\r\n1 x encabezado de intrusión del chasis\r\n\r\nConectores del panel posterior\r\n1 puerto de teclado PS / 2\r\n1 puerto de mouse PS / 2\r\n1 x puerto D-Sub\r\n1 x puerto DVI-D\r\n1 x puerto HDMI\r\n4 puertos USB 3.1 Gen 1\r\n2 puertos USB 2.0 / 1.1\r\n1 x puerto RJ-45\r\n3 x jacks de audio (Line In, Line Out, Mic In)",
+    "categoria": [
+      "destacado",
+      "PC"
+    ],
+    "descuento": "30",
+    "image": [
+      "product1626732991955.jpg"
+    ],
+    "price": "9200"
+  },
+  {
+    "id": 4,
+    "name": "Procesador Amd Ryzen 3 3200g Am4",
+    "descrition": "N.° de nucleos de CPU : 4\r\nN.° de subprocesos: 4\r\nN.° de nucleos de GPU: 8\r\nReloj base: 3.6GHz\r\nReloj de aumento max: Hasta 4.0GHz\r\nCache L1 total: 384KB\r\nCache L2 total: 2MB\r\nCache L3 total: 4MB\r\nDesbloqueados: Si\r\nCMOS: 12nm FinFET\r\nPaquete: AM4\r\nVersion de PCI Express: PCIe® 3.0 x8\r\nSolucion termica: Wraith Stealth\r\nThermal Solution (MPK): Wraith Stealth\r\nTDP-TDP predeterminado: 65W\r\ncTDP: 45-65W\r\nTemp. max: 95°C\r\nVelocidad maxima de memoria: Up to 2933MHz\r\nTipo de memoria: DDR4\r\nCanales de memoria: 2",
+    "categoria": [
+      "destacado",
+      "PC"
+    ],
+    "descuento": "20",
+    "image": [
+      "product1626733128356.jfif"
+    ],
+    "price": "20000"
+  }
+]

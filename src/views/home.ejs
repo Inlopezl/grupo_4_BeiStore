@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/head') %> 
+    <link rel="stylesheet" href="/styles/home.css" >
+</head>
+<body>
+    <%- include('./partials/header')  %> 
+    <main class="flex justCenter">
+        <img src="/images/banner.jpg" alt="banner" class="widthFull">
+        <!-- categorias -->
+        <section class="category flex justAround">
+            <h2 class="title textL widthFull marginTB">Categorias</h2>
+            <% let categorias = ['Destacado', 'PC', 'otra categoria', 'otra categoria', 'otra categoria'] %> 
+            <% categorias.forEach(element => { %>
+                <article class="flex justCenter textC">
+                    <img src="/images/categorias/articulo1.jpg" alt="articulo">
+                    <a href="/" class="blanco bgcAzul widthFull title padding"><%= element  %></a> 
+                </article>
+            <% }) %>
+        </section>
+        <%- include('./partials/viewProductsList') %>
+    </main>
+    <%- include('./partials/footer') %> 
+</body>
+</html>

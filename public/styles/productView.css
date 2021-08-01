@@ -1,119 +1,78 @@
 *{
     box-sizing: border-box;
 }
-
+main section img{
+    width: 100%;
+    border-radius: 8px;
+    border: #fff solid 10px;
+}
 main{
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;  
-}
-
-main .product{
-    display: flex;
-    flex-flow: row wrap;
     justify-content: center;
-    padding: 35px 0px;
-    width: 100%;
-    max-width: 800px;
-
+    background-color: #021140;
 }
 
-.bot{
-    width: 100%;
-    border-radius: 8px;
-    padding: 20px;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-}
-
-.top img{
-   padding-bottom: 10px;
-   height: 40vh;
-   width: 70%;
-}
-
-.bot p{
-    padding-top: 10px;
+main section{
     width: 90%;
+    margin: 30px 0px;
 }
-
-.top{
-    width: 100%;
-    align-items: center;
-}
-
-.top p{
-    text-align: center;
-    font-weight: bold;
-    font-size: 24px; 
-}
-section article{
+.informacion-de-pago{
+    margin-top: 10px;
     display: flex;
-    flex-flow: column wrap;
-    justify-content:center;
-    align-items: center;
-        
+    flex-flow: row wrap;
 }
-
-.price{                                                                                                                                                                                                               
-    width: 100%;
-    padding: 10px;  
-    color: #021140;  
-    font-weight: bold; 
-    text-align: right;
-    
+.product{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
 }
-
-.bot button{
-    width: 100%;  
-    border: 0;
-    padding: 10px;
+h2{
     font-weight: bold;
     color: #fff;
-    background-color: #021140;
-    border-radius: 8px;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 100%;
+}
+h2::first-letter {
+    text-transform: uppercase;
 }
 
-.description{
-    text-align:left; 
-    padding: 15px; 
+.name-dato, .dato{
+    width: 50%;
+    background-color: #fff;
+    color: #021140;
+    padding: 10px;
+    margin: 5px 0px;
 }
 
-.description h4{
-    font-size: 20px;
+.name-dato{
+    border-radius: 8px 0px 0px 8px;
+    text-align: left;
+}
+.dato{
+    border-radius: 0px 8px 8px 0px;
+    text-align: right;
+}
+
+main section article button{
+    padding: 10px;
+    width: 100%;
+    margin-top: 5px;
+    background-color: #F20789;
+    color: #fff;
     font-weight: bold;
-    color: #021140;  
-    margin-bottom: 5px;
+    border-radius: 8px;
+    border: 0px;
+}
+.description p{
+    margin-top: 8px;
+    color: #fff;
 }
 
-@media (min-width:768px) {
-    
-    .product{
-        width: 100%;
-    }
-    
-    .top{
-        align-items: left;
-        width: 50%;
-    }
-    
-    .top img{
-        width: 100%;
-    }
-    
-    .bot{
-        width: 40%;
-        justify-content: center;
-        align-items: right;
-    }
-
-}
-@media (min-width:1024px) {
-    main section article{
-        width: 15%;
-    }
-    .bot article{
-        width: 20%;
+@media (min-width: 768px){
+    .product article{
+        width: 47%;
     }
 }

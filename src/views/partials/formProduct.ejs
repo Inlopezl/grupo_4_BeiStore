@@ -1,0 +1,69 @@
+<form action= <%= action %>  method = 'POST' enctype="multipart/form-data" >
+    <fieldset class="">
+        <input type="text" name="nombre" placeholder="Nombre" <%= typePage != 'edit'? 'required' : '' %> value ="<%=(typePage=='edit')?producto.name:''%>">
+        <i class="fas fa-exclamation-circle"></i>
+        <small>Texto de errores </small>
+    </fieldset>
+    <fieldset class="">
+        <textarea name="descripcion" cols="30" rows="10" placeholder="Descricion" required><%= typePage == 'create'? '' : `${producto.descrition}` %></textarea>
+        <i class="fas fa-exclamation-circle"></i>
+        <small>Errorres ajjj</small>
+    </fieldset>
+    
+    <label for="imagen">Imagenes del producto</label>
+    <% if(typePage == 'edit') {%>
+        <fieldset class="center">
+            <% producto.image.forEach(element =>{ %>
+                <label  class="card-images <%= (producto.image.length >= 3 )? 'widthTercio': 'widthFull' %>" >
+                    <img src="/images/productos/<%= element %>">
+                    <input type="checkbox" value="<%= element %>" name="deleteImage">
+                    <input type="hidden" value="<%= element %>" name="imagenesViejas" >
+                    <p>Eliminar</p>
+                </label>
+            <% })  %>
+        </fieldset>
+    <% } %>
+    <fieldset class="">
+        <input type="file" name="imagen" id="imagen" multiple>
+        <i class="fas fa-exclamation-circle"></i>
+        <small>TextoError</small>
+    </fieldset>
+    <fieldset class="widthFull flex ">
+        <label class="widthFull marginTBSmall">Categoria</label>
+        <label class="flex widthFull alignCenter marginTBSmall">
+            <input type="checkbox" name="categoria" value="destacado" <%= (typePage != 'create' && producto.categoria.indexOf('destacado') != -1 )? 'checked' : '' %> >
+            <p>Destacado</p>
+        </label>
+        <label class="flex widthFull alignCenter marginTBSmall">
+            <input type="checkbox" name="categoria" value="PC" <%= (typePage != 'create' && producto.categoria.indexOf('PC') != -1 )? 'checked' : '' %>>
+            <p>PC</p>
+        </label>
+        <label class="flex widthFull alignCenter marginTBSmall">
+            <input type="checkbox" name="categoria" value="momory-ram" <%= (typePage != 'create' && producto.categoria.indexOf('momory-ram') != -1 )? 'checked' : '' %> >
+            <p>Memoria RAM</p>
+        </label>
+        <label class="flex widthFull alignCenter marginTBSmall">
+            <input type="checkbox" name="categoria" value="accesorios" <%= (typePage != 'create' && producto.categoria.indexOf('accesorios') != -1 )? 'checked' : '' %> >
+            <p>Accesorios</p>
+        </label>
+        <small>texteerroororo</small>
+    </fieldset>
+    <fieldset class="">
+        <input type="number" name="descuento" placeholder="Descuento" max="100" min="0" value = <%= typePage == 'create'? '' : `${producto.descuento}` %>>
+        <i class="fas fa-exclamation-circle"></i>
+        <small>Text Error save?</small>
+    </fieldset>
+    <fieldset class="">
+        <input type="number" name="price" min="0" placeholder="Precio" required  value = <%= typePage == 'create'? '' : `${producto.price}` %> >
+        <i class="fas fa-exclamation-circle"></i>
+        <small>texto de errores</small>
+    </fieldset>
+    
+    <button type="submit" class="btnCian">Enviar</button>
+</form>
+
+<%if(typePage == 'edit'){%>
+    <form action="/products/delete/<%=producto.id%>?_method=DELETE" method="POST" class="form-delete">
+        <button type="submit" class="btnRosa">Eliminar</button>
+    </form>
+<%}%>

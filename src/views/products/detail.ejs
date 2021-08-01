@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/styles/productView.css">
+</head>
+<body>
+    <%- include('../partials/header')  %>    
+    <main>
+        <section class="product">
+            <article>
+                <img src="/images/productos/<%=producto.image[0]%>" alt="imagen del producto">     
+            </article>
+            <article class="informacion-de-pago">    
+                <h2 class="name-producto"><%= producto.name %></h2>  
+                <p class="name-dato">Precio</p>             
+                <p class="dato">$<%= producto.price %></p>
+                <p class="name-dato">Descuento</p>             
+                <p class="dato"> <%= producto.descuento %>% </p>
+                <button type="submit">Agregar al Carrito</button>
+            </article>
+        </section>
+        <section class="description">
+             <article>
+                <h2>Descripción de producto</h2>
+                <p><%= producto.descrition %></p>
+            </article>
+        </section>
+    </main>
+    <%- include('../partials/footer') %> 
+</body>
+</html>

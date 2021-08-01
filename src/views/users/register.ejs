@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/head') %> 
+    <link rel="stylesheet" href="/styles/form.css">
+</head>
+<body>
+    <%- include('../partials/header')  %>
+    <main>
+        <section>
+            <form action="" method="POST">
+                <fieldset>
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Texto de errores </small>
+                </fieldset>
+                <fieldset>
+                    <input type="text" name="apellido" id="apellido" placeholder="Apellido">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Texto de errores </small>
+                </fieldset>
+
+                <fieldset>
+                    <input type="email" name="email" id="email" placeholder="E-mail">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Texto de errores </small>
+                </fieldset>
+
+                <fieldset>
+                    <input type="password" name="password" id="password" placeholder="Contraseña">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Texto de errores </small>
+                </fieldset>
+
+                <fieldset>
+                    <input type="password" name="password-confirm" id="password-confirm" placeholder="Confirmar contraseña">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Texto de errores </small>
+                </fieldset>
+
+                <button type="submit" class="btnCian">Registrarme</button>
+            </form>
+            <p>Se te enviara una confirmacion del registro por correo electronico.</p>
+            <p>Si ya tenes una cuenta, podes <a href="/login">Iniciar sesion</a>.</p>
+        </section>
+    </main>
+    <%- include('../partials/footer') %> 
+</body>
+</html>
