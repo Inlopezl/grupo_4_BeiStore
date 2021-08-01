@@ -1,67 +1,39 @@
-*{
-    box-sizing: border-box;
-}
-
 footer{
-    background-color: #3805F2;
     padding-top: 20px;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
 }
 
-footer article{
-    width: 85%;
-    text-align: center;
-    margin: 20px 0px;
-}
-footer h4{
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #fff;
-    font-family: 'Roboto', sans-serif;
-}
-footer article p{
-    color: #fff;
-    margin-top: 5px;
-    font-family: 'Roboto', sans-serif;
-}
 footer form{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+    position: relative;
+}
+footer form button{
+    position: absolute;
+    background-color: #00000000;
+    border: 0px;
+    right: 0px;
 }
 footer form input {
-    width: 100%;
     padding: 10px;
     border: 0px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    font-family: 'Roboto', sans-serif;
 }
 
-footer i{
-    width: 30%;
-    font-size: 1.3rem;
-    color: #fff;
-}
-footer>p{
-    width: 100%;
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 10px;
-    color: #fff;
-    font-family: 'Roboto', sans-serif;
+footer section{
+    width: 90%;
 }
 
-@media (min-width:1024px)  {
-    footer{
-        justify-content: space-around;
+
+@media (min-width:768px)  {
+    .info article{
+        width: 45%;
     }
-    footer article{
-        width:15% ;
+}
+@media (min-width:1024px)  {
+    .info{
+        width: 60%;
+    }
+    .info article{
+        width: 30%;
     }
     .redes{
-        width: 40%;
+        width: 30%;
     }
 }
