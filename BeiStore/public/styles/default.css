@@ -3,6 +3,7 @@
 
 /* dimenciones */
 .widthFull{width: 100%;}
+.widthSeven{width: 70%;}
 .widthHalf{width: 50%;}
 .widthThird{width: 30%;}
 
@@ -31,6 +32,8 @@
 
 .paddingTB{padding: 20px 0px;}
 .padding{padding: 15px;}
+
+.borderRadius{border-radius: 8px;}
 
 /* estilos de Botones */
 .btnCian{
