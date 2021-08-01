@@ -21,13 +21,16 @@ models = {
     new: function(data, files){
         let images = [];
         files.forEach(element => images.push(element.filename));
+        let category = [];
+        category.push(data.category);
+
         let products = this.all();
         let newProduct = {
             id: products.length > 0 ? products[products.length - 1].id + 1 : 1,
-            name: data.nombre,
-            descrition: data.descripcion,
-            categoria: data.categoria,
-            descuento: data.descuento,
+            name: data.name,
+            description: data.description,
+            category: data.category,
+            off: data.off,
             image: images,
             price: data.price
         }
@@ -64,13 +67,15 @@ models = {
             fs.unlinkSync(path.resolve(__dirname,"../../public/images/productos/", data.deleteImage ))
         }
         
-            
+        let category = [];
+        category.push(data.category);
+
         products.forEach(element => {
             if(element.id == id){
-                element.name = data.nombre;
-                element.descrition = data.descripcion;
-                element.categoria = data.categoria;
-                element.descuento = data.descuento;
+                element.name = data.name;
+                element.description = data.description;
+                element.category = data.category;
+                element.off = data.off;
                 element.image = images;
                 element.price = data.price;
             }
