@@ -1,26 +1,17 @@
-
-
 .category article img{
     display: none;
     width: 200px;
     height: 200px;
     border-radius: 50%;
 }
-
-main img{
+.category article{
     width: 100%;
 }
+
 main section{
     width: 90%;
 }
 
-main article{
-    width:90%;
-    text-align: center;
-    /* display: flex;
-    flex-flow: row wrap;
-    justify-content: center; */
-}
 
 main article a{
     text-decoration: none;
@@ -29,9 +20,6 @@ main article a{
 
 
 @media (min-width:768px) {
-    .category{
-        justify-content: space-around;
-    }
     .category article a{
         background-color: #fff;
         color: #021140;
@@ -42,9 +30,12 @@ main article a{
         height: 150px;
         border-radius: 50%;
     }
+    .category article{
+        width: 30%;
+    }
 }
 @media (min-width:1024px) {
-    main section article{
-        width: 15%;
+    .category article{
+        width: 20%;
     }
 }

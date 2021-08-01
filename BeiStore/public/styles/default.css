@@ -1,17 +1,21 @@
 /* borderbox */
 *{box-sizing: border-box;}
 
+img{width: 100%;}
+
 /* dimenciones */
 .widthFull{width: 100%;}
 .widthSeven{width: 70%;}
 .widthHalf{width: 50%;}
 .widthThird{width: 30%;}
 
+
+
 /* colores */
 .blanco{color: #fff;}
 .cian{color: #57F2F2;}
 .violeta{color: #3805F2;}
-.grisAzul{color: #021140;}
+.azul{color: #021140;}
 .rosa{color: #F20789;}
 
 .bgcCian{background-color: #57F2F2;}
@@ -92,6 +96,7 @@
 @media (min-width:1024px){
     .cajaResponsive{
         width: 20%;
+        margin-left: 5px;
     }
 }
 

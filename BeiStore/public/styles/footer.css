@@ -8,6 +8,7 @@ footer form{
 footer form button{
     position: absolute;
     background-color: #00000000;
+    align-self: center;
     border: 0px;
     right: 0px;
 }
