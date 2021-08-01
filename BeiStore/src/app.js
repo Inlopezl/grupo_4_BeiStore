@@ -23,7 +23,7 @@ const productRouter = require('./routers/product');
 app.use('/products', productRouter);
 
 const userRouter = require('./routers/user');
-app.use(userRouter);
+app.use('/users',userRouter);
 
 // ruta errores 
 app.use((req, res, next) => {
