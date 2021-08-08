@@ -18,17 +18,14 @@ models = {
         const user = users.filter(element => element.id == id)[0];
         return user;
     },
-    new: function(data, files) {
-        let images = [];
-        //console.log(data);
-
+    new: function(data, file) {
         let users = this.all();
         let newUser = {
             id: users.length > 0 ? users[users.length - 1].id + 1 : 1,
             firstName: data.firstName,
             surName: data.surName,
+            avatar: file.filename,
             email: data.email,
-            image: images,
             password: data.password
         }
         users.push(newUser);

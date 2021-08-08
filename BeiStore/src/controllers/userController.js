@@ -1,5 +1,5 @@
 const user = require('../models/users');
-const { validationResult } = require('express-validator');
+
 
 module.exports = {
     indexLogin: (req, res) => {
@@ -11,7 +11,7 @@ module.exports = {
     },
 
     indexRegister: (req, res) => {
-        res.render('users/register', { action: '/users/save', typePage: 'create', title: 'Crear un usuario' });
+        res.render('users/register');
     },
 
     indexEdit: (req, res) => {
@@ -19,15 +19,9 @@ module.exports = {
     },
 
     save: (req, res) => {
-        let error = validationResult(req)
         console.log(req.body);
-        // if (!error.isEmpty()) {
-        //     res.render('users/form', { action: '/users/save', typePage: 'create', title: 'Crear un usuario', errores: error.mapped() })
-        // } else  
         let newUser = user.new(req.body, req.file);
-
         return newUser == true ? res.redirect('/home') : res.send('Error');
-
     },
     update: (req, res) => {
         let editUser = user.edit(req.body, req.file, req.params.id);

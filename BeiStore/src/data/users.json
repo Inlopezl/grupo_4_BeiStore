@@ -1,8 +1,10 @@
-[{
+[
+  {
     "id": 1,
-    "firstName": "i",
-    "surName": "L",
-    "email": "i@gmail.com",
-    "image": "imagen",
-    "password": 1
-}]
+    "firstName": "erik",
+    "surName": "suca",
+    "avatar": "avatar_1628435630355.jpg",
+    "email": "erik.sucasai@gmail.com",
+    "password": "123456"
+  }
+]
