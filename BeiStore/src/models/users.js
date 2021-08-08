@@ -20,7 +20,7 @@ models = {
     },
     new: function(data, files) {
         let images = [];
-        files.forEach(element => images.push(element.filename));
+        //console.log(data);
 
         let users = this.all();
         let newUser = {
@@ -28,7 +28,6 @@ models = {
             firstName: data.firstName,
             surName: data.surName,
             email: data.email,
-            off: data.off,
             image: images,
             password: data.password
         }
@@ -62,17 +61,17 @@ models = {
             images = imagesNuevas;
         } else if (data.deleteImage != undefined) {
             images = images.filter(element => element != data.deleteImage)
-            fs.unlinkSync(path.resolve(__dirname, "../../public/images/productos/", data.deleteImage))
+            fs.unlinkSync(path.resolve(__dirname, "../../public/images/usuarios/", data.deleteImage))
         }
 
         users.forEach(element => {
             if (element.id == id) {
-                element.firstName = data.firstName,
-                    element.surName = data.surName,
-                    element.email = data.email,
-                    element.off = data.off,
-                    element.image = images,
-                    element.password = data.password
+                element.firstName = data.firstName;
+                element.surName = data.surName;
+                element.email = data.email;
+                element.off = data.off;
+                element.image = images;
+                element.password = data.password
             }
         });
 
