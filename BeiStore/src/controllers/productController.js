@@ -19,8 +19,8 @@ module.exports = {
     },
     save: (req, res)=>{
         let error = validationResult(req)
-        if(!error.isEmpty()){
-            res.render('products/form', { action: '/products/save' , typePage: 'create', title: 'Crear un producto', errores : error.mapped()})
+        if(!error.isEmpty()){ 
+            res.render('products/form', { action: '/products/save' , typePage: 'create', title: 'Crear un producto', errores : error.mapped()}) 
         } else{
             let newProduct = product.new(req.body, req.files);
             return newProduct == true? res.redirect('/home'): res.send('Error');

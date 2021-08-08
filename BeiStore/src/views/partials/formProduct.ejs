@@ -1,13 +1,14 @@
 <form action= <%= action %>  method = 'POST' enctype="multipart/form-data" >
-    <fieldset class="">
-        <input type="text" name="name" placeholder="Nombre" <%= typePage != 'edit'? 'required' : '' %> value ="<%=(typePage=='edit')?producto.name:''%>">
+    <% let error =  locals && locals.errores %> 
+    <fieldset class=" <%= error && errores.name? 'error' : '' %>  ">
+        <input type="text" name="name" placeholder="Nombre"  value ="<%=(typePage=='edit')?producto.name:''%>">
         <i class="fas fa-exclamation-circle"></i>
-        <small>Texto de errores </small>
+        <small><%= ( error && errores.name) ? errores.name.msg : '' %></small>
     </fieldset>
-    <fieldset class="">
-        <textarea name="description" cols="30" rows="10" placeholder="Descricion" required><%=typePage == 'create'? '' : `${producto.description}`%></textarea>
+    <fieldset  class=" <%= error && errores.description? 'error' : '' %>  ">
+        <textarea name="description" cols="30" rows="10" placeholder="Descricion" ><%=typePage == 'create'? '' : `${producto.description}`%></textarea>
         <i class="fas fa-exclamation-circle"></i>
-        <small>Errorres ajjj</small>
+        <small><%= ( error && errores.description) ? errores.description.msg : '' %></small>
     </fieldset>
     
     <label for="imagen">Imagenes del producto</label>
@@ -23,18 +24,13 @@
             <% })  %>
         </fieldset>
     <% } %>
-    <fieldset class="">
+    <fieldset  class=" <%= error && errores.images? 'error' : '' %>  ">
         <input type="file" name="images" multiple>
         <i class="fas fa-exclamation-circle"></i>
-        <small>TextoError</small>
+        <small><%= ( error && errores.images) ? errores.images.msg : '' %></small>
     </fieldset>
-    <% if(locals && locals.errores){ %>
-        <% if (errores.category) { %>
-            <fieldset class="widthFull flex error">
-        <% } %>
-    <% } else { %> 
-        <fieldset class="widthFull flex">
-    <% } %>
+
+    <fieldset class="widthFull flex <%= ( error && errores.category)? 'error' : '' %>  ">
         <label class="widthFull marginTBSmall">Categoria</label>
         <label class="flex widthFull alignCenter marginTBSmall">
             <input type="checkbox" name="category" value="destacado" <%= (typePage != 'create' && producto.category.indexOf('destacado') != -1 )? 'checked' : '' %> >
@@ -52,21 +48,17 @@
             <input type="checkbox" name="category" value="accesorios" <%= (typePage != 'create' && producto.category.indexOf('accesorios') != -1 )? 'checked' : '' %> >
             <p>Accesorios</p>
         </label>
-        <% if(locals && locals.errores){ %>
-            <% if (errores.category) { %>
-                <small> <%=  errores.category.msg  %> </small>
-            <% } %>
-        <% } %>
+        <small><%= ( error && errores.category) ? errores.category.msg : '' %></small>
     </fieldset>
-    <fieldset class="">
+    <fieldset>
         <input type="number" name="off" placeholder="Descuento" max="100" min="0" value = <%= typePage == 'create'? '' : `${producto.off}` %>>
         <i class="fas fa-exclamation-circle"></i>
         <small>Text Error save?</small>
     </fieldset>
-    <fieldset class="">
-        <input type="number" name="price" min="0" placeholder="Precio" required  value = <%= typePage == 'create'? '' : `${producto.price}` %> >
+    <fieldset  class=" <%= error && errores.price? 'error' : '' %>  ">
+        <input type="number" name="price" min="0" placeholder="Precio"  value = <%= typePage == 'create'? '' : `${producto.price}` %> >
         <i class="fas fa-exclamation-circle"></i>
-        <small>texto de errores</small>
+        <small><%= ( error && errores.price) ? errores.price.msg : '' %></small>
     </fieldset>
     
     <button type="submit" class="btnCian">Enviar</button>

@@ -66,7 +66,7 @@ models = {
         }
 
         products.forEach(element => {
-            if(element.id == id){
+            if(element.id == id){ 
                 element.name = data.name;
                 element.description = data.description;
                 element.category = data.category;
