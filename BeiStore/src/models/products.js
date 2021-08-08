@@ -16,7 +16,7 @@ models = {
     one: function(id){
         let products = this.all();
         const product = products.filter(element => element.id == id)[0];
-        return product; 
+        return product != undefined? product: false; 
     },
     new: function(data, files){
         let images = [];
