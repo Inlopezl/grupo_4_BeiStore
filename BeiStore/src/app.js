@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 // server
-app.listen(process.env.PORT || 3000,()=>console.log("Server on http://localhost:3000"));
+app.listen(process.env.PORT || 3000, () => console.log("Server on http://localhost:3000"));
 
 // set view engine
 app.set('view engine', 'ejs');
@@ -23,7 +23,7 @@ const productRouter = require('./routers/product');
 app.use('/products', productRouter);
 
 const userRouter = require('./routers/user');
-app.use('/users',userRouter);
+app.use('/users', userRouter);
 
 // ruta errores 
 app.use((req, res, next) => {

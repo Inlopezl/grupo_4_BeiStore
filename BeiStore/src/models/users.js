@@ -24,7 +24,7 @@ models = {
             id: users.length > 0 ? users[users.length - 1].id + 1 : 1,
             firstName: data.firstName,
             surName: data.surName,
-            avatar: file.filename,
+            avatar: file != undefined ? file.filename : "avatar_default.jpg",
             email: data.email,
             password: data.password
         }
