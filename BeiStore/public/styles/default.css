@@ -8,7 +8,7 @@ main{
     justify-content: space-around; 
     flex-flow: wrap row; 
     width: 100%;
-    min-height: 60vh;
+    min-height: 70vh;
 }
 
 main section{width: 90%;}

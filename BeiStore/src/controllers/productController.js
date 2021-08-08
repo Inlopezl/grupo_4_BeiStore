@@ -6,10 +6,14 @@ module.exports = {
         res.render('products/cart');
     },
     indexDetail: (req, res) =>{
-        res.render('products/detail', {
-            producto : product.one(req.params.id),
-            error: !this.producto ? 'Error, producto no encontrado.' : ''
+        if(isNaN(parseInt(req.params.id)) ){
+            return res.redirect('/error')
+        } else {
+            res.render('products/detail', {
+                    producto : product.one(req.params.id),
+                    error: !this.producto ? 'Error, producto no encontrado.' : ''
             });
+        }
     },
     indexCreate: (req, res) => {
         res.render('products/form', { action: '/products/save' , typePage: 'create', title: 'Crear un producto'});
