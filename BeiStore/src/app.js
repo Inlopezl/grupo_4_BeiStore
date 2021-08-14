@@ -11,6 +11,18 @@ app.set('views', path.resolve(__dirname, 'views'));
 //carpeta publica
 app.use(express.static(path.resolve(__dirname, '../public')));
 
+// express session
+const session = require('express-session');
+app.use(session({
+    secret: 'Beistore',
+    resave: false,
+    saveUninitialized: true
+}));
+
+// cookies parse
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+
 //method override
 const method = require('method-override');
 app.use(method('_method'));
