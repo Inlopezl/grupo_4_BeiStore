@@ -1,32 +1,46 @@
 const path = require('path');
 const fs = require('fs');
+const bcrypt = require('bcryptjs');
 
 models = {
     directory: function() {
         let directory = path.resolve(__dirname, "../data/users.json");
         return directory;
     },
-    all: function() {
+    findAll: function() {
         let file = fs.readFileSync(this.directory(), 'utf-8');
-        file = file == '' ? [] : file;
-        const object = JSON.parse(file);
-        return object
+        const users = JSON.parse(file);
+        return users
     },
 
-    one: function(id) {
-        let users = this.all();
-        const user = users.filter(element => element.id == id)[0];
-        return user;
+    findByPk: function(id) {
+        let users = this.findAll();
+        const user = users.find(element => element.id == id);
+        return user != undefined ? user: false;
+    },
+    findByField: function(field, text){
+        let users = this.findAll();
+        const user = users.find(element => element[field] == text);
+        return user != undefined ? user: false;
+    },
+    findByFieldGroup: function(field, text){
+        let users = this.findAll();
+        const user = users.filter(element => element[field].includes(text));
+        return user != undefined ? user: false;
     },
     new: function(data, file) {
-        let users = this.all();
+        let users = this.findAll();
+        if(this.findByField('email', data.email)){
+           return false 
+        }
+
         let newUser = {
             id: users.length > 0 ? users[users.length - 1].id + 1 : 1,
             firstName: data.firstName,
             surName: data.surName,
             avatar: file != undefined ? file.filename : "avatar_default.jpg",
             email: data.email,
-            password: data.password
+            password: bcrypt.hashSync(data.password, 10)
         }
         users.push(newUser);
         fs.writeFileSync(this.directory(), JSON.stringify(users, null, 2));
@@ -80,7 +94,7 @@ models = {
         let users = this.all();
         //elimina las imagenes del usuario
         this.one(id).image.forEach(element => fs.unlinkSync(path.resolve(__dirname, "../../public/images/usuarios/", element)))
-            //guarda todos los usuarios en la misma variable
+        //guarda todos los usuarios en la misma variable
         users = users.filter(element => element.id != id);
         fs.writeFileSync(this.directory(), JSON.stringify(users, null, 2));
         return true;

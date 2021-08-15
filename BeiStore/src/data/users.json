@@ -1,17 +1,10 @@
-[{
-        "id": 1,
-        "firstName": "erik",
-        "surName": "suca",
-        "avatar": "avatar_1628435630355.jpg",
-        "email": "erik.sucasai@gmail.com",
-        "password": "123456"
-    },
-    {
-        "id": 2,
-        "firstName": "i",
-        "surName": "i",
-        "avatar": "avatar_1628437005697.jpg",
-        "email": "i@gmail.com",
-        "password": "12"
-    }
+[
+  {
+    "id": 1,
+    "firstName": "erik",
+    "surName": "suca",
+    "avatar": "avatar_1628435630355.jpg",
+    "email": "eri12k.sucasai@gmail.com",
+    "password": "$2a$10$.Ldr36OtlDqgU60fsYzV2ehPpIEVPrtQSt9tFaF1ZZhKo7FGHOete"
+  }
 ]

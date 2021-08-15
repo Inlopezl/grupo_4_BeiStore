@@ -21,6 +21,13 @@ module.exports = {
     save: (req, res) => {
         console.log(req.body);
         let newUser = user.new(req.body, req.file);
+        if(!newUser){
+            return res.render('users/register', {
+                errores: {
+                    msg: 'El usuario ya se escuentra registrado'
+                }
+            })
+        }
         return newUser == true ? res.redirect('/home') : res.send('Error');
     },
     update: (req, res) => {
