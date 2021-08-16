@@ -1,5 +1,5 @@
 const user = require('../models/users');
-
+const bcrypt = require('bcryptjs');
 
 module.exports = {
     indexLogin: (req, res) => {
@@ -19,7 +19,6 @@ module.exports = {
     },
 
     save: (req, res) => {
-        console.log(req.body);
         let newUser = user.new(req.body, req.file);
         if(!newUser){
             return res.render('users/register', {
@@ -28,7 +27,37 @@ module.exports = {
                 }
             })
         }
-        return newUser == true ? res.redirect('/home') : res.send('Error');
+        return newUser == true ? res.redirect('/users/login') : res.send('Error');
+    },
+    loginProcess: (req, res) =>{
+        let userToLogin = user.findByField('email', req.body.email);
+        if(userToLogin){
+            if(bcrypt.compareSync( req.body.password ,userToLogin.password)){
+                delete userToLogin.password;
+                req.session.userLogged = userToLogin;
+                res.redirect('/users/profile')
+            } else {
+                return res.render('users/login', {
+                    errores: {
+                        email:{
+                            msg:'Las credenciales son erroneas'
+                        },
+                        password:{
+                            msg:'Las credenciales son erroneas'
+                        }
+                    },
+                    oldData: req.body
+                })
+            }
+        } else{
+            res.render('users/login', {
+                errores:{
+                    email:{
+                        msg:'Email no resgistrado.'
+                    }
+                }
+            })
+        }
     },
     update: (req, res) => {
         let editUser = user.edit(req.body, req.file, req.params.id);
@@ -37,6 +66,14 @@ module.exports = {
     delete: (req, res) => {
         let deleteUser = user.delete(req.params.id);
         return deleteUser == true ? res.redirect('/home') : res.send('Error, no se pudo eliminar');
+    },
+    profile:(req, res) =>{ 
+        res.render('users/profile', {
+            userLogged: req.session.userLogged
+        })
+    },
+    logout:(req, res) => {
+        req.session.destroy();
+        return res.redirect('/home');
     }
-
 }

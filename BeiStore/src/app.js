@@ -23,6 +23,10 @@ app.use(session({
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
+//user To logged
+const userMw = require('./middlewares/users/userToLoggedMw');
+app.use(userMw);
+
 //method override
 const method = require('method-override');
 app.use(method('_method'));

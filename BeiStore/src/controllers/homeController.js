@@ -2,7 +2,11 @@ const modelProduct = require('../models/products');
 
 const homeController = {
     index:(req, res)=>{
-        res.render('home.ejs', {productos: modelProduct.all().filter(element => element.category.includes('destacado')), titleProduct: 'Productos destacados'});
+        console.log(req.session.userLogged);
+        res.render('home.ejs', {productos: modelProduct.all().filter(element => element.category.includes('destacado')), titleProduct: 'Productos destacados',
+        userLogged: req.session.userLogged
+        
+    });
     },
 }
 

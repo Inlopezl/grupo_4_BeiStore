@@ -4,7 +4,15 @@
     "firstName": "erik",
     "surName": "suca",
     "avatar": "avatar_1628435630355.jpg",
-    "email": "eri12k.sucasai@gmail.com",
-    "password": "$2a$10$.Ldr36OtlDqgU60fsYzV2ehPpIEVPrtQSt9tFaF1ZZhKo7FGHOete"
+    "email": "erik.sucasai@gmail.com",
+    "password": "$2a$10$lAu5GehaOyu33xSpDXjON.nzVnwchoOZ3aDmXKxTe2BBlwqo.2qs2"
+  },
+  {
+    "id": 2,
+    "firstName": "daniel",
+    "surName": "Freire",
+    "avatar": "avatar_default.jpg",
+    "email": "freire.dg@gmail.com",
+    "password": "$2a$10$TRnv.TUqmjCKlVZQ9YRnDuSCLFuNNRCurfnNMxgNTTkGVIdFOA1hS"
   }
 ]
