@@ -35,7 +35,10 @@ module.exports = {
             if(bcrypt.compareSync( req.body.password ,userToLogin.password)){
                 delete userToLogin.password;
                 req.session.userLogged = userToLogin;
-                res.redirect('/users/profile')
+                if(req.body.remember != undefined){
+                    res.cookie('userEmail', req.body.email, { maxAge : 1000 * 60 * 3 });
+                }
+                return res.redirect('/users/profile')
             } else {
                 return res.render('users/login', {
                     errores: {
@@ -73,6 +76,7 @@ module.exports = {
         })
     },
     logout:(req, res) => {
+        res.clearCookie('userEmail', { path: '/' });
         req.session.destroy();
         return res.redirect('/home');
     }

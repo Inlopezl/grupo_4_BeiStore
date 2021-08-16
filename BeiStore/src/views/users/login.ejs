@@ -20,6 +20,13 @@
                     <input type="password" name="password" id="password" placeholder="Contraseña">
                     <small> <%=  locals.errores && locals.errores.password ? errores.password.msg : '' %>  </small>
                 </fieldset>
+
+                <fieldset>
+                    <label>
+                        <input type="checkbox" name="remember">
+                        Recordarme
+                    </label>
+                </fieldset>
                 <button type="submit" class="btnRosa">Ingresar</button>
             </form>
             <p>¿No tenes una cuenta? <a href="/users/register">Creá una cuenta</a>.</p>
