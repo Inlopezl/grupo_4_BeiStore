@@ -17,25 +17,66 @@
   },
   {
     "id": 3,
-    "firstName": "ivan",
-    "surName": "lopez",
+    "firstName": "testt",
+    "surName": "test",
     "avatar": "avatar_default.jpg",
-    "email": "ivanxlopez@gmail.com",
-    "password": "$2a$10$l0awQI.zYt5kVhB.dFgSJei1N.xoZHENBkoX2UuFH9C08vpL9A.Py"
+    "email": "test@test.com",
+    "password": "$2a$10$Gna5lVjUMaeO842Ch7ZckeoxYmUC6oBZkQtkdVC/0CuRV457ilacC"
   },
   {
     "id": 4,
+    "firstName": "fs",
+    "surName": "ds",
+    "avatar": "avatar_default.jpg",
+    "email": "sd@gmail.com",
+    "password": "$2a$10$I6oHZY61RAa7WejhVDPvkumX70.47P.VC1Ugy10DfCnAcYgHBMMSK"
+  },
+  {
+    "id": 5,
+    "firstName": "test2",
+    "surName": "test2",
+    "avatar": "avatar_default.jpg",
+    "email": "test2@test.com",
+    "password": "$2a$10$vPsgBdB0yZW/9tKVpB8rV.22MPysjqv4OoQBOpab1FCDQge2jWCLm"
+  },
+  {
+    "id": 6,
     "firstName": "",
     "surName": "",
     "avatar": "avatar_default.jpg",
     "email": "",
-    "password": "$2a$10$ORcnc3ZUUt5KwHBQlNNBM.66Y304fsIYP23TMIc8p16m5TU40Zbpi"
+    "password": "$2a$10$Q9REbPYus6tODs2eGnWWw.qhQ7hQUf4Oak01lKdiMq0ys2aiiSK9m"
   },
   {
-    "id": 5,
-    "firstName": "",
+    "id": 7,
+    "firstName": "test3",
     "surName": "",
     "avatar": "avatar_default.jpg",
-    "password": "$2a$10$bjZW4KCb8rJbODNKyhF5qu.h5y.ZejMAWQ6eJpuSmLKVTZhd5xOca"
+    "email": "test3@gm",
+    "password": "$2a$10$oTwHzvMxeSw187zrbvJHx.uPjVhyY0ufv.cHG1/oCdjuw6FvfHKTe"
+  },
+  {
+    "id": 8,
+    "firstName": "testFinal",
+    "surName": "testFinal",
+    "avatar": "avatar_default.jpg",
+    "email": "tf@tf",
+    "password": "$2a$10$ypFYXgQiK9v6LikgwRhfSe6mL.Bqr/k7B4ZRKMWeJ2m4JeFPGavzG"
+  },
+  {
+    "id": 9,
+    "firstName": "test10",
+    "surName": "t10",
+    "avatar": "avatar_default.jpg",
+    "email": "t10@gm",
+    "password": "$2a$10$2VsXyZNog6x/ujPrJD6HV.vdQePCwnfYK/eyRnzr.XuQQjbEIYH4i"
+  },
+   {
+    "id": 10,
+    "firstName": "Final",
+    "surName": "final",
+    "avatar": "avatar_default.jpg",
+    "email": "final@fn",
+    "password": "$2a$10$jVCXBkyKz.8qRbfyhPCCi.38iqZkFTfQKEMEXYRuY22NyDouPSGli"
   }
 ]

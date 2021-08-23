@@ -1,9 +1,6 @@
 const user = require('../models/users');
-
-const bcrypt = require('bcryptjs');
-
 const { validationResult } = require('express-validator');
-
+const bcrypt = require('bcryptjs');
 
 module.exports = {
     indexLogin: (req, res) => {
@@ -23,15 +20,14 @@ module.exports = {
     },
 
     save: (req, res) => {
-        let newUser = user.new(req.body, req.file);
-        if(!newUser){
-            return res.render('users/register', {
-                errores: {
-                    msg: 'El usuario ya se escuentra registrado'
-                }
-            })
-        }
-        return newUser == true ? res.redirect('/users/login') : res.send('Error');
+        let error = validationResult(req);
+        if (error.errors.length > 0) {
+            return res.render("users/register"), { errors: error.mapped() }
+            
+        } else {
+            let newUser = user.new(req.body, req.file);
+            return newUser == true ? res.redirect('/users/login') : res.send('Error');
+        } 
     },
     loginProcess: (req, res) =>{
         let userToLogin = user.findByField('email', req.body.email);

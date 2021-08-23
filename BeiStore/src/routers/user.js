@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 const multerFolder = require('../middlewares/multerFolderMw');
 const controller = require('../controllers/userController');
+const CreateVerificator = require('../middlewares/users/createVerificator');
 const guest = require('../middlewares/users/guestMw');
 const auth = require('../middlewares/users/authMw');
-const CreateVerificator = require('../middlewares/users/createVerificator');
 
 router.get('/register', guest, controller.indexRegister);
 
