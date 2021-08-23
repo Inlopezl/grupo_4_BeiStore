@@ -14,10 +14,10 @@
             <section>
                 <form action="/users/save" method='POST' enctype="multipart/form-data">
                     <% let error =  locals.errors %>
-                        <fieldset>
-                            <input type="text" name="firstName" id="nombre" placeholder="Nombre" class="<%= error && errors.name? 'error' : '' %>">
+                        <fieldset class="<%= error && errors.name? 'error' : '' %>">
+                            <input type="text" name="firstName" id="nombre" placeholder="Nombre">
                             <i class="fas fa-exclamation-circle"></i>
-                            <small><%= error.fullName.msg %> </small>
+                            <small><%= %> </small>
                         </fieldset>
                         <fieldset>
                             <input type="text" name="surName" id="apellido" placeholder="Apellido">
