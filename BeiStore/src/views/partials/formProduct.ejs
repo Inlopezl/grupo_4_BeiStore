@@ -24,14 +24,14 @@
                     <input type="hidden" value="<%= element %>" name="imagenesViejas" >
                     <p>Eliminar</p>
                 </label>
-            <% })  %>
-        </fieldset>
-    <% } %>
-    <fieldset  class=" <%= error && errores.images? 'error' : '' %>  ">
-        <input type="file" name="images" multiple>
-        <i class="fas fa-exclamation-circle"></i>
-        <small><%= ( error && errores.images) ? errores.images.msg : '' %></small>
-    </fieldset>
+                    <% })  %>
+            </fieldset>
+            <% } %>
+                <fieldset class=" <%= error && errores.images? 'error' : '' %>  ">
+                    <input type="file" name="images" multiple>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small><%= ( error && errores.images) ? errores.images.msg : '' %></small>
+                </fieldset>
 
     <fieldset class="widthFull flex <%= ( error && errores.category)? 'error' : '' %>  ">
         <label class="widthFull marginTBSmall">Categoria</label>
@@ -81,4 +81,4 @@
     <form action="/products/delete/<%=producto.id%>?_method=DELETE" method="POST" class="form-delete">
         <button type="submit" class="btnRosa">Eliminar</button>
     </form>
-<%}%>
+    <%}%>

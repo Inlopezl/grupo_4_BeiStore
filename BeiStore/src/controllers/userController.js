@@ -1,5 +1,9 @@
 const user = require('../models/users');
+
 const bcrypt = require('bcryptjs');
+
+const { validationResult } = require('express-validator');
+
 
 module.exports = {
     indexLogin: (req, res) => {
@@ -15,7 +19,7 @@ module.exports = {
     },
 
     indexEdit: (req, res) => {
-        res.render('users/form', { action: `/users/update/${product.one(req.params.id).id}?_method=PUT`, typePage: 'edit', title: 'Editar usuario', user: user.one(req.params.id) });
+        res.render('users/register', { action: `/users/update/${product.one(req.params.id).id}?_method=PUT`, typePage: 'edit', title: 'Editar usuario', user: user.one(req.params.id) });
     },
 
     save: (req, res) => {
@@ -80,4 +84,5 @@ module.exports = {
         req.session.destroy();
         return res.redirect('/home');
     }
+
 }

@@ -14,5 +14,28 @@
     "avatar": "avatar_default.jpg",
     "email": "freire.dg@gmail.com",
     "password": "$2a$10$TRnv.TUqmjCKlVZQ9YRnDuSCLFuNNRCurfnNMxgNTTkGVIdFOA1hS"
+  },
+  {
+    "id": 3,
+    "firstName": "ivan",
+    "surName": "lopez",
+    "avatar": "avatar_default.jpg",
+    "email": "ivanxlopez@gmail.com",
+    "password": "$2a$10$l0awQI.zYt5kVhB.dFgSJei1N.xoZHENBkoX2UuFH9C08vpL9A.Py"
+  },
+  {
+    "id": 4,
+    "firstName": "",
+    "surName": "",
+    "avatar": "avatar_default.jpg",
+    "email": "",
+    "password": "$2a$10$ORcnc3ZUUt5KwHBQlNNBM.66Y304fsIYP23TMIc8p16m5TU40Zbpi"
+  },
+  {
+    "id": 5,
+    "firstName": "",
+    "surName": "",
+    "avatar": "avatar_default.jpg",
+    "password": "$2a$10$bjZW4KCb8rJbODNKyhF5qu.h5y.ZejMAWQ6eJpuSmLKVTZhd5xOca"
   }
 ]
