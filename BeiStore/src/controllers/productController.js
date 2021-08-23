@@ -6,13 +6,22 @@ module.exports = {
         res.render('products/cart');
     },
     indexDetail: (req, res) =>{
-        res.render('products/detail', {
-            producto : product.one(req.params.id),
-            error: !this.producto ? 'Error, producto no encontrado.' : ''
+        if(isNaN(parseInt(req.params.id)) ){
+            return res.redirect('/error')
+        } else {
+            res.render('products/detail', {
+                    producto : product.one(req.params.id),
+                    error: !this.producto ? 'Error, producto no encontrado.' : ''
             });
+        }
     },
     indexCreate: (req, res) => {
-        res.render('products/form', { action: '/products/save' , typePage: 'create', title: 'Crear un producto'});
+        res.render('products/form', { 
+            action: '/products/save' , 
+            typePage: 'create', 
+            title: 'Crear un producto',
+            oldData: undefined
+        });
     },
     indexEdit:(req,res) =>{
         res.render('products/form', { action: `/products/update/${product.one(req.params.id).id}?_method=PUT` , typePage: 'edit', title: 'Editar producto', producto: product.one(req.params.id)});
@@ -23,7 +32,14 @@ module.exports = {
     save: (req, res)=>{
         let error = validationResult(req)
         if(!error.isEmpty()){ 
-            res.render('products/form', { action: '/products/save' , typePage: 'create', title: 'Crear un producto', errores : error.mapped()}) 
+            res.render('products/form', { 
+                action: '/products/save' ,
+                typePage: 'create', 
+                title: 'Crear un producto', 
+                errores : error.mapped(),
+                oldData: req.body
+            }) 
+            console.log(req.body);
         } else{
             let newProduct = product.new(req.body, req.files);
             return newProduct == true? res.redirect('/home'): res.send('Error');

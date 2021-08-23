@@ -5,22 +5,30 @@
     "surName": "suca",
     "avatar": "avatar_1628435630355.jpg",
     "email": "erik.sucasai@gmail.com",
-    "password": "123456"
+    "password": "$2a$10$lAu5GehaOyu33xSpDXjON.nzVnwchoOZ3aDmXKxTe2BBlwqo.2qs2"
   },
   {
     "id": 2,
-    "firstName": "i",
-    "surName": "i",
-    "avatar": "avatar_1628437005697.jpg",
-    "email": "i@gmail.com",
-    "password": "12"
+    "firstName": "daniel",
+    "surName": "Freire",
+    "avatar": "avatar_default.jpg",
+    "email": "freire.dg@gmail.com",
+    "password": "$2a$10$TRnv.TUqmjCKlVZQ9YRnDuSCLFuNNRCurfnNMxgNTTkGVIdFOA1hS"
   },
   {
     "id": 3,
-    "firstName": "i",
-    "surName": "2",
+    "firstName": "testt",
+    "surName": "test",
     "avatar": "avatar_default.jpg",
-    "email": "ivanxlopez@gmail.com",
-    "password": "12"
+    "email": "test@test.com",
+    "password": "$2a$10$Gna5lVjUMaeO842Ch7ZckeoxYmUC6oBZkQtkdVC/0CuRV457ilacC"
+  },
+  {
+    "id": 4,
+    "firstName": "fs",
+    "surName": "ds",
+    "avatar": "avatar_default.jpg",
+    "email": "sd@gmail.com",
+    "password": "$2a$10$I6oHZY61RAa7WejhVDPvkumX70.47P.VC1Ugy10DfCnAcYgHBMMSK"
   }
 ]

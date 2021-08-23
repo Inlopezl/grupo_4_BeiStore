@@ -8,12 +8,24 @@
     <%- include('../partials/header')  %>
     <main>
         <section>
-            <form action="" method="POST">
-                <fieldset>
-                    <input type="text" name="user" id="user" placeholder="Nombre de Usuario">
+            <form method="POST" action="login" enctype="multipart/form-data">
+                <fieldset class=" <%= locals.errores && locals.errores.email ? 'error': '' %>  ">
+                    <input type="email" name="email" id="user" placeholder="Email"
+                        value="<%= locals.oldData ? oldData.email : '' %>"
+                    >
+                    <small> <%=  locals.errores && locals.errores.email ? errores.email.msg : '' %>  </small>
                 </fieldset>
-                <fieldset>
+
+                <fieldset class=" <%= locals.errores && locals.errores.password ? 'error': '' %>">
                     <input type="password" name="password" id="password" placeholder="Contraseña">
+                    <small> <%=  locals.errores && locals.errores.password ? errores.password.msg : '' %>  </small>
+                </fieldset>
+
+                <fieldset>
+                    <label>
+                        <input type="checkbox" name="remember">
+                        Recordarme
+                    </label>
                 </fieldset>
                 <button type="submit" class="btnRosa">Ingresar</button>
             </form>
