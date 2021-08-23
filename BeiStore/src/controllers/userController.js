@@ -21,15 +21,13 @@ module.exports = {
 
     save: (req, res) => {
         let error = validationResult(req);
-        let newUser = user.new(req.body, req.file);
         if (error.errors.length > 0) {
-            console.log(error);
             return res.render("users/register"), { errors: error.mapped() }
             
         } else {
-            return newUser == true ? res.redirect('/users/login') : res.send('Error');}
-       
-
+            let newUser = user.new(req.body, req.file);
+            return newUser == true ? res.redirect('/users/login') : res.send('Error');
+        } 
     },
     loginProcess: (req, res) =>{
         let userToLogin = user.findByField('email', req.body.email);
