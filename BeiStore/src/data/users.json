@@ -71,12 +71,20 @@
     "email": "t10@gm",
     "password": "$2a$10$2VsXyZNog6x/ujPrJD6HV.vdQePCwnfYK/eyRnzr.XuQQjbEIYH4i"
   },
-   {
+  {
     "id": 10,
     "firstName": "Final",
     "surName": "final",
     "avatar": "avatar_default.jpg",
     "email": "final@fn",
     "password": "$2a$10$jVCXBkyKz.8qRbfyhPCCi.38iqZkFTfQKEMEXYRuY22NyDouPSGli"
+  },
+  {
+    "id": 11,
+    "firstName": "Agustin",
+    "surName": "pittari",
+    "avatar": "avatar_default.jpg",
+    "email": "agus@agus.com",
+    "password": "$2a$10$II3L1QgH/leahsUUWj9Sre/bpP7zclxXywPNyTVW/ujvRthXHdipe"
   }
 ]
