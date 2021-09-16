@@ -68,5 +68,19 @@
       "product_1628978661140.jpg"
     ],
     "price": "5000"
+  },
+  {
+    "id": 6,
+    "name": "Erik Sucasaire",
+    "description": "12345",
+    "category": [
+      "destacado",
+      "momory-ram"
+    ],
+    "off": "",
+    "image": [
+      "product_1630957862374.jpg"
+    ],
+    "price": "21"
   }
 ]

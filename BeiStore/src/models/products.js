@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
-
+const db = require('../database/models');
+let { Products } = db
 models = {
     directory: function(){
         let directory = path.resolve( __dirname ,  "../data/products.json");
@@ -21,19 +22,26 @@ models = {
     new: function(data, files){
         let images = [];
         files.forEach(element => images.push(element.filename));
+        console.log(data)
 
-        let products = this.all();
-        let newProduct = {
-            id: products.length > 0 ? products[products.length - 1].id + 1 : 1,
+        Products.create({
             name: data.name,
             description: data.description,
-            category: data.category,
             off: data.off,
-            image: images,
-            price: data.price
-        }
-        products.push(newProduct);
-        fs.writeFileSync(this.directory(), JSON.stringify(products, null, 2));
+            price: data.price,
+        })
+        // let products = this.all();
+        // let newProduct = {
+        //     id: products.length > 0 ? products[products.length - 1].id + 1 : 1,
+        //     name: data.name,
+        //     description: data.description,
+        //     category: data.category,
+        //     off: data.off,
+        //     image: images,
+        //     price: data.price
+        // }
+        // products.push(newProduct);
+        // fs.writeFileSync(this.directory(), JSON.stringify(products, null, 2));
         return true;
     },
     edit: function(data, files, id){

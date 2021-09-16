@@ -18,12 +18,12 @@ module.exports = (sequelize, dataTypes) =>{
 
     let Type = sequelize.define(alias, cols, config);
     
-    Type.associate = (models) => {
-        Type.hasMany(models.Users , {
-            as: 'Types',
-            foreignKey: 'type_id'
-        })
-    }
+    // Type.associate = (models) => {
+    //     Type.hasMany(models.Users , {
+    //         as: 'Types',
+    //         foreignKey: 'type_id'
+    //     })
+    // }
 
     return Type;
 }
