@@ -3,78 +3,78 @@ const fs = require('fs');
 const db = require('../database/models');
 let { Products } = db
 models = {
-    directory: function(){
-        let directory = path.resolve( __dirname ,  "../data/products.json");
+    directory: function() {
+        let directory = path.resolve(__dirname, "../data/products.json");
         return directory;
     },
-    all: function(){
+    all: function() {
         let file = fs.readFileSync(this.directory(), 'utf-8');
-        file = file == ''? []:file;
+        file = file == '' ? [] : file;
         const object = JSON.parse(file);
-        return object 
+        return object
     },
 
-    one: function(id){
+    one: function(id) {
         let products = this.all();
         const product = products.filter(element => element.id == id)[0];
-        return product != undefined? product: false; 
+        return product != undefined ? product : false;
     },
-    new: function(data, files){
+    new: function(data, files) {
         let images = [];
         files.forEach(element => images.push(element.filename));
         console.log(data)
 
         Products.create({
-            name: data.name,
-            description: data.description,
-            off: data.off,
-            price: data.price,
-        })
-        // let products = this.all();
-        // let newProduct = {
-        //     id: products.length > 0 ? products[products.length - 1].id + 1 : 1,
-        //     name: data.name,
-        //     description: data.description,
-        //     category: data.category,
-        //     off: data.off,
-        //     image: images,
-        //     price: data.price
-        // }
-        // products.push(newProduct);
-        // fs.writeFileSync(this.directory(), JSON.stringify(products, null, 2));
+                name: data.name,
+                description: data.description,
+                off: data.off,
+                price: data.price,
+            })
+            // let products = this.all();
+            // let newProduct = {
+            //     id: products.length > 0 ? products[products.length - 1].id + 1 : 1,
+            //     name: data.name,
+            //     description: data.description,
+            //     category: data.category,
+            //     off: data.off,
+            //     image: images,
+            //     price: data.price
+            // }
+            // products.push(newProduct);
+            // fs.writeFileSync(this.directory(), JSON.stringify(products, null, 2));
         return true;
     },
-    edit: function(data, files, id){
+    edit: function(data, files, id) {
         let products = this.all();
         let images = [];
-        if( Array.isArray(data.imagenesViejas) ){
+        if (Array.isArray(data.imagenesViejas)) {
             data.imagenesViejas.forEach(element => images.push(element));
-        } else if(data.imagenesViejas != undefined) {
+        } else if (data.imagenesViejas != undefined) {
             images.push(data.imagenesViejas)
         }
         files.forEach(element => images.push(element.filename));
         let imagesNuevas = []
-        if( Array.isArray(data.deleteImage)  ){
-            images.forEach(element =>{
+        if (Array.isArray(data.deleteImage)) {
+            images.forEach(element => {
                 let encontro = false;
                 data.deleteImage.forEach(img => {
-                    if(img == element){
+                    if (img == element) {
                         encontro = true;
-                        fs.unlinkSync(path.resolve(__dirname,"../../public/images/productos/", element ))
+                        fs.unlinkSync(path.resolve(__dirname, "../../public/images/productos/", element))
                     }
                 })
-                if(!encontro){
+                if (!encontro) {
                     imagesNuevas.push(element);
                 }
             })
             images = imagesNuevas;
-        } else if(data.deleteImage != undefined ){
+        } else if (data.deleteImage != undefined) {
             images = images.filter(element => element != data.deleteImage)
-            fs.unlinkSync(path.resolve(__dirname,"../../public/images/productos/", data.deleteImage ))
+            fs.unlinkSync(path.resolve(__dirname, "../../public/images/productos/", data.deleteImage))
         }
 
         products.forEach(element => {
-            if(element.id == id){ 
+            if (element.id == id) {
                 element.name = data.name;
                 element.description = data.description;
                 element.category = data.category;
@@ -87,12 +87,12 @@ models = {
         fs.writeFileSync(this.directory(), JSON.stringify(products, null, 2));
         return true;
     },
-    delete: function(id){
+    delete: function(id) {
         //trae todos los productos
         let products = this.all();
         //elimina las imagenes del producto
-        this.one(id).image.forEach(element => fs.unlinkSync(path.resolve(__dirname,"../../public/images/productos/", element )) )
-        //guarda todos los productos en la misma variable
+        this.one(id).image.forEach(element => fs.unlinkSync(path.resolve(__dirname, "../../public/images/productos/", element)))
+            //guarda todos los productos en la misma variable
         products = products.filter(element => element.id != id);
         fs.writeFileSync(this.directory(), JSON.stringify(products, null, 2));
         return true;
