@@ -15,10 +15,19 @@ module.exports = {
             });
         }
     },
-    indexCreate: (req, res) => {
-        res.render('products/create', {
-            oldData: undefined
-        });
+    indexCreate: async (req, res) => {
+        try{
+            const categories = await db.Categories.findAll();
+            const brands = await db.Brands.findAll();
+
+            return res.render('products/create', {
+                categories: categories,
+                brands: brands,
+                oldData: undefined
+            });
+        }catch (error){
+            console.log(error);
+        }
     },
     indexEdit: (req, res) => {
         res.render('products/form', { action: `/products/update/${product.one(req.params.id).id}?_method=PUT`, typePage: 'edit', title: 'Editar producto', producto: product.one(req.params.id) });
@@ -34,12 +43,8 @@ module.exports = {
                 oldData: req.body
             })
         } else {
-            /*db.Products.create({
-                name: req.body.name
-            })*/
             let newProduct = product.new(req.body, req.files);
             return newProduct ? res.redirect('/products/') : res.send('Error');
-            //return res.redirect('/products')
         }
     },
     update: (req, res) => {

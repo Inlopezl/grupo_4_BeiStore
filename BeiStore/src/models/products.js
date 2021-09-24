@@ -19,29 +19,44 @@ models = {
         const product = products.filter(element => element.id == id)[0];
         return product != undefined ? product : false;
     },
-    new: function(data, files) {
-        let images = [];
-        files.forEach(element => images.push(element.filename));
-        console.log(data)
-
-        Products.create({
+    new: async (data, files) => {
+        console.log(data);
+        try{
+            let images = [];
+            files.forEach(element => images.push(element.filename));
+            Products.create({
                 name: data.name,
                 description: data.description,
                 off: data.off,
                 price: data.price,
+                brand_id: data.brand
             })
-            // let products = this.all();
-            // let newProduct = {
-            //     id: products.length > 0 ? products[products.length - 1].id + 1 : 1,
-            //     name: data.name,
-            //     description: data.description,
-            //     category: data.category,
-            //     off: data.off,
-            //     image: images,
-            //     price: data.price
-            // }
-            // products.push(newProduct);
-            // fs.writeFileSync(this.directory(), JSON.stringify(products, null, 2));
+            const products = await Products.findAll();
+            images.forEach(img => {
+                db.Images.create({
+                    image: img,
+                    product_id: products.length + 1 
+                })
+            })
+            
+            if(Array.isArray(data.category)){
+                data.category.forEach(category => {
+                    db.ProductCategory.create({
+                        product_id: products.length +1,
+                        category_id: category
+                    })
+                })
+            } else {
+                db.ProductCategory.create({
+                    product_id: products.length +1,
+                    category_id: data.category
+                })
+            }
+
+        } catch (error) {
+            console.log(error);
+        }
+        
         return true;
     },
     edit: function(data, files, id) {

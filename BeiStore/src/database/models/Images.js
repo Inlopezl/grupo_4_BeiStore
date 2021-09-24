@@ -8,6 +8,9 @@ module.exports = (sequelize, dataTypes) =>{
         },
         image: {
             type: dataTypes.STRING()
+        },
+        product_id:{
+            type: dataTypes.INTEGER,
         }
     };
     
@@ -15,8 +18,13 @@ module.exports = (sequelize, dataTypes) =>{
         tableName: 'images',
         timestamps: false
     }
-
     let Images = sequelize.define(alias, cols, config);
     
+    Images.associate = (models) => {
+        Images.belongsTo(models.Products , {
+            as: 'product',
+            foreignKey: 'product_id'
+        })
+    }
     return Images;
 }

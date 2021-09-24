@@ -12,9 +12,6 @@ module.exports = (sequelize, dataTypes) =>{
         description:{
             type: dataTypes.STRING(30)
         },
-        category:{
-            type: dataTypes.STRING(30)
-        },
         off:{
             type: dataTypes.INTEGER
         },
@@ -23,10 +20,7 @@ module.exports = (sequelize, dataTypes) =>{
         },
         brand_id:{
             type: dataTypes.INTEGER,
-        },
-        category_id:{
-            type: dataTypes.INTEGER,
-        },
+        }
     };
     
     const config = {
@@ -38,22 +32,24 @@ module.exports = (sequelize, dataTypes) =>{
     
     Product.associate = (models) => {
 
-        // Product.belongsToMany(models.Images , {
-        //     as: 'images',
-        //     through: 'product_images',
-        //     foreignKey: 'product_id',
-        //     otherKey: 'image_id',
-        //     timestamps: false
-        // })
+        Product.belongsToMany(models.Categories , {
+            as: 'categories',
+            through: 'product_category',
+            foreignKey: 'product_id',
+            otherKey: 'category_id',
+            timestamps: false
+        })
 
-        // Product.belongsTo(models.Brands , {
-        //     as: 'brand',
-        //     foreignKey: 'brand_id'
-        // })
-        // Product.belongsTo(models.Categories , {
-        //     as: 'categories',
-        //     foreignKey: 'category_id'
-        // })
+        Product.belongsTo(models.Brands , {
+            as: 'brand',
+            foreignKey: 'brand_id'
+        })
+
+        Product.hasMany(models.Images, {
+            as: 'images',
+            foreignKey: 'product_id'
+        })
+
     }
 
     return Product;

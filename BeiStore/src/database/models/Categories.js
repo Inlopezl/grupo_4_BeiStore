@@ -17,12 +17,14 @@ module.exports = (sequelize, dataTypes) =>{
     }
 
     let Category = sequelize.define(alias, cols, config);
-    
-    // Category.associate = (models) => {
-    //     Category.hasMany(models.Products , {
-    //         as: 'products',
-    //         foreignKey: 'category_id'
-    //     })
-    // }
+    Category.associate = (models) => {
+        Category.belongsToMany(models.Products , {
+            as: 'products',
+            through: 'product_category',
+            foreignKey: 'category_id',
+            otherKey: 'product_id',
+            timestamps: false
+        })
+    }
     return Category;
 }
