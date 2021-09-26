@@ -11,14 +11,23 @@ router.get('/create', controller.indexCreate);
 // Guardar Producto
 router.post('/create', [ multerFolder('product', 'productos/').any(), CreateVerificator ], controller.save);
 
-router.get('/cart', controller.indexCart);
-router.get('/:id', controller.indexDetail);
-router.get('/edit/:id', controller.indexEdit);
+// lista de productos
 router.get('/', controller.indexList); 
 
+// vista editar producto 
+router.get('/edit/:id', controller.indexEdit);
 
-router.put('/update/:id', [multerFolder('product', 'productos/').any()], controller.update); 
+// editar producto
+router.put('/edit/:id', [multerFolder('product', 'productos/').any()], controller.update); 
 
+// eliminar producto
 router.delete('/delete/:id', controller.delete); 
+
+
+router.get('/cart', controller.indexCart);
+router.get('/:id', controller.indexDetail);
+
+
+
 
 module.exports = router;

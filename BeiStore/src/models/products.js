@@ -7,17 +7,26 @@ models = {
         let directory = path.resolve(__dirname, "../data/products.json");
         return directory;
     },
-    all: function() {
-        let file = fs.readFileSync(this.directory(), 'utf-8');
-        file = file == '' ? [] : file;
-        const object = JSON.parse(file);
-        return object
+    all: async () => {
+        try {
+            const products = await db.Products.findAll({
+                include:[{association: 'categories'}, {association:'images'}, {association: 'brand'}]
+            })
+            return products
+        } catch (error) {
+            console.log(error);
+        }
     },
 
-    one: function(id) {
-        let products = this.all();
-        const product = products.filter(element => element.id == id)[0];
-        return product != undefined ? product : false;
+    one: async (id) => {
+        try {
+            const product = await Products.findByPk(id,{
+                include:[{association: 'categories'}, {association:'images'}, {association: 'brand'}]
+            })
+            return product != undefined ? product : false;
+        } catch (error) {
+            console.log(error);
+        }
     },
     new: async (data, files) => {
         console.log(data);
@@ -59,47 +68,65 @@ models = {
         
         return true;
     },
-    edit: function(data, files, id) {
-        let products = this.all();
-        let images = [];
-        if (Array.isArray(data.imagenesViejas)) {
-            data.imagenesViejas.forEach(element => images.push(element));
-        } else if (data.imagenesViejas != undefined) {
-            images.push(data.imagenesViejas)
-        }
-        files.forEach(element => images.push(element.filename));
-        let imagesNuevas = []
-        if (Array.isArray(data.deleteImage)) {
-            images.forEach(element => {
-                let encontro = false;
-                data.deleteImage.forEach(img => {
-                    if (img == element) {
-                        encontro = true;
-                        fs.unlinkSync(path.resolve(__dirname, "../../public/images/productos/", element))
+    edit: async (data, files, id) => {
+        if(Array.isArray(data.deleteImage)){
+            data.deleteImage.forEach(img => {
+                fs.unlinkSync(path.resolve(__dirname, "../../public/images/productos/", img))
+                db.Images.destroy({
+                    where: {
+                        image: img,
+                        product_id: id
                     }
                 })
-                if (!encontro) {
-                    imagesNuevas.push(element);
+            })
+        } else if(data.deleteImage != undefined){
+            fs.unlinkSync(path.resolve(__dirname, "../../public/images/productos/", data.deleteImage))
+            db.Images.destroy({
+                where:{
+                    image: data.deleteImage,
+                    product_id: id
                 }
             })
-            images = imagesNuevas;
-        } else if (data.deleteImage != undefined) {
-            images = images.filter(element => element != data.deleteImage)
-            fs.unlinkSync(path.resolve(__dirname, "../../public/images/productos/", data.deleteImage))
+        }
+        if(files){
+            files.forEach(img => {
+                db.Images.create({
+                    image: img.filename,
+                    product_id: id
+                })
+            });
+        }
+        db.ProductCategory.destroy({
+            where: {
+                product_id: id,
+            }
+        })
+        if (Array.isArray(data.category)) {
+            data.category.forEach(categoria => {
+                db.ProductCategory.create({
+                    product_id: id,
+                    category_id: categoria
+                })
+            })
+        } else {
+            db.ProductCategory.create({
+                product_id: id,
+                category_id: data.category
+            })
         }
 
-        products.forEach(element => {
-            if (element.id == id) {
-                element.name = data.name;
-                element.description = data.description;
-                element.category = data.category;
-                element.off = data.off;
-                element.image = images;
-                element.price = data.price;
+        Products.update({
+            name: data.name,
+            description: data.description,
+            off: data.off,
+            price: data.price,
+            brand_id: data.brand
+        }, {
+            where: {
+                id: id
             }
-        });
+        })
 
-        fs.writeFileSync(this.directory(), JSON.stringify(products, null, 2));
         return true;
     },
     delete: function(id) {

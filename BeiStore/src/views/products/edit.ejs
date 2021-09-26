@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <%- include('../partials/head') %>
+        <link rel="stylesheet" href="/styles/form.css">
+    </head>
+    <body>
+        <%- include('../partials/header') %>
+        <main>
+            <section>
+                <h2>Crear producto</h2>
+                <form action = '/products/edit/<%= producto.id %>?_method=PUT'  method = 'POST' enctype="multipart/form-data" >
+                    <% let error =  locals && locals.errores %> 
+                    <fieldset class=" <%= error && errores.name? 'error' : '' %>  ">
+                        <input type="text" name="name" placeholder="Nombre"  
+                            value ="<%= locals.oldData && oldData.name ? oldData.name : producto.name %>"
+                        >
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small><%= ( error && errores.name) ? errores.name.msg : '' %></small>
+                    </fieldset>
+                
+                    <fieldset  class=" <%= error && errores.description? 'error' : '' %>  ">
+                        <textarea name="description" cols="30" rows="10" placeholder="Descricion" ><%= locals.oldData && oldData.description ? oldData.description: producto.description %></textarea>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small><%= ( error && errores.description) ? errores.description.msg : '' %></small>
+                    </fieldset>
+                    
+                    <label for="imagen">Imagenes del producto</label>
+                    <fieldset>
+                        <% producto.images.forEach(element =>{ %>
+                            <label  class="card-images <%= (producto.images.length >= 3 )? 'widthTercio': 'widthFull' %>" >
+                                <img src="/images/productos/<%= element.image %>">
+                                <input type="checkbox" value="<%= element.image %>" name="deleteImage">
+                                <input type="hidden" value="<%= element.image %>" name="imagenesViejas" >
+                                <p>Eliminar</p>
+                            </label>
+                        <% })  %>
+                    </fieldset>
+                    <fieldset class=" <%= error && errores.images? 'error' : '' %>  ">
+                        <input type="file" name="images" multiple>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small><%= ( error && errores.images) ? errores.images.msg : '' %></small>
+                    </fieldset>
+                
+                    <fieldset class="widthFull flex <%= ( error && errores.category)? 'error' : '' %>  ">
+                        <label class="widthFull marginTBSmall">Categoria</label>
+                        
+                        
+                        <% categories.forEach(element => { %>
+                            <label class="flex widthFull alignCenter marginTBSmall">
+                                <input type="checkbox" name="category" value="<%= element.id %>" 
+                                <%= locals.oldData && locals.oldData.category? oldData.category.indexOf(element.category) != -1? 'checked' : '' : '' %>
+                                <% producto.categories.forEach(categoria => { %>
+                                    <%= element.category == categoria.category? 'checked': '' %> 
+                                <% }) %>
+                                >
+                                <p><%= element.category %></p>
+                            </label>
+                        <% }) %>
+
+                    <fieldset>
+                        <label>Marca</label>
+                        <select name="brand">
+                            <% brands.forEach(brand => { %>
+                                <option value="<%= brand.id %>"
+                                    <%= producto.brand.brand == brand.brand != -1 ? 'selected' : '' %> 
+                                    ><%= brand.brand %></option>
+                            <% }) %>
+                        </select>
+                    </fieldset>
+                    
+                    <fieldset  class=" <%= error && errores.off? 'error' : '' %>">
+                        <input type="number" name="off" placeholder="Descuento" max="100" min="0" 
+                        value ="<%= locals.oldData && oldData.off ? oldData.off: producto.off %>">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small><%= ( error && errores.price) ? errores.off.msg : '' %></small>
+                    </fieldset>
+
+                    <fieldset  class=" <%= error && errores.price? 'error' : '' %>  ">
+                        <input type="number" name="price" min="0" placeholder="Precio"  
+                        value = <%= locals.oldData && oldData.price ? oldData.price : producto.price %> >
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small><%= ( error && errores.price) ? errores.price.msg : '' %></small>
+                    </fieldset>
+                        
+                    <button type="submit" class="btnCian">Enviar</button>
+                </form>
+                <form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST" class="form-delete">
+                    <button type="submit" class="btnRosa">Eliminar</button>
+                </form>
+            </section>
+        </main>
+        <%- include('../partials/footer') %>
+    </body>
+</html>
