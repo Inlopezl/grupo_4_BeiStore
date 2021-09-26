@@ -57,7 +57,8 @@
                                 <p><%= element.category %></p>
                             </label>
                         <% }) %>
-
+                        <small><%= ( error && errores.category) ? errores.category.msg : '' %></small>
+                    </fieldset>
                     <fieldset>
                         <label>Marca</label>
                         <select name="brand">

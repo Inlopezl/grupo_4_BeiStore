@@ -34,21 +34,23 @@
                 
                     <fieldset class="widthFull flex <%= ( error && errores.category)? 'error' : '' %>  ">
                         <label class="widthFull marginTBSmall">Categoria</label>
-                        
-                        
                         <% categories.forEach(element => { %>
                             <label class="flex widthFull alignCenter marginTBSmall">
                                 <input type="checkbox" name="category" value="<%= element.id %>" 
-                                <%= locals.oldData && locals.oldData.category? oldData.category.indexOf(element.category) != -1? 'checked' : '' : '' %> >
+                                <%= locals.oldData && locals.oldData.category?oldData.category.indexOf(element.id) != -1 ? 'checked' : '' : '' %> >
                                 <p><%= element.category %></p>
                             </label>
                         <% }) %>
+                        <small><%= ( error && errores.category) ? errores.category.msg : '' %></small>
+                    </fieldset>
 
                     <fieldset>
                         <label>Marca</label>
                         <select name="brand">
                             <% brands.forEach(brand => { %>
-                                <option value="<%= brand.id %>"><%= brand.brand %></option>
+                                <option value="<%= brand.id %>"
+                                    <%= locals.oldData && locals.oldData.brand? oldData.brand == brand.id? 'selected': '' : '' %> 
+                                    ><%= brand.brand %></option>
                             <% }) %>
                         </select>
                     </fieldset>
@@ -57,12 +59,12 @@
                         <input type="number" name="off" placeholder="Descuento" max="100" min="0" 
                         value ="<%= locals.oldData && oldData.off ? oldData.off: ''%>">
                         <i class="fas fa-exclamation-circle"></i>
-                        <small><%= ( error && errores.price) ? errores.off.msg : '' %></small>
+                        <small><%= ( error && errores.off) ? errores.off.msg : '' %></small>
                     </fieldset>
 
                     <fieldset  class=" <%= error && errores.price? 'error' : '' %>  ">
                         <input type="number" name="price" min="0" placeholder="Precio"  
-                        value = <%= locals.oldData && oldData.price ? oldData.price : '' %> >
+                        value = <%= locals.oldData && oldData.name ? oldData.price: ''%> >
                         <i class="fas fa-exclamation-circle"></i>
                         <small><%= ( error && errores.price) ? errores.price.msg : '' %></small>
                     </fieldset>

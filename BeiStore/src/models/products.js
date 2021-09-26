@@ -129,14 +129,34 @@ models = {
 
         return true;
     },
-    delete: function(id) {
-        //trae todos los productos
-        let products = this.all();
-        //elimina las imagenes del producto
-        this.one(id).image.forEach(element => fs.unlinkSync(path.resolve(__dirname, "../../public/images/productos/", element)))
-            //guarda todos los productos en la misma variable
-        products = products.filter(element => element.id != id);
-        fs.writeFileSync(this.directory(), JSON.stringify(products, null, 2));
+    delete: async (id) =>  {
+        try {
+            const producto = await Products.findByPk(id,{
+                include:[{association: 'categories'}, {association:'images'}, {association: 'brand'}]
+            })
+
+            producto.images.forEach(img => {
+                fs.unlinkSync(path.resolve(__dirname, "../../public/images/productos/", img.image))
+            })
+            db.Images.destroy({
+                where : {
+                    product_id: id
+                }
+            })
+            db.ProductCategory.destroy({
+                where : {
+                    product_id: id
+                }
+            })
+            Products.destroy({
+                where: {
+                    id: id
+                }
+            })
+
+        } catch (error) {
+            console.log(error);
+        }
         return true;
     }
 }

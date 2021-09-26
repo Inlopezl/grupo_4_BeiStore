@@ -54,24 +54,53 @@ module.exports = {
             console.log(error);
         }
     },
-    save: (req, res) => {
-        let error = validationResult(req)
-        if (!error.isEmpty()) {
-            res.render('products/create', {
-                errores: error.mapped(),
-                oldData: req.body
-            })
-        } else {
-            let newProduct = product.new(req.body, req.files);
-            return newProduct ? res.redirect('/products/') : res.send('Error');
+    save: async (req, res) => {
+        try {
+            const categories = await db.Categories.findAll();
+            const brands = await db.Brands.findAll();
+            let error = validationResult(req)
+            if (!error.isEmpty()) {
+                console.log(req.body);
+                res.render('products/create', {
+                    categories,
+                    brands,
+                    errores: error.mapped(),
+                    oldData: req.body
+                })
+            } else {
+                product.new(req.body, req.files);
+                return res.redirect('/products/')
+            }
+        } catch (error) {
+            console.log(error);
         }
     },
     update: async (req, res) => {
-        product.edit(req.body, req.files, req.params.id)
-        return res.redirect(`/products/${req.params.id}`);
+        try {
+            const categories = await db.Categories.findAll();
+            const producto = await product.one(req.params.id)
+            const brands = await db.Brands.findAll();
+            let error = validationResult(req)
+            console.log(error);
+            if (!error.isEmpty()) {
+                console.log(req.body);
+                res.render('products/edit', {
+                    producto,
+                    categories,
+                    brands,
+                    errores: error.mapped(),
+                    oldData: req.body
+                })
+            } else {
+                product.edit(req.body, req.files, req.params.id)
+                return res.redirect(`/products/${req.params.id}`);  
+            }
+        } catch (error) {
+            console.log(error);
+        }
     },
     delete: (req, res) => {
-        let deleteProduct = product.delete(req.params.id);
-        return deleteProduct == true ? res.redirect('/home') : res.send('Error, no se pudo eliminar');
+        product.delete(req.params.id);
+        return res.redirect('/home');
     }
 }
