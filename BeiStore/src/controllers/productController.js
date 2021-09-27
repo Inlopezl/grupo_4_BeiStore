@@ -60,7 +60,6 @@ module.exports = {
             const brands = await db.Brands.findAll();
             let error = validationResult(req)
             if (!error.isEmpty()) {
-                console.log(req.body);
                 res.render('products/create', {
                     categories,
                     brands,
@@ -83,7 +82,6 @@ module.exports = {
             let error = validationResult(req)
             console.log(error);
             if (!error.isEmpty()) {
-                console.log(req.body);
                 res.render('products/edit', {
                     producto,
                     categories,

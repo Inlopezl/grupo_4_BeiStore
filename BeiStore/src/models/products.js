@@ -29,7 +29,6 @@ models = {
         }
     },
     new: async (data, files) => {
-        console.log(data);
         try{
             let images = [];
             files.forEach(element => images.push(element.filename));

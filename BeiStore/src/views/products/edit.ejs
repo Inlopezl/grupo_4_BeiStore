@@ -59,15 +59,17 @@
                         <% }) %>
                         <small><%= ( error && errores.category) ? errores.category.msg : '' %></small>
                     </fieldset>
-                    <fieldset>
-                        <label>Marca</label>
-                        <select name="brand">
+                    <fieldset class="widthFull flex <%= ( error && errores.brand)? 'error' : '' %>  ">
+                        <label class="widthFull marginTBSmall">Marca</label>
+                        <select name="brand" class="widthFull marginTBSmall">
+                            <option value="-1" selected>Seleccione una marca</option>
                             <% brands.forEach(brand => { %>
                                 <option value="<%= brand.id %>"
-                                    <%= producto.brand.brand == brand.brand != -1 ? 'selected' : '' %> 
+                                    <%= locals.oldData && locals.oldData.brand? (oldData.brand == brand.id)? 'selected': '' : (producto.brand_id == brand.id)? 'selected': ''  %> 
                                     ><%= brand.brand %></option>
                             <% }) %>
                         </select>
+                        <small><%= ( error && errores.brand) ? errores.brand.msg : '' %></small>
                     </fieldset>
                     
                     <fieldset  class=" <%= error && errores.off? 'error' : '' %>">

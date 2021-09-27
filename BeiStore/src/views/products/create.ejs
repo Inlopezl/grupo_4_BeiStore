@@ -44,15 +44,17 @@
                         <small><%= ( error && errores.category) ? errores.category.msg : '' %></small>
                     </fieldset>
 
-                    <fieldset>
-                        <label>Marca</label>
-                        <select name="brand">
+                    <fieldset class="widthFull flex <%= ( error && errores.brand)? 'error' : '' %>  ">
+                        <label class="widthFull marginTBSmall">Marca</label>
+                        <select name="brand" class="widthFull marginTBSmall">
+                            <option value="-1" selected>Seleccione una marca</option>
                             <% brands.forEach(brand => { %>
                                 <option value="<%= brand.id %>"
                                     <%= locals.oldData && locals.oldData.brand? oldData.brand == brand.id? 'selected': '' : '' %> 
                                     ><%= brand.brand %></option>
                             <% }) %>
                         </select>
+                        <small><%= ( error && errores.brand) ? errores.brand.msg : '' %></small>
                     </fieldset>
                     
                     <fieldset  class=" <%= error && errores.off? 'error' : '' %>">
@@ -64,7 +66,7 @@
 
                     <fieldset  class=" <%= error && errores.price? 'error' : '' %>  ">
                         <input type="number" name="price" min="0" placeholder="Precio"  
-                        value = <%= locals.oldData && oldData.name ? oldData.price: ''%> >
+                        value ="<%= locals.oldData && oldData.price ? oldData.price: ''%>">
                         <i class="fas fa-exclamation-circle"></i>
                         <small><%= ( error && errores.price) ? errores.price.msg : '' %></small>
                     </fieldset>

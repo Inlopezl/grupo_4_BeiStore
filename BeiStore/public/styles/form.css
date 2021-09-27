@@ -21,6 +21,13 @@ main form input{
     border-radius: 8px;
     background-color: #fff;
 }
+main form select{
+    width: 100%;
+    padding: 10px;
+    border: 0px;
+    border-radius: 8px;
+    background-color: #fff;
+}
 main form label {
     color: #fff;
 }
