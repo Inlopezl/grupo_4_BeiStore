@@ -77,7 +77,16 @@ module.exports = [
     }),
     body('price').notEmpty().withMessage('Debe ingresar un precio al producto').bail()
     .isNumeric().withMessage('Debe ingresar un numero').bail(),
-    body('off').isNumeric().withMessage('Debe ingresar un numero').bail(),
+    body('off').custom(value => {
+        console.log(value);
+        if(value == ''){
+            return true
+        }
+        if(isNaN(parseInt(value))){
+            return false
+        }
+        return true
+    }).withMessage('Debe ingresar un numero').bail(),
     body('images').custom((value, { req }) => {
         console.log(req.files);
         if(req.body.imagenesViejas && req.body.deleteImage){

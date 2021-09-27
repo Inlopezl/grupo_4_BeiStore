@@ -67,6 +67,8 @@ module.exports = {
                     oldData: req.body
                 })
             } else {
+                console.log(req.body);
+                console.log(req.files);
                 product.new(req.body, req.files);
                 return res.redirect('/products/')
             }
