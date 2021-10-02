@@ -1,55 +1,60 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <%- include('../partials/head') %>
-        <link rel="stylesheet" href="/styles/form.css">
-</head>
-
-<body>
-    <%- include('../partials/header')  %>
-
-
+    <head>
+        <%- include('../partials/head') %>
+            <link rel="stylesheet" href="/styles/form.css">
+    </head>
+    <body>
+        <%- include('../partials/header')  %>
         <main>
             <section>
-                <form action="/users/save" method='POST' enctype="multipart/form-data">
-                    <% let error =  locals.errors %>
-                        <fieldset class="<%= error && errors.name? 'error' : '' %>">
-                            <input type="text" name="firstName" id="nombre" placeholder="Nombre">
-                            <i class="fas fa-exclamation-circle"></i>
-                            <small> </small>
-                        </fieldset>
-                        <fieldset>
-                            <input type="text" name="surName" id="apellido" placeholder="Apellido">
-                            <i class="fas fa-exclamation-circle"></i>
-                            <small>Texto de errores </small>
-                        </fieldset>
+                <form action="/users/register/" method = 'POST' enctype="multipart/form-data">
+                    <% let error =  locals && locals.errores %>
+                    <fieldset class=" <%= error && errores.firstName ? 'error' : '' %> ">
+                        <input type="text" name="firstName" id="nombre" placeholder="Nombre"
+                            value ="<%= locals.oldData && oldData.firstName ? oldData.firstName: ''%>"
+                        >
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small><%= ( error && errores.firstName) ? errores.firstName.msg : '' %></small>
+                    </fieldset>
 
-                        <fieldset>
-                            <input type="email" name="email" id="email" placeholder="E-mail">
-                            <i class="fas fa-exclamation-circle"></i>
-                            <small>Texto de errores </small>
-                        </fieldset>
+                    <fieldset class=" <%= error && errores.surName ? 'error' : '' %> " >
+                        <input type="text" name="surName" id="apellido" placeholder="Apellido"
+                            value ="<%= locals.oldData && oldData.surName ? oldData.surName: ''%>"
+                        >
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small><%= ( error && errores.surName) ? errores.surName.msg : '' %></small>
+                    </fieldset>
 
-                        <fieldset>
-                            <input type="password" name="password" id="password" placeholder="Contraseña">
-                            <i class="fas fa-exclamation-circle"></i>
-                            <small>Texto de errores </small>
-                        </fieldset>
+                    <fieldset class=" <%= error && errores.email ? 'error' : '' %> ">
+                        <input type="email" name="email" id="email" placeholder="E-mail"
+                            value ="<%= locals.oldData && oldData.email ? oldData.email: ''%>"
+                        >
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small><%= ( error && errores.email) ? errores.email.msg : '' %></small>
+                    </fieldset>
 
-                        <fieldset>
-                            <input type="file" name="avatar" id="avatar">
-                            <i class="fas fa-exclamation-circle"></i>
-                            <small>Texto de errores </small>
-                        </fieldset>
+                    <fieldset class=" <%= error && errores.password ? 'error' : '' %> ">
+                        <input type="password" name="password" id="password" placeholder="Contraseña"
+                            value ="<%= locals.oldData && oldData.password ? oldData.password: ''%>"
+                        >
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small><%= ( error && errores.password) ? errores.password.msg : '' %></small>
+                    </fieldset>
 
-                        <button type="submit" class="btnCian">Registrarme</button>
+                    <fieldset class=" <%= error && errores.avatar ? 'error' : '' %> ">
+                        <input type="file" name="avatar" id="avatar">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small><%= ( error && errores.avatar) ? errores.avatar.msg : '' %></small>
+                    </fieldset>
+
+                    <button type="submit" class="btnCian">Registrarme</button>
                 </form>
                 <p>Se te enviara una confirmacion del registro por correo electronico.</p>
                 <p>Si ya tenes una cuenta, podes <a href="/login">Iniciar sesion</a>.</p>
             </section>
         </main>
         <%- include('../partials/footer') %>
-</body>
-
+    </body>
 </html>

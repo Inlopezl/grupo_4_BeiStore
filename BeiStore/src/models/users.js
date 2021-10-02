@@ -30,10 +30,6 @@ models = {
     },
     new: function(data, file) {
         let users = this.findAll();
-        if(this.findByField('email', data.email)){
-           return false 
-        }
-
         let newUser = {
             id: users.length > 0 ? users[users.length - 1].id + 1 : 1,
             firstName: data.firstName,

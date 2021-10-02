@@ -21,12 +21,15 @@ module.exports = {
 
     save: (req, res) => {
         let error = validationResult(req);
-        if (error.errors.length > 0) {
-            return res.render("users/register"), { errors: error.mapped() }
+        if (!error.isEmpty()) {
+            return res.render("users/register", { 
+                errores: error.mapped(),
+                oldData: req.body
+            })
             
         } else {
-            let newUser = user.new(req.body, req.file);
-            return newUser == true ? res.redirect('/users/login') : res.send('Error');
+            user.new(req.body, req.file);
+            return res.redirect('/users/login');
         } 
     },
     loginProcess: (req, res) =>{

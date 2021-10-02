@@ -6,9 +6,11 @@ const CreateVerificator = require('../middlewares/users/createVerificator');
 const guest = require('../middlewares/users/guestMw');
 const auth = require('../middlewares/users/authMw');
 
+// vista del Register
 router.get('/register', guest, controller.indexRegister);
 
-router.post('/save',[multerFolder('avatar', 'avatars/').single('avatar'), CreateVerificator], controller.save);
+// Guardar Usuario
+router.post('/register',[multerFolder('avatar', 'avatars/').single('avatar'), CreateVerificator], controller.save)
 
 router.get('/login', guest ,controller.indexLogin);
 
