@@ -34,7 +34,12 @@ module.exports = (sequelize, dataTypes) =>{
 
     let User = sequelize.define(alias, cols, config);
     
-    
+    User.associate = (models) => {
+        User.belongsTo(models.Types , {
+            as: 'type',
+            foreignKey: 'type_id'
+        })
+    }
 
     return User;
 }

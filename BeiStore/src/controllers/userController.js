@@ -33,37 +33,47 @@ module.exports = {
         } 
     },
     loginProcess: (req, res) =>{
-        let userToLogin = user.findByField('email', req.body.email);
-        if(userToLogin){
-            if(bcrypt.compareSync( req.body.password ,userToLogin.password)){
-                delete userToLogin.password;
-                req.session.userLogged = userToLogin;
-                if(req.body.remember != undefined){
-                    res.cookie('userEmail', req.body.email, { maxAge : 1000 * 60 * 3 });
-                }
-                return res.redirect('/users/profile')
-            } else {
-                return res.render('users/login', {
-                    errores: {
-                        email:{
-                            msg:'Las credenciales son erroneas'
-                        },
-                        password:{
-                            msg:'Las credenciales son erroneas'
-                        }
-                    },
-                    oldData: req.body
-                })
-            }
-        } else{
-            res.render('users/login', {
-                errores:{
-                    email:{
-                        msg:'Email no resgistrado.'
-                    }
-                }
+        console.log(req.body);
+        let error = validationResult(req);
+        if(!error.isEmpty()){
+            return res.render("users/login", { 
+                errores: error.mapped(),
+                oldData: req.body
             })
+        } else {
+            return res.redirect('/home');
         }
+        let userToLogin = user.findByField('email', req.body.email);
+        // if(userToLogin){
+        //     if(bcrypt.compareSync( req.body.password ,userToLogin.password)){
+        //         delete userToLogin.password;
+        //         req.session.userLogged = userToLogin;
+        //         if(req.body.remember != undefined){
+        //             res.cookie('userEmail', req.body.email, { maxAge : 1000 * 60 * 3 });
+        //         }
+        //         return res.redirect('/users/profile')
+        //     } else {
+        //         return res.render('users/login', {
+        //             errores: {
+        //                 email:{
+        //                     msg:'Las credenciales son erroneas'
+        //                 },
+        //                 password:{
+        //                     msg:'Las credenciales son erroneas'
+        //                 }
+        //             },
+        //             oldData: req.body
+        //         })
+        //     }
+        // } else{
+        //     res.render('users/login', {
+        //         errores:{
+        //             email:{
+        //                 msg:'Email no resgistrado.'
+        //             }
+        //         }
+        //     })
+        // }
     },
     update: (req, res) => {
         let editUser = user.edit(req.body, req.file, req.params.id);
