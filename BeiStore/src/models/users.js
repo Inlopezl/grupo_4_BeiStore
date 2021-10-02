@@ -1,6 +1,8 @@
 const path = require('path');
 const fs = require('fs');
 const bcrypt = require('bcryptjs');
+const db = require('../database/models')
+const { Users } = db
 
 models = {
     directory: function() {
@@ -28,18 +30,23 @@ models = {
         const user = users.filter(element => element[field].includes(text));
         return user != undefined ? user: false;
     },
-    new: function(data, file) {
-        let users = this.findAll();
-        let newUser = {
-            id: users.length > 0 ? users[users.length - 1].id + 1 : 1,
+    new: (data, file)=> {
+        const admins = ['erik.sucasai@gmail.com']
+        let encontro = false
+        admins.forEach(email =>{
+            const regex = new RegExp(email, "gi");
+            if(regex.test(data.email)){
+                encontro = true
+            }
+        })
+        Users.create({
             firstName: data.firstName,
             surName: data.surName,
-            avatar: file != undefined ? file.filename : "avatar_default.jpg",
+            avatar: file != undefined? file.filename : "avatar_default.jpg",
             email: data.email,
-            password: bcrypt.hashSync(data.password, 10)
-        }
-        users.push(newUser);
-        fs.writeFileSync(this.directory(), JSON.stringify(users, null, 2));
+            password: bcrypt.hashSync(data.password, 10),
+            type_id: encontro? 2: 1
+        })
         return true;
     },
     edit: function(data, files, id) {
