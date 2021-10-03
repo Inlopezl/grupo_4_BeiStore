@@ -9,6 +9,21 @@ models = {
         let directory = path.resolve(__dirname, "../data/users.json");
         return directory;
     },
+    dato: async () => {
+        const usuariosdb = await Users.findAll()
+        let usuariosFinales = []
+        usuariosdb.forEach( usuario => {
+            usuariosFinales.push({
+                id: usuario.id,
+                firstName: usuario.firstName,
+                surName: usuario.surName,
+                avatar: usuario.avatar,
+                email: usuario.email,
+                type_id: usuario.type_id
+            })
+        })
+        return usuariosFinales
+    },
     findAll: async () => {
         try {
             const users = await Users.findAll()

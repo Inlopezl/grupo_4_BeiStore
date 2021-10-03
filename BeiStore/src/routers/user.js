@@ -19,6 +19,9 @@ router.get('/login', guest ,controller.indexLogin);
 // Proceso de datos del Login
 router.post('/login', [multerFolder('user', 'user/').single(), loggedVerificator], controller.loginProcess);
 
+// users para front end
+router.get('/datos', controller.datos)
+
 router.get('/profile', auth, controller.profile);
 
 router.get('/logout', controller.logout);

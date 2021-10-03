@@ -77,6 +77,10 @@ module.exports = {
         res.clearCookie('userEmail', { path: '/' });
         req.session.destroy();
         return res.redirect('/home');
+    },
+    datos: async (req, res) => {
+        const datos = await user.dato()
+        const final = JSON.stringify(datos)
+        return res.send(final)
     }
-
 }
