@@ -74,7 +74,7 @@ fieldset small, fieldset i[class = "fas fa-exclamation-circle"]{display: none;}
     right: 10px;
     top: 15px;
 }
-.error small{
+.error small, form small{
     width: 100%;
     text-align: left;
     margin-left: 8px;

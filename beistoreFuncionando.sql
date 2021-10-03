@@ -24,13 +24,13 @@ CREATE TABLE `users` (
   surname varchar(30)  ,
   avatar varchar(30)  ,
   email varchar(30)  UNIQUE,
-  password varchar(30) ,
+  password varchar(255) ,
   type_id int(10) unsigned ,
   FOREIGN KEY(type_id) REFERENCES types(id)
 );
 
 
-INSERT INTO `users` VALUES (1,"Erik","Sucasaire","file","erik.sucasai@gmail.com","$2a$10$lAu5GehaOyu33xSpDXjON.nzVnwchoOZ3aDmXKxTe2BBlwqo.2qs2",2);
+INSERT INTO `users` VALUES (1,"Erik","Sucasaire","avatar_1628435630355.jpg","erik.sucasai@gmail.com","$2a$10$5bShF8OQlYfxQd8pOQYSkeCgwSdHbcbrH56wzqhDG/0kcfkxITszu",2);
 
 /*******************************************/
 
@@ -100,3 +100,6 @@ INSERT INTO `product_category` VALUES ( 1, 1, 1 ), (2, 3, 1);
 
 
 /*******************************************/
+
+
+
