@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const bcrypt = require('bcryptjs');
-const db = require('../database/models')
+const db = require('../database/models');
 const { Users } = db
 
 models = {
@@ -9,21 +9,37 @@ models = {
         let directory = path.resolve(__dirname, "../data/users.json");
         return directory;
     },
-    findAll: function() {
-        let file = fs.readFileSync(this.directory(), 'utf-8');
-        const users = JSON.parse(file);
-        return users
+    findAll: async () => {
+        try {
+            const users = await Users.findAll()
+            return users
+        } catch (error) {
+            console.log(error);
+        }
     },
 
-    findByPk: function(id) {
-        let users = this.findAll();
-        const user = users.find(element => element.id == id);
-        return user != undefined ? user: false;
+    findByPk: async(id) => {
+        try {
+            const user = await Users.findByPk(id,{
+                include: [{association: 'type'}]
+            })
+            console.log(user);
+            return user;    
+        } catch (error) {
+            console.log(error);
+        }
     },
-    findByField: function(field, text){
-        let users = this.findAll();
-        const user = users.find(element => element[field] == text);
-        return user != undefined ? user: false;
+    findByEmail: async (text) => {
+        try {
+            const user = await Users.findAll({
+                where:{
+                    email: text
+                }
+            })
+            return user.pop();    
+        } catch (error) {
+            console.log(error);
+        }
     },
     findByFieldGroup: function(field, text){
         let users = this.findAll();
