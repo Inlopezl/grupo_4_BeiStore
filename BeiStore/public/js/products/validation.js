@@ -6,15 +6,8 @@ window.addEventListener('load', () => {
     const categories = document.querySelectorAll('input[name = category]')
     const brand = document.querySelector('select[name = brand]')
     const forms = document.forms
-    let form
-    for (const key in forms) {
-        if (Object.hasOwnProperty.call(forms, key)) {
-            const element = forms[key];
-            if (element.getAttribute('action') == `/products/create`) {
-                form = element
-            }
-        }
-    }
+    const formEdit = forms['edit']
+    const formCreate = forms['create']
     let  errores = [false, false, false, false, false, false]
 
     name.addEventListener('blur', (e) =>{
@@ -87,18 +80,35 @@ window.addEventListener('load', () => {
         errores[5] = error
     })
 
-    form.addEventListener('submit', (e)=> {
-        if(errores.includes(false)){
-            e.preventDefault()
-            const form = e.target
-            const smallForm = form.querySelector('form > small')
-            if (!smallForm) {
-                const small = document.createElement('small')
-                small.innerHTML = 'Complete el formulario'
-                form.appendChild(small)
+    if(formCreate){
+        formCreate.addEventListener('submit', (e)=> {
+            if(errores.includes(false)){
+                e.preventDefault()
+                const form = e.target
+                const smallForm = form.querySelector('form > small')
+                if (!smallForm) {
+                    const small = document.createElement('small')
+                    small.innerHTML = 'Complete el formulario'
+                    form.appendChild(small)
+                } 
             } 
-        } 
-    })
+        })
+    }
+    if(formEdit){
+        formEdit.addEventListener('submit', (e)=> {
+            if(errores.includes(false)){
+                e.preventDefault()
+                const form = e.target
+                const smallForm = form.querySelector('form > small')
+                if (!smallForm) {
+                    const small = document.createElement('small')
+                    small.innerHTML = 'Complete el formulario'
+                    form.appendChild(small)
+                } 
+            } 
+        })
+
+    }
     const enviarError = (condicion, mensaje, field, small) => {
         if (condicion) {
             field.classList.add('error')

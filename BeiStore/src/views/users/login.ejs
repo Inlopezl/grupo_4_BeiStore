@@ -8,7 +8,7 @@
     <%- include('../partials/header')  %>
     <main>
         <section>
-            <form method="POST" action="login" enctype="multipart/form-data">
+            <form method="POST" action="login" enctype="multipart/form-data" id="login">
                 <fieldset class=" <%= locals.errores && locals.errores.email ? 'error': '' %>  ">
                     <input type="email" name="email" id="user" placeholder="Email"
                         value ="<%= locals.oldData && oldData.email ? oldData.email: ''%>"
@@ -35,5 +35,6 @@
         </section>
     </main>
     <%- include('../partials/footer') %> 
+    <script src="/js/users/loggedValidation.js"></script>
 </body>
 </html>

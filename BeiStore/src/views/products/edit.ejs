@@ -9,7 +9,7 @@
         <main>
             <section>
                 <h2>Crear producto</h2>
-                <form action = '/products/edit/<%= producto.id %>?_method=PUT'  method = 'POST' enctype="multipart/form-data" >
+                <form action = '/products/edit/<%= producto.id %>?_method=PUT'  method = 'POST' enctype="multipart/form-data" id="edit">
                     <% let error =  locals && locals.errores %> 
                     <fieldset class=" <%= error && errores.name? 'error' : '' %>  ">
                         <input type="text" name="name" placeholder="Nombre"  
@@ -94,5 +94,6 @@
             </section>
         </main>
         <%- include('../partials/footer') %>
+        <script src="/js/products/validation.js"></script>
     </body>
 </html>
