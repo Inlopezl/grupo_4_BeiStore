@@ -3,28 +3,29 @@ window.addEventListener('load', () => {
     const description = document.querySelector('textarea[name = description]')
     const image = document.querySelector('input[name = images]')
     const price = document.querySelector('input[name = price]')
-    
+    const categories = document.querySelectorAll('input[name = category]')
+    const brand = document.querySelector('select[name = brand]')
+    const forms = document.forms
+    let form
+    for (const key in forms) {
+        if (Object.hasOwnProperty.call(forms, key)) {
+            const element = forms[key];
+            if (element.getAttribute('action') == `/products/create`) {
+                form = element
+            }
+        }
+    }
+    let  errores = [false, false, false, false, false, false]
+
     name.addEventListener('blur', (e) =>{
         let target = e.target
         let fieldset = target.parentNode;
         let small = fieldset.querySelector('small')
-        if(target.value == ''){
-            fieldset.classList.add('error')
-            small.innerHTML = 'Debe ingresar un nombre'
-            return false
-        } else {
-            fieldset.classList.remove('error')
-            small.innerHTML = ''
-        }
+        let error = enviarError(target.value == '', 'Debe ingresar un nombre', fieldset, small )
 
-        if(target.value.length < 5){
-            fieldset.classList.add('error')
-            small.innerHTML = 'El nombre debe tener al menos 5 caracteres'
-            return false
-        } else {
-            fieldset.classList.remove('error')
-            small.innerHTML = ''
-        }
+        error = error? enviarError(target.value.length < 5, 'El nombre debe tener al menos 5 caracteres', fieldset, small ) : false
+
+        errores[0] = error
         return true
     })
 
@@ -32,29 +33,39 @@ window.addEventListener('load', () => {
         let target = e.target
         let fieldset = target.parentNode;
         let small = fieldset.querySelector('small')
-        if(isNaN(parseInt(target.value))){
-            fieldset.classList.add('error')
-            small.innerHTML = 'Debe ingresar un numero'
-            return false
-        } else {
-            fieldset.classList.remove('error')
-            small.innerHTML = ''
-        }
-
+        let error = enviarError(isNaN(parseInt(target.value)), 'Debe ingresar un numero', fieldset, small )
+        error = error? enviarError(target.value < 0, 'Debe ingresar numeros mayores a 0', fieldset, small ): false
+        errores[1] = error
     })
     description.addEventListener('blur', (e) => {
         let target = e.target
         let fieldset = target.parentNode;
         let small = fieldset.querySelector('small')
-        if(target.value.length < 20){
-            fieldset.classList.add('error')
-            small.innerHTML = 'La descripcion debe tener al menos 20 caracteres'
-            return false
-        } else {
-            fieldset.classList.remove('error')
-            small.innerHTML = ''
-        }
+        let error = enviarError(target.value.length < 20, 'La descripcion debe tener al menos 20 caracteres', fieldset, small)
+        errores[2] = error
     })
+
+    let datoCategory = [false, false, false]
+    categories.forEach((category, i) =>{
+        category.addEventListener('change', (e) => {
+            let target = e.target
+            let fieldset = target.parentNode.parentNode;
+            let small = fieldset.querySelector('small')
+            datoCategory[i] = target.checked
+            let error = enviarError( !datoCategory.includes(true), 'Debe seleccionar una opcion', fieldset, small)
+            errores[3] = error
+        })
+    })
+
+    brand.addEventListener('change', (e)=> {
+        let target = e.target
+        let fieldset = target.parentNode;
+        let small = fieldset.querySelector('small')
+        let error = enviarError( target.value == -1, 'Debe seleccionar una opcion', fieldset, small)
+        errores[4] = error
+    })
+
+
     
     image.addEventListener('change', (e) => {
         let target = e.target
@@ -62,21 +73,41 @@ window.addEventListener('load', () => {
         let fieldset = target.parentNode;
         let small = fieldset.querySelector('small')
         const fileAvailable = ['jpg', 'jpeg', 'png', 'gif']
-        for(let i = 0; i < value.length ; i ++){
-            if(!fileAvailable.includes( getFileExtension(value[i].name) )){
-                target.value = null
-                fieldset.classList.add('error')
-                small.innerHTML = `El archivo debe ser una Imagen.<br>Las extensiones permitidas son ${fileAvailable.join(', ')}`
-                return false
-            } else {
-                fieldset.classList.remove('error')
-                small.innerHTML = ''
+        let error = false
+        error = enviarError(value.length == 0,'Debe ingresar una Imagen', fieldset, small )
+        if(error){
+            for(let i = 0; i < value.length ; i ++){
+                let extFile = (/[.]/.exec(value[i].name)) ? /[^.]+$/.exec(value[i].name)[0] : undefined
+                error = enviarError(!fileAvailable.includes( extFile),`El archivo debe ser una Imagen.<br>Las extensiones permitidas son ${fileAvailable.join(', ')}`, fieldset, small )
+                if(!error){
+                    target.value = null
+                }
             }
         }
+        errores[5] = error
     })
 
-    function getFileExtension(filename) {
-        // Expresion regular para extraer la extension del archivo
-        return (/[.]/.exec(filename)) ? /[^.]+$/.exec(filename)[0] : undefined;
+    form.addEventListener('submit', (e)=> {
+        if(errores.includes(false)){
+            e.preventDefault()
+            const form = e.target
+            const smallForm = form.querySelector('form > small')
+            if (!smallForm) {
+                const small = document.createElement('small')
+                small.innerHTML = 'Complete el formulario'
+                form.appendChild(small)
+            } 
+        } 
+    })
+    const enviarError = (condicion, mensaje, field, small) => {
+        if (condicion) {
+            field.classList.add('error')
+            small.innerHTML = mensaje
+            return false
+        } else {
+            field.classList.remove('error')
+            small.innerHTML = ''
+        }
+        return true
     }
 })

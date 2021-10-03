@@ -90,7 +90,7 @@ window.addEventListener('load', async () => {
             const smallForm = form.querySelector('form > small')
             if (!smallForm) {
                 const small = document.createElement('small')
-                small.innerHTML = 'Solucione los errores en el formulario'
+                small.innerHTML = 'Complete el formulario'
                 form.appendChild(small)
             } 
         } 

@@ -61,7 +61,7 @@ main section h2{
     align-items: center;
     position: relative;
 }
-.error input, .error textarea{
+.error input, .error textarea, .error select{
     border: #F20789 3px solid;
 }
 fieldset small, fieldset i[class = "fas fa-exclamation-circle"]{display: none;}
