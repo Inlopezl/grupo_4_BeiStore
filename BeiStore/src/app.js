@@ -44,6 +44,9 @@ app.use('/users', userRouter);
 const apiUser = require('./routers/api/apiUsers');
 app.use('/api/users', apiUser);
 
+const productUser = require('./routers/api/apiProducts');
+app.use('/api/products', productUser);
+
 // ruta errores 
 app.use((req, res, next) => {
     res.status(404).render('not-found');

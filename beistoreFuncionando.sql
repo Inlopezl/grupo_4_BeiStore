@@ -69,7 +69,7 @@ CREATE TABLE `products` (
   FOREIGN KEY(brand_id) REFERENCES brands (id)
 );
 
-INSERT INTO `products` VALUES (1,"Memoria RAM","Descriptio","9","2500",1);
+INSERT INTO `products` VALUES (1,"Memoria RAM","Descriptio","9","2500",2,1);
 
 /*******************************************/
 

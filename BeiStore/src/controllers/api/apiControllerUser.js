@@ -10,7 +10,15 @@ module.exports = {
         return res.send(JSON.stringify(resultado))
     },
     detalle: async (req, res) => {
-        const usuario = await user.findOne(req.params.id)
+        const ruta = req.protocol + '://' + req.get('host') + req.originalUrl 
+        const usuario = await user.findOne(req.params.id, ruta)
         return res.send(usuario)
+    },
+    enviarImagen: async(req, res) => {
+        const image = await user.findImage(req.params.name, req.params.id)
+        if (image) {
+            return res.sendFile(image);
+        }
+        return res.send({error: 'imagen no encontrada'})
     }
 }
