@@ -37,12 +37,13 @@ models = {
                 description: data.description,
                 off: data.off,
                 price: data.price,
+                sales: 0,
                 brand_id: data.brand
             })
             const products = await Products.findAll();
             images.forEach(img => {
                 db.Images.create({
-                    image: img,
+                    name: img,
                     product_id: products.length + 1 
                 })
             })
@@ -73,7 +74,7 @@ models = {
                 fs.unlinkSync(path.resolve(__dirname, "../../public/images/productos/", img))
                 db.Images.destroy({
                     where: {
-                        image: img,
+                        name: img,
                         product_id: id
                     }
                 })
@@ -82,7 +83,7 @@ models = {
             fs.unlinkSync(path.resolve(__dirname, "../../public/images/productos/", data.deleteImage))
             db.Images.destroy({
                 where:{
-                    image: data.deleteImage,
+                    name: data.deleteImage,
                     product_id: id
                 }
             })
@@ -90,7 +91,7 @@ models = {
         if(files){
             files.forEach(img => {
                 db.Images.create({
-                    image: img.filename,
+                    name: img.filename,
                     product_id: id
                 })
             });

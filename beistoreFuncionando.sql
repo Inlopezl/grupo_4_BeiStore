@@ -10,7 +10,7 @@ DROP TABLE IF EXISTS `types`;
 
 CREATE TABLE `types` (
   `id` int(10) unsigned PRIMARY KEY AUTO_INCREMENT,
-  `type` char(10));
+  `name` char(10));
 
 INSERT INTO `types` VALUES (1,"user"),(2,"admin");
 
@@ -38,7 +38,7 @@ DROP TABLE IF EXISTS `categories`;
 
 CREATE TABLE `categories` (
   `id` int(10) unsigned PRIMARY KEY  AUTO_INCREMENT,
-  `category` char(30) );
+  `name` char(30) );
 
 INSERT INTO `categories` VALUES (1,"destacado"), (2, "accesorios"), (3, "perifericos");
 
@@ -49,7 +49,7 @@ DROP TABLE IF EXISTS `brands`;
 
 CREATE TABLE `brands` (
   `id` int(10) unsigned PRIMARY KEY AUTO_INCREMENT,
-  `brand` char(30)
+  `name` char(30)
 );
 
 INSERT INTO `brands` VALUES (1,"kingston"), (2, "ryzen"), (3, "intel");
@@ -64,6 +64,7 @@ CREATE TABLE `products` (
   description varchar(255),
   off int(3) ,
   price int(255) ,
+  sales int(255),
   brand_id int(10) unsigned,
   FOREIGN KEY(brand_id) REFERENCES brands (id)
 );
@@ -76,7 +77,7 @@ DROP TABLE IF EXISTS `images`;
 
 CREATE TABLE `images` (
   `id` int(10) unsigned PRIMARY KEY AUTO_INCREMENT,
-  `image` varchar(255),
+  `name` varchar(255),
   `product_id` int(10) unsigned,
   FOREIGN KEY(product_id) REFERENCES products(id)
 );

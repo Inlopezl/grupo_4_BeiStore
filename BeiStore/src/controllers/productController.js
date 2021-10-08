@@ -60,11 +60,12 @@ module.exports = {
             const brands = await db.Brands.findAll();
             let error = validationResult(req)
             if (!error.isEmpty()) {
+                req.body.category = req.body.category && req.body.category.length == 1 ? [req.body.category]: req.body.category
                 res.render('products/create', {
                     categories,
                     brands,
                     errores: error.mapped(),
-                    oldData: req.body
+                    oldData: req.body,
                 })
             } else {
                 console.log(req.body);
@@ -82,8 +83,8 @@ module.exports = {
             const producto = await product.one(req.params.id)
             const brands = await db.Brands.findAll();
             let error = validationResult(req)
-            console.log(error);
             if (!error.isEmpty()) {
+                req.body.category = req.body.category && req.body.category.length == 1 ? [req.body.category]: req.body.category
                 res.render('products/edit', {
                     producto,
                     categories,

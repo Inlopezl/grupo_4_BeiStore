@@ -62,6 +62,7 @@ main section{width: 90%;}
     font-weight: bold;
     margin: 10px 0px;
     transition: all .35s;
+    max-height: 38px;
 }
 
 .btnRosa{
@@ -69,6 +70,7 @@ main section{width: 90%;}
     border-radius: 8px;
     width: 100%;
     padding: 10px;
+    max-height: 38px;
     background-color: #F20789;
     color: #fff;
     font-weight: bold;

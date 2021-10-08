@@ -29,9 +29,9 @@
                     <fieldset>
                         <% producto.images.forEach(element =>{ %>
                             <label  class="card-images <%= (producto.images.length >= 3 )? 'widthTercio': 'widthFull' %>" >
-                                <img src="/images/productos/<%= element.image %>">
-                                <input type="checkbox" value="<%= element.image %>" name="deleteImage">
-                                <input type="hidden" value="<%= element.image %>" name="imagenesViejas" >
+                                <img src="/images/productos/<%= element.name %>">
+                                <input type="checkbox" value="<%= element.name %>" name="deleteImage">
+                                <input type="hidden" value="<%= element.name %>" name="imagenesViejas" >
                                 <p>Eliminar</p>
                             </label>
                         <% })  %>
@@ -49,12 +49,13 @@
                         <% categories.forEach(element => { %>
                             <label class="flex widthFull alignCenter marginTBSmall">
                                 <input type="checkbox" name="category" value="<%= element.id %>" 
-                                <%= locals.oldData && locals.oldData.category? oldData.category.indexOf(element.category) != -1? 'checked' : '' : '' %>
-                                <% producto.categories.forEach(categoria => { %>
-                                    <%= element.category == categoria.category? 'checked': '' %> 
-                                <% }) %>
+                                <%= locals.oldData && locals.oldData.category? oldData.category
+                                .includes(`${element.name}`) ? 'checked' : '' : '' %>
+                                <% producto.categories.forEach(category => { %>
+                                    <%= category.name == element.name? 'checked': '' %> 
+                                <% }) %> 
                                 >
-                                <p><%= element.category %></p>
+                                <p><%= element.name %></p>
                             </label>
                         <% }) %>
                         <small><%= ( error && errores.category) ? errores.category.msg : '' %></small>
@@ -66,7 +67,7 @@
                             <% brands.forEach(brand => { %>
                                 <option value="<%= brand.id %>"
                                     <%= locals.oldData && locals.oldData.brand? (oldData.brand == brand.id)? 'selected': '' : (producto.brand_id == brand.id)? 'selected': ''  %> 
-                                    ><%= brand.brand %></option>
+                                    ><%= brand.name %></option>
                             <% }) %>
                         </select>
                         <small><%= ( error && errores.brand) ? errores.brand.msg : '' %></small>

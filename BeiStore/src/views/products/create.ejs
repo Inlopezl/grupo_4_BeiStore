@@ -34,11 +34,11 @@
                 
                     <fieldset class="widthFull flex <%= ( error && errores.category)? 'error' : '' %>  ">
                         <label class="widthFull marginTBSmall">Categoria</label>
-                        <% categories.forEach(element => { %>
+                        <% categories.forEach(category => { %>
                             <label class="flex widthFull alignCenter marginTBSmall">
-                                <input type="checkbox" name="category" value="<%= element.id %>" 
-                                <%= locals.oldData && locals.oldData.category?oldData.category.indexOf(element.id) != -1 ? 'checked' : '' : '' %> >
-                                <p><%= element.category %></p>
+                                <input type="checkbox" name="category" value="<%= category.id %>" 
+                                <%= locals.oldData && locals.oldData.category? oldData.category.includes(`${category.id}`) ? 'checked' : '' : '' %> >
+                                <p><%= category.name %></p>
                             </label>
                         <% }) %>
                         <small><%= ( error && errores.category) ? errores.category.msg : '' %></small>
@@ -51,7 +51,7 @@
                             <% brands.forEach(brand => { %>
                                 <option value="<%= brand.id %>"
                                     <%= locals.oldData && locals.oldData.brand? oldData.brand == brand.id? 'selected': '' : '' %> 
-                                    ><%= brand.brand %></option>
+                                    ><%= brand.name %></option>
                             <% }) %>
                         </select>
                         <small><%= ( error && errores.brand) ? errores.brand.msg : '' %></small>
@@ -70,7 +70,6 @@
                         <i class="fas fa-exclamation-circle"></i>
                         <small><%= ( error && errores.price) ? errores.price.msg : '' %></small>
                     </fieldset>
-                        
                     <button type="submit" class="btnCian">Enviar</button>
                 </form>
             </section>
