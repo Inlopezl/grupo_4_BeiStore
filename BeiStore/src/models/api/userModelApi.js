@@ -28,7 +28,7 @@ const models = {
                 resultado.id = user.id
                 resultado.firstName = user.firstName,
                 resultado.surName = user.surName,
-                resultado.avatar = ruta + 'image/' + user.avatar,
+                resultado.avatar = ruta + '/image/' + user.avatar,
                 resultado.email = user.email
             } else {
                 resultado.error = 'Usuario no encontrado'
