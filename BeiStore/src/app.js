@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const cors = require('cors')
 // server
-app.listen(process.env.PORT || 3000, () => console.log("Server on http://localhost:3000"));
+app.listen(process.env.PORT || 8080, () => console.log("Server on http://localhost:8080"));
+app.use(cors())
 
 // set view engine
 app.set('view engine', 'ejs');
