@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-// server
-app.listen(process.env.PORT || 3000, () => console.log("Server on http://localhost:3000"));
+const cors = require('cors');
+app.use(cors())
+    // server
+app.listen(process.env.PORT || 3001, () => console.log("Server on http://localhost:3001"));
 
 // set view engine
 app.set('view engine', 'ejs');
@@ -30,6 +32,7 @@ app.use(userMw);
 //method override
 const method = require('method-override');
 app.use(method('_method'));
+
 
 //rutas
 const homeRouter = require('./routers/home');
