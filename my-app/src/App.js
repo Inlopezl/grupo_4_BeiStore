@@ -1,8 +1,9 @@
-import Fetch from './components/Fetch';
+import Grid from "./components/Grid";
+
 import './App.css';
 
 function App() {
-    return (<Fetch/>);
+    return (<Grid/>);
 }
 
 export default App;

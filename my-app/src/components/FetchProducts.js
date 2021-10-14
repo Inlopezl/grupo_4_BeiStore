@@ -1,25 +1,26 @@
 import React  from "react";
 import { Fragment, useState, useEffect } from "react";
 
-function Fetch () {
+function FetchProducts () {
 
     const [products, setProducts] = useState({})
 
     useEffect(() =>{
 
-        fetch("http://localhost:3001/api/products")
+        fetch("http://localhost:8080/api/products")
             .then(response =>{
                     return response.json()                
             })
             .then( products =>{
-                setProducts(products)
+                    setProducts(products) 
+                    console.log(products);
             })
             .catch((error) => console.error(error))
 
     }, [])
 
-    return(<div></div>)
+    return(<div>{products.count}</div>)
     
    };
 
-export default Fetch;
+export default FetchProducts;
