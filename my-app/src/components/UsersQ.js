@@ -29,7 +29,7 @@ function UsersQ () {
                 <Card >
                     <CardActionArea>
                         <CardContent>                
-                            Cantidad de usuarios {users.count}
+                            Cantidad de usuarios: {users.count}
                         </CardContent>
                     </CardActionArea>
                 </Card>

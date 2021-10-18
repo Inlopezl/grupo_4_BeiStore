@@ -5,18 +5,18 @@ import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
 
-function ProductsQ () {
+function LastUser () {
 
-    const [products, setProducts] = useState({})
+    const [users, setUsers] = useState({})
 
     useEffect(() =>{
 
-        fetch("http://localhost:8080/api/products")
+        fetch("http://localhost:8080/api/users")
             .then(response =>{
                     return response.json()                
             })
-            .then( products =>{
-                    setProducts(products) 
+            .then(users =>{
+                    setUsers(users.lastUser) 
             })
             .catch((error) => console.error(error))
 
@@ -25,10 +25,10 @@ function ProductsQ () {
     return(
     <Fragment>
         <Paper elevation={3} boxshadow={1} border={5} >
-            <Card >
+            <Card>
                 <CardActionArea>
-                    <CardContent>               
-                        Cantidad de productos: {products.count}
+                    <CardContent>
+                           Ultimo usuario creado: {users.firstName}
                     </CardContent>
                 </CardActionArea>
             </Card>
@@ -38,4 +38,4 @@ function ProductsQ () {
 
    };
 
-export default ProductsQ;
+export default LastUser;

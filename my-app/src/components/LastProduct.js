@@ -29,7 +29,7 @@ function LastProduct () {
             <Card >
                 <CardActionArea>
                     <CardContent>
-                            {products.name}
+                           Ultimo producto creado: {products.name}
                     </CardContent>
                 </CardActionArea>
             </Card>

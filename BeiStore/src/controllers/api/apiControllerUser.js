@@ -5,7 +5,8 @@ module.exports = {
         const users = await user.findAll(req)
         let resultado = {
             count: users.length,
-            users
+            users,
+            lastUser: users[users.length-1],
         }
         return res.send(JSON.stringify(resultado))
     },

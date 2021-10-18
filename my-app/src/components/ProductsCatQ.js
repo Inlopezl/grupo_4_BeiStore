@@ -34,7 +34,7 @@ function ProductsCatQ () {
            <Card>
                 <CardActionArea>
                     <CardContent>   
-                        {element.name} {element.countCat}             
+                        {element.name}: {element.countCat}             
                     </CardContent>
                 </CardActionArea>
             </Card>

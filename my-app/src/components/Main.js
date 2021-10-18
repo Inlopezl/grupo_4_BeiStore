@@ -3,6 +3,7 @@ import ProductsQ from "./ProductsQ" //Registro de la Cantidad de Productos
 import ProductsCatQ from "./ProductsCatQ" // Registro de la Cantidad de Categorias
 import UsersQ from "./UsersQ" // Registro de la Cantidad de Usuarios
 import LastProduct from "./LastProduct" // Registro del ultimo Producto
+import LastUser from "./LastUser" // Registro del ultimo Usuario
 
 function Main() {
     return (
@@ -17,6 +18,7 @@ function Main() {
 
             <LastProduct/>
             
+            <LastUser/>
             
         </main>
         
