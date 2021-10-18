@@ -1,10 +1,11 @@
 import {Fragment} from "react"
 import Main from "./components/Main"
+import Header from "./components/Header"
 
 function App() {
     return (
         <Fragment>
-            <header></header>
+            <Header/>
             <Main/> 
         </Fragment>
     );
