@@ -16,19 +16,20 @@ function LastProduct () {
                     return response.json()                
             })
             .then( products =>{
-                    setProducts(products) 
+                    setProducts(products.lastProduct) 
             })
             .catch((error) => console.error(error))
 
     }, [])
+
 
     return(
     <Fragment>
         <Paper elevation={3} boxshadow={1} border={5} >
             <Card >
                 <CardActionArea>
-                    <CardContent>                
-                        Cantidad de productos {products.count}
+                    <CardContent>
+                            {products.name}
                     </CardContent>
                 </CardActionArea>
             </Card>

@@ -28,7 +28,7 @@ function ProductsQ () {
             <Card >
                 <CardActionArea>
                     <CardContent>                
-                        Ultimo producto creado {products.lastProduct}
+                        Cantidad de productos {products.count}
                     </CardContent>
                 </CardActionArea>
             </Card>
