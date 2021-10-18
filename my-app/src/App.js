@@ -1,9 +1,13 @@
-import Grid from "./components/Grid";
-
-import './App.css';
+import {Fragment} from "react"
+import Main from "./components/Main"
 
 function App() {
-    return (<Grid/>);
+    return (
+        <Fragment>
+            <header></header>
+            <Main/> 
+        </Fragment>
+    );
 }
 
 export default App;

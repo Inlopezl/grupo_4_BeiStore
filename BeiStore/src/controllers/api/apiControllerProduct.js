@@ -4,14 +4,16 @@ module.exports = {
     datosGenerales: async(req, res) => {
         const productos =await product.findAll(req)
         const categorias = await product.findAllCategories()
-        let datoCategories = {}
+        let datoCategories = []
         categorias.forEach(categoria => {
-            datoCategories[categoria.name] = categoria.products.length
+            let category = {name: categoria.name, countCat: categoria.products.length}
+            datoCategories.push(category)
         })
         let resultado = {
             count: productos.length,
             countByCategory: datoCategories,
-            products: productos
+            products: productos,
+            lastProduct: productos[productos.length - 1] 
         }
 
         return res.send(JSON.stringify(resultado))
