@@ -27,7 +27,7 @@ function ProductsCatQ () {
 
     return(
     <Fragment>
-        <Paper elevation={3} boxshadow={1} border={5}>
+        <Paper elevation={3} boxshadow={1} border={5}  >
 
             <Card>
                 <CardActionArea>
@@ -36,6 +36,8 @@ function ProductsCatQ () {
                     </CardContent>
                 </CardActionArea>
             </Card>
+
+            
 
            {categories.map(element => (  
            

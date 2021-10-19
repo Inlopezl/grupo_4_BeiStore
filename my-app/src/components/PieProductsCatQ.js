@@ -45,7 +45,6 @@ function PieProductsCatQ () {
                             data={result}
                             options={{
                                 title: 'Categorias',
-                                // Just add this option
                                 is3D: true,
                             }}
                             rootProps={{ 'data-testid': '2' }}

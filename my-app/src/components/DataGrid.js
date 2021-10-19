@@ -45,8 +45,8 @@ export default function CustomToolbarGrid() {
       <DataGrid
         columns={[
             { field: 'id', width: 150, headerName: 'ID'},
-            { field: 'name', width: 150 },
-            { field: 'price', width: 150 },
+            { field: 'name', width: 150 , headerName: 'NAME'},
+            { field: 'price', width: 150 , headerName: 'PRICE'},
           ]}
           rows={products}
         components={{
