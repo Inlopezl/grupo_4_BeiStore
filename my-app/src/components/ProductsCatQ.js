@@ -29,7 +29,15 @@ function ProductsCatQ () {
     <Fragment>
         <Paper elevation={3} boxshadow={1} border={5}  >
 
-           {categories.map(element => ( 
+            <Card>
+                <CardActionArea>
+                    <CardContent>   
+                       Cantidad de categorias: {categories.length}             
+                    </CardContent>
+                </CardActionArea>
+            </Card>
+
+           {categories.map(element => (  
            
            <Card>
                 <CardActionArea>

@@ -26,7 +26,7 @@ function LastProduct () {
     return(
     <Fragment>
         <Paper elevation={3} boxshadow={1} border={5} >
-            <Card >
+            <Card>
                 <CardActionArea>
                     <CardContent>
                            Ultimo producto creado: {products.name}

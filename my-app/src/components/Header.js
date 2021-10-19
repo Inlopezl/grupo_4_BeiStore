@@ -6,6 +6,8 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import { deepPurple } from '@mui/material/colors';
+
 
 function Header() {
     return (
@@ -18,7 +20,7 @@ function Header() {
           <IconButton
             size="large"
             edge="start"
-            color="inherit"
+            color= "inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
           >
@@ -31,7 +33,7 @@ function Header() {
         </Toolbar>
       </AppBar>
     </Box>
-            
+              
         </header>
         
       );
