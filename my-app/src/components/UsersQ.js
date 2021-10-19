@@ -2,8 +2,10 @@ import React  from "react";
 import { Fragment, useState, useEffect } from "react";
 import Paper from '@mui/material/Paper';
 import Card from '@mui/material/Card';
+import Box from '@mui/material/Box';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 
 function UsersQ () {
 
@@ -29,7 +31,7 @@ function UsersQ () {
                 <Card >
                     <CardActionArea>
                         <CardContent>                
-                            Cantidad de usuarios: {users.count}
+                           <Typography sx={{textAlign: 'center'}}>Usuarios<Box>{users.count}</Box></Typography>
                         </CardContent>
                     </CardActionArea>
                 </Card>

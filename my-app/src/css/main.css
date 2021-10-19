@@ -1,0 +1,10 @@
+main{ 
+    background-color: lightgray;
+}
+
+main .divider{
+    height: 5vh
+}
+.toolbar {
+    background-color: #3805F2;
+}

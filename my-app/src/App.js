@@ -2,11 +2,12 @@ import {Fragment} from "react"
 import Main from "./components/Main"
 import Header from "./components/Header"
 
+
 function App() {
     return (
-        <Fragment>
-            <Header/>
-            <Main/> 
+        <Fragment>            
+                <Header/>
+                <Main/> 
         </Fragment>
     );
 }

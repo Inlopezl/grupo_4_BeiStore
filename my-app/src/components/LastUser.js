@@ -2,8 +2,10 @@ import React  from "react";
 import { Fragment, useState, useEffect } from "react";
 import Paper from '@mui/material/Paper';
 import Card from '@mui/material/Card';
+import Box from '@mui/material/Box';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 
 function LastUser () {
 
@@ -28,7 +30,7 @@ function LastUser () {
             <Card>
                 <CardActionArea>
                     <CardContent>
-                           Ultimo usuario creado: {users.firstName}
+                        <Typography sx={{textAlign: 'center'}}> Ultimo usuario <Box> {users.firstName} </Box> </Typography>
                     </CardContent>
                 </CardActionArea>
             </Card>
