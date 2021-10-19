@@ -2,8 +2,10 @@ import React  from "react";
 import { Fragment, useState, useEffect } from "react";
 import Paper from '@mui/material/Paper';
 import Card from '@mui/material/Card';
+import Box from '@mui/material/Box';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';  
 
 function LastProduct () {
 
@@ -29,7 +31,7 @@ function LastProduct () {
             <Card>
                 <CardActionArea>
                     <CardContent>
-                           Ultimo producto creado: {products.name}
+                        <Typography sx={{textAlign: 'center'}}> Ultimo producto <Box> {products.name}</Box> </Typography>
                     </CardContent>
                 </CardActionArea>
             </Card>

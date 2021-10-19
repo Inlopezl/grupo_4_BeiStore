@@ -1,0 +1,7 @@
+main{ 
+    background-color: lightgray;
+}
+
+main .divider{
+    height: 5vh
+}

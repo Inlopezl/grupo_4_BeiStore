@@ -1,4 +1,6 @@
 import React from 'react'
+import { Fragment } from "react";
+
 import ProductsQ from "./ProductsQ" //Registro de la Cantidad de Productos
 import ProductsCatQ from "./ProductsCatQ" // Registro de la Cantidad de Categorias
 import PieProductsCatQ from "./PieProductsCatQ" // Grafico de la Cantidad de Categorias
@@ -9,29 +11,44 @@ import DataGrid from "./DataGrid" // Tabla de datos
 import Masonry from '@mui/lab/Masonry';
 import MasonryItem from '@mui/lab/MasonryItem';
 import Divider from '@mui/material/Divider';
+import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
+import Theme from './Theme.js'
+import '../css/main.css';
 
 
-let components = [<ProductsQ/>,<ProductsCatQ/>,<PieProductsCatQ/>,<UsersQ/>,<LastProduct/>,<LastUser/>,<DataGrid/>]
+let components = [<ProductsQ/>,<ProductsCatQ/>,<UsersQ/>,<LastProduct/>,<LastUser/>,<PieProductsCatQ/>]
 
 function Main() {
     return (
+    <Fragment>
+
+
 
         <main>
-  
-            
-            <Masonry columns={2} spacing={3}>
+
+            <Divider className="divider">  </Divider>
+
+            <Masonry columns={3} spacing={2}>
                 {components.map((item, index) => (
                     <MasonryItem key={index}>
                         {item}
                     </MasonryItem>
                 ))}
             </Masonry>  
-          
-      
-                    
-               
+
+            <Divider className="divider">  </Divider>
+
         </main>
         
+        
+
+        <section class="dataGrid">
+            <DataGrid/>
+        </section>
+
+        
+
+    </Fragment>   
       );
 }
 
