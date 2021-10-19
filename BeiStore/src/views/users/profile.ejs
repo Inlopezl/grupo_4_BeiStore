@@ -2,17 +2,45 @@
 <html lang="es">
 <head>
     <%- include('../partials/head') %> 
-    <link rel="stylesheet" href="/styles/form.css">
+    <link rel="stylesheet" href="/styles/profile.css">
 </head>
-<body>
+<body class="bgcAzul">
     <%- include('../partials/header')  %>
-    <main>
-        <section>
-            <h2><%= userLogged.firstName %></h2>
-            <img src="/images/avatars/<%= userLogged.avatar %>" alt="avatar">
-            <small class="btnCian marginTB "><%= userLogged.email %> </small>
-            <a class = "btnRosa" href="/users/logout">Cerrar sesion</a>
+    <main class="bgcAzul">
+        <section class="flex justAround avatar">
+            <img src="/images/avatars/<%= userLogged.avatar %>" alt="" class="image">
+            <div>
+                <h2><%= userLogged.firstName + ' ' + userLogged.surName %>
+                    <p><%= userLogged.type_id == 2 ? 'Admin': 'User' %></p>
+                </h2>
+            </div>
         </section>
+        <section class="datos">
+            <article>
+                <p>Nombre</p>
+                <p><%= userLogged.firstName %></p>
+            </article>
+            <article>
+                <p>Apellido</p>
+                <p><%= userLogged.surName %></p>
+            </article>
+            <article>
+                <p>Email</p>
+                <p><%= userLogged.email %></p>
+            </article>
+            <a href="#" class="bgcVioleta blanco">Editar Usuario <i class="fas fa-edit"></i></a>
+            <a href="/users/logout" class="bgcRosa blanco">Cerrar sesion <i class="fas fa-sign-out-alt"></i></a>
+            <% if (userLogged.type_id == 2) { %>
+                <acticle class="herramientas">
+                    <h3>Herramientas</h3>
+                    <a href="/products/create" class="bgcCian azul">Crear producto <i class="fas fa-hammer"></i></a>
+                    <a href="#" class="bgcVioleta blanco">Editar productos <i class="fas fa-edit"></i></a>
+                    <a href="http://localhost:3000/" class="bgcCian azul">Dash <i class="fas fa-chart-line"></i></a>
+                </acticle>
+            <% } %>
+        </section>
+        <!-- <small class=""></small>
+        <a class = "" href="/users/logout">Cerrar sesion</a> -->
     </main>
     <%- include('../partials/footer') %> 
 </body>

@@ -23,7 +23,6 @@ models = {
             const user = await Users.findByPk(id,{
                 include: [{association: 'type'}]
             })
-            console.log(user);
             return user;    
         } catch (error) {
             console.log(error);
@@ -106,16 +105,6 @@ models = {
         });
 
         fs.writeFileSync(this.directory(), JSON.stringify(products, null, 2));
-        return true;
-    },
-    delete: function(id) {
-        //trae todos los usuarios
-        let users = this.all();
-        //elimina las imagenes del usuario
-        this.one(id).image.forEach(element => fs.unlinkSync(path.resolve(__dirname, "../../public/images/usuarios/", element)))
-        //guarda todos los usuarios en la misma variable
-        users = users.filter(element => element.id != id);
-        fs.writeFileSync(this.directory(), JSON.stringify(users, null, 2));
         return true;
     },
 

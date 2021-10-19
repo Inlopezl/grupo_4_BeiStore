@@ -3,7 +3,7 @@ module.exports = (req, res, next) =>{
     res.locals.isLogged = false;
 
     if(req.cookies.userEmail){
-        let userLogged = user.findByField('email', req.cookies.userEmail);
+        let userLogged = user.findByEmail( req.cookies.userEmail);
         req.session.userLogged = userLogged;
     }
 
