@@ -31,7 +31,7 @@ function LastProduct () {
         <Paper elevation={3} boxshadow={1} border={5} >
             <Card>
                 <Typography variant="h6" sx={{textAlign: 'center'}}> Ultimo producto </Typography>
-                <CardActionArea>
+                <CardActionArea href={products.detail}>
                 <CardHeader 
                     avatar={
                     <Avatar src={products.image}  aria-label="recipe"/>

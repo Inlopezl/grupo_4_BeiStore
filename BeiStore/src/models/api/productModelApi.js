@@ -17,7 +17,8 @@ const models = {
                     brand: product.brand.name,
                     categories: product.categories.map(categoria => categoria.name),
                     image: "http://localhost:8080/images/productos/"+product.images[0].name,
-                    detail: req.protocol + '://' + req.get('host') + req.originalUrl + product.id
+                    detail: "http://localhost:8080/products/"+product.id,
+                    Apidetail: req.protocol + '://' + req.get('host') + req.originalUrl + product.id
                 })
             })
             return result
