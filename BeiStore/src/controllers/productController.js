@@ -104,16 +104,13 @@ module.exports = {
         product.delete(req.params.id);
         return res.redirect('/home');
     },
-    cartUpload: (req, res)=>{
-        // if(req.session.userLogged){
-        //     user_id = req.session.userLogged.id
-        // } else {
-        //     return res.redirect('/users/login')
-        // }
-        console.log(req.body);
-        if (req.body) {
-            product.itemUpload(req.body)
+    cartUpload: async(req, res)=>{
+        if(req.session.userLogged){
+            user_id = req.session.userLogged.id
+        } else {
+            return res.redirect('/users/login')
         }
+        product.itemUpload(req.body,user_id)
         return res.redirect('/home')
     }
 }

@@ -177,19 +177,22 @@ models = {
         }
         return true;
     },
-    itemUpload: ( dato) =>{
-        // try {
-        //     const items = await db.Cart.findAll({
-        //         include: [{association: 'user'},{association: 'item'}]
-        //     })
-        //     return items
-        // } catch (error) {
-        //     console.log(error);
-        // }
-        db.Items.create({
-            quantity: dato.quantity,
-            product_id: dato.id
-        })
+    itemUpload:async ( dato, id) =>{
+        try {
+            const items = await db.Items.findAll()
+            db.Items.create({
+                quantity: dato.quantity,
+                product_id: dato.id
+            })
+            db.Cart.create({
+                item_id: items[items.length -1].id + 1,
+                user_id: id,
+                paid: false
+            })
+            return items
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
 module.exports = models;
