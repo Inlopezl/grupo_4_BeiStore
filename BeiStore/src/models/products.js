@@ -7,6 +7,14 @@ models = {
         let directory = path.resolve(__dirname, "../data/products.json");
         return directory;
     },
+    category: async () =>{
+        try {
+            const categories = await db.Categories.findAll()
+            return categories
+        } catch (error) {
+            console.log(error);
+        }
+    },
     all: async () => {
         try {
             const products = await db.Products.findAll({
@@ -165,6 +173,20 @@ models = {
             console.log(error);
         }
         return true;
+    },
+    itemUpload: ( dato) =>{
+        // try {
+        //     const items = await db.Cart.findAll({
+        //         include: [{association: 'user'},{association: 'item'}]
+        //     })
+        //     return items
+        // } catch (error) {
+        //     console.log(error);
+        // }
+        db.Items.create({
+            quantity: dato.quantity,
+            product_id: dato.id
+        })
     }
 }
 module.exports = models;

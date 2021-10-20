@@ -17,22 +17,14 @@ window.addEventListener('load', async ()=>{
 
         let error = enviarError(target.value == '','Debe ingresar un email' , fieldset, small)
         error = error? enviarError(!regex.test(target.value) ,'Formato de email invalido' , fieldset, small) : false
-        // error = error? enviarError(!emails.includes(target.value),'El email no esta registrado' , fieldset, small) : false
-        // error = error? emails.map(email => {
-        //     console.log(email);
-        //     const regexCompare = new RegExp(email, "gi");
-        //     let encontro = enviarError(!regexCompare.test(target.value),'El email no esta registrado' , fieldset, small)
-        //     if (encontro) {
-        //         return encontro
-        //     }
-        // }): false
-        const emailEnBase = emails.map(email => {
+
+        const emailEnBase = error? emails.map(email => {
             const regexCompare = new RegExp(email, "gi");
             let encontro = enviarError(!regexCompare.test(target.value),'El email no esta registrado' , fieldset, small)
             if (encontro) {
                 return encontro
             }
-        }).includes(true)
+        }).includes(true) : false
         
         error = error? enviarError(!emailEnBase,'El email no esta registrado' , fieldset, small) : false
         

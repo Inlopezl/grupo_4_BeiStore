@@ -39,6 +39,14 @@ module.exports = (sequelize, dataTypes) =>{
             as: 'type',
             foreignKey: 'type_id'
         })
+
+        // User.belongsToMany(models.Cart , {
+        //     as: 'carrito',
+        //     through: 'cart',
+        //     foreignKey: 'user_id',
+        //     otherKey: 'item_id',
+        //     timestamps: false
+        // })
     }
 
     return User;
