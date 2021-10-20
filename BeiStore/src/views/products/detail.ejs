@@ -15,17 +15,12 @@
                 </article>
                 <article class="informacion-de-pago">    
                     <h2 class="name-producto"><%= producto.name %></h2>  
+                    <p class="descripcion">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae cumque explicabo atque aut, dolor vel, provident ratione sapiente, porro cupiditate illum? Amet, laborum nobis voluptatum dolore optio exercitationem quisquam tempora.</p>
                     <p class="name-dato">Precio</p>             
                     <p class="dato">$<%= producto.price %></p>
                     <p class="name-dato">Descuento</p>             
                     <p class="dato"> <%= producto.off %>% </p>
                     <button type="submit">Agregar al Carrito</button>
-                </article>
-            </section>
-            <section class="description">
-                 <article>
-                    <h2>Descripción de producto</h2>
-                    <p><%= producto.description %></p>
                 </article>
             </section>
         <% } else { %>

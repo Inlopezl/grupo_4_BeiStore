@@ -25,7 +25,7 @@ main section{
 .product{
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: flex-start;
 }
 h2{
@@ -37,6 +37,12 @@ h2{
 }
 h2::first-letter {
     text-transform: uppercase;
+}
+.descripcion {
+    width: 100%;
+    margin-top: 8px;
+    color: #fff;
+    margin-bottom: 8px;
 }
 
 .name-dato, .dato{
@@ -66,10 +72,8 @@ main section article button{
     border-radius: 8px;
     border: 0px;
 }
-.description p{
-    margin-top: 8px;
-    color: #fff;
-}
+
+
 
 @media (min-width: 768px){
     .product article{
