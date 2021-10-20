@@ -9,50 +9,35 @@
     <main>
         <section class="productos">
             <h2>Productos</h2>
-            <article class="producto-del-carrito">
-                <img src="/images/productos/producto.jpg" alt="producto">
-                <div>
-                    <p class="name-producto">Nombre del Producto</p>    
-                    <p class="descripcion">descripcion</p> 
-                    <form action="/">
-                        <label for="cantidad">Cantidad</label>
-                        <input type="number" name="cantidad-del-producto" min="0" max="10" value="1" id="cantidad">
-                    </form>
-                    <p class="button-exit">x</p>
-                </div>
-            </article>
-            <article class="producto-del-carrito">
-                <img src="/images/productos/producto.jpg" alt="producto">
-                <div>
-                    <p class="name-producto">Nombre del Producto</p>    
-                    <p class="descripcion">descripcion</p> 
-                    <form action="/">
-                        <label for="cantidad">Cantidad</label>
-                        <input type="number" name="cantidad-del-producto" min="0" max="10" value="1" id="cantidad">
-                    </form>
-                    <p class="button-exit">x</p>
-                </div>
-            </article>
-            <article class="producto-del-carrito">
-                <img src="/images/productos/producto.jpg" alt="producto">
-                <div>
-                    <p class="name-producto">Nombre del Producto</p>    
-                    <p class="descripcion">descripcion</p> 
-                    <form action="/">
-                        <label for="cantidad">Cantidad</label>
-                        <input type="number" name="cantidad-del-producto" min="0" max="10" value="1" id="cantidad">
-                    </form>
-                    <p class="button-exit">x</p>
-                </div>
-            </article>
+            <% cart.forEach(item => { %>
+                <article class="producto-del-carrito">
+                    <img src="/images/productos/<%= item.image %>" alt="producto">
+                    <div>
+                        <p class="name-producto"><%= item.name %></p>     
+                        <p>Cantidad : <%= item.quantity  %></p>
+                        <p>Precio : <%= item.quantity * item.price  %></p>
+                        <% if (item.off > 0) { %>
+                            <p>Descuento : <%= item.off  %>%</p>
+                        <% } %>
+                        <p class="button-exit">x</p>
+                    </div>
+                </article>
+            <% }) %>
         </section>
         <section class="ticket">
             <article class="resumen-de-cuenta">
+                <% let total = 0, descuento = 0 %> 
+                <% cart.forEach(item => { %>
+                    <% total += item.quantity * item.price %> 
+                    <% descuento += (item.quantity * item.price) * item.off/ 100 %> 
+                <% }) %>
                 <p class="resumen-title">Resumen de compras</p>
-                <p class="name-total">Subtotal</p>
-                <p class="date-total">##.##</p>
+                <p class="name-total">Descuento</p>
+                <p class="date-total">$<%= descuento %></p>
                 <p class="name-total">Total</p>
-                <p class="date-total">##.##</p>
+                <p class="date-total">$<%= total %></p>
+                <p class="name-total">Precio Final</p>
+                <p class="date-total">$<%= total - descuento %></p>
                 <p class="button-pagar">Pagar</p>
             </article>
         </section>

@@ -23,11 +23,10 @@ router.put('/edit/:id', [multerFolder('product', 'productos/').any(), CreateVeri
 // eliminar producto
 router.delete('/delete/:id', controller.delete); 
 
-//carrito
+router.get('/cart', controller.indexCart);
+//carrito - guardar item
 router.post('/cart/upload', multerFolder('product', 'productos/').any(), controller.cartUpload)
 
-
-router.get('/cart', controller.indexCart);
 router.get('/:id', controller.indexDetail);
 
 

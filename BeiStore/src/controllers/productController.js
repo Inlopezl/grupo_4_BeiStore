@@ -2,8 +2,11 @@ const product = require('../models/products');
 const { validationResult } = require('express-validator');
 let db = require('../database/models')
 module.exports = {
-    indexCart: (req, res) => {
-        res.render('products/cart');
+    indexCart:async (req, res) => {
+        const cart = await product.readCart(req.session.userLogged.id)
+        res.render('products/cart',{
+            cart
+        });
     },
     indexDetail: async (req, res) => {
         try {

@@ -177,6 +177,43 @@ models = {
         }
         return true;
     },
+    readCart: async(id) =>{
+        try {
+            let items = []
+            let imagenes = []
+            let cart = await db.Cart.findAll({
+                include:[{association: 'item'}],
+                where:{
+                    user_id: id
+                }
+            })
+
+            cart = cart.map(item => item.item_id)
+            for (const id of cart) {
+                const elemento = await db.Items.findByPk(id,{ include: [ {association: 'producto'}]})
+                items.push({
+                    name: elemento.producto.name,
+                    quantity: elemento.quantity,
+                    price: elemento.producto.price,
+                    off: elemento.producto.off,
+                    product_id: elemento.producto.id,
+
+                })
+            }
+            for (const item of items) {
+                const img = await db.Products.findByPk(item.product_id,{
+                    include: [{association: 'images'}]
+                })
+                imagenes.push(img.images[0].name)
+            }
+            items.forEach((item, i) => {
+                item.image = imagenes[i]
+            })
+            return items
+        } catch (error) {
+            
+        }
+    },
     itemUpload:async ( dato, id) =>{
         try {
             const items = await db.Items.findAll()
