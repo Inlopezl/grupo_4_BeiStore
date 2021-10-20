@@ -5,7 +5,10 @@ import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
+import CardHeader from '@mui/material/CardHeader';
 import Typography from '@mui/material/Typography';
+import PersonIcon from '@mui/icons-material/Person';
+
 
 function UsersQ () {
 
@@ -28,10 +31,11 @@ function UsersQ () {
     return(
         <Fragment>
             <Paper elevation={3} boxshadow={1} border={5} >
-                <Card >
+                <Card>
+                    <CardHeader title="Usuarios"/>
                     <CardActionArea>
                         <CardContent>                
-                           <Typography variant="h6" sx={{textAlign: 'center'}}>Usuarios<Box>{users.count}</Box></Typography>
+                           <Typography variant="h3"> <Box>{users.count} <PersonIcon/></Box></Typography>
                         </CardContent>
                     </CardActionArea>
                 </Card>

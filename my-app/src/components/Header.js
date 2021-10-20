@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import "../css/main.css"
 import logo from "../beistore-text.png"
+import LaunchIcon from '@mui/icons-material/Launch';
 
 function Header() {
     return (
@@ -18,7 +19,7 @@ function Header() {
         <AppBar position="static">
           <Toolbar className="toolbar">
            <img src={logo}/>       
-          <Button color="inherit" href="http://localhost:8080/"  className="exit" ><Typography variant="h7 ">Volver</Typography></Button>
+          <Button color="inherit" href="http://localhost:8080/"  className="exit" > <Box> <Typography variant="h7 "> <LaunchIcon/> Volver</Typography> </Box> </Button>
         </Toolbar>
       </AppBar>
     </Box>

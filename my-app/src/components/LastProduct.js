@@ -5,8 +5,8 @@ import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';  
 import CardHeader from '@mui/material/CardHeader';
+import Typography from '@mui/material/Typography';  
 import Avatar from '@mui/material/Avatar';
 
 function LastProduct () {
@@ -33,7 +33,7 @@ function LastProduct () {
             <Card>
                 <Typography variant="h6" sx={{textAlign: 'center'}}> Ultimo producto  </Typography>
                 <CardActionArea>
-                <CardHeader
+                <CardHeader 
                     avatar={
                     <Avatar src={products.image}  aria-label="recipe"/>
                     }

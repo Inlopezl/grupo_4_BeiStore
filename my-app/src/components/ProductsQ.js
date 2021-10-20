@@ -5,7 +5,9 @@ import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
+import CardHeader from '@mui/material/CardHeader';
 import Typography from '@mui/material/Typography';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 function ProductsQ () {
 
@@ -27,10 +29,11 @@ function ProductsQ () {
     return(
     <Fragment>
         <Paper elevation={3} boxshadow={1} border={5}>
-            <Card >
+            <Card>
+            <CardHeader title="Productos"/>
                 <CardActionArea>
-                    <CardContent>               
-                        <Typography variant="h6" sx={{ textAlign: 'center'}}> Productos <Box>{products.count}</Box></Typography>
+                    <CardContent>                                      
+                         <Box> <Typography variant="h3"> {products.count}  <ShoppingCartIcon/></Typography></Box> 
                     </CardContent>
                 </CardActionArea>
             </Card>
