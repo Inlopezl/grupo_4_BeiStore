@@ -30,7 +30,7 @@ function ProductsQ () {
             <Card >
                 <CardActionArea>
                     <CardContent>               
-                        <Typography sx={{ textAlign: 'center'}}> Productos <Box>{products.count}</Box></Typography>
+                        <Typography variant="h6" sx={{ textAlign: 'center'}}> Productos <Box>{products.count}</Box></Typography>
                     </CardContent>
                 </CardActionArea>
             </Card>

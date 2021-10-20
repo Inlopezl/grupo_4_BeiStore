@@ -5,7 +5,7 @@ const models = {
     findAll: async (req) =>{
         try {
             const products = await Products.findAll({
-                include: [{association: 'categories'},{association: 'brand'}]
+                include: [{association: 'categories'},{association: 'brand'}, {association: 'images'}]
             })
             const result = []
             products.forEach( product => {
@@ -16,6 +16,7 @@ const models = {
                     price: product.price,
                     brand: product.brand.name,
                     categories: product.categories.map(categoria => categoria.name),
+                    image: "http://localhost:8080/images/productos/"+product.images[0].name,
                     detail: req.protocol + '://' + req.get('host') + req.originalUrl + product.id
                 })
             })

@@ -25,7 +25,8 @@ function Main() {
 
 
         <main>
-
+        
+            <section className="masonry">
             <Divider className="divider">  </Divider>
 
             <Masonry columns={3} spacing={2}>
@@ -37,7 +38,7 @@ function Main() {
             </Masonry>  
 
             <Divider className="divider">  </Divider>
-
+            </section>
         </main>
         
         

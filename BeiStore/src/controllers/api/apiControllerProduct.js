@@ -1,8 +1,9 @@
 const product = require('../../models/api/productModelApi')
 
+
 module.exports = {
     datosGenerales: async(req, res) => {
-        const productos =await product.findAll(req)
+        const productos = await product.findAll(req)
         const categorias = await product.findAllCategories()
         let datoCategories = []
         categorias.forEach(categoria => {

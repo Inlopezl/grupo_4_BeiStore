@@ -31,7 +31,7 @@ function UsersQ () {
                 <Card >
                     <CardActionArea>
                         <CardContent>                
-                           <Typography sx={{textAlign: 'center'}}>Usuarios<Box>{users.count}</Box></Typography>
+                           <Typography variant="h6" sx={{textAlign: 'center'}}>Usuarios<Box>{users.count}</Box></Typography>
                         </CardContent>
                     </CardActionArea>
                 </Card>

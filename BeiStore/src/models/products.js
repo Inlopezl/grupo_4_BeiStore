@@ -32,7 +32,7 @@ models = {
         try{
             let images = [];
             files.forEach(element => images.push(element.filename));
-            Products.create({
+            await Products.create({
                 name: data.name,
                 description: data.description,
                 off: data.off,
@@ -40,28 +40,34 @@ models = {
                 sales: 0,
                 brand_id: data.brand
             })
-            const products = await Products.findAll();
-            images.forEach(img => {
-                db.Images.create({
-                    name: img,
-                    product_id: products.length + 1 
-                })
-            })
-            
-            if(Array.isArray(data.category)){
-                data.category.forEach(category => {
-                    db.ProductCategory.create({
-                        product_id: products.length +1,
-                        category_id: category
+            Products.findAll()
+            .then(products => {
+                console.log(products)
+                images.forEach(img => {
+                    db.Images.create({
+                        name: img,
+                        product_id: products[products.length-1].id 
                     })
                 })
-            } else {
-                db.ProductCategory.create({
-                    product_id: products.length +1,
-                    category_id: data.category
-                })
-            }
-
+                if(Array.isArray(data.category)){
+                    data.category.forEach(category => {
+                        db.ProductCategory.create({
+                            product_id: products[products.length - 1].id,
+                            category_id: category
+                        })
+                    })
+                } else {
+                    db.ProductCategory.create({
+                        product_id: products[products.length - 1].id,
+                        category_id: data.category
+                    })
+                }
+    
+            })
+            .catch(error => console.log(error))
+            
+            
+            
         } catch (error) {
             console.log(error);
         }
@@ -136,14 +142,15 @@ models = {
             })
 
             producto.images.forEach(img => {
-                fs.unlinkSync(path.resolve(__dirname, "../../public/images/productos/", img.image))
+                console.log(img)
+                fs.unlinkSync(path.resolve(__dirname, "../../public/images/productos/", img.dataValues.name))
             })
             db.Images.destroy({
                 where : {
                     product_id: id
                 }
             })
-            db.ProductCategory.destroy({
+            db.ProductCategory.destroy({    
                 where : {
                     product_id: id
                 }

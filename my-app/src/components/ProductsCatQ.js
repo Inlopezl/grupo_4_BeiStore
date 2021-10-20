@@ -37,7 +37,7 @@ function ProductsCatQ () {
             <Card className="card">
                 <CardActionArea>
                     <CardContent>       
-                       <Typography sx={{textAlign: 'center'}}> Categorias <Box> {categories.length} </Box> </Typography>  
+                       <Typography variant="h6" sx={{textAlign: 'center'}}> Categorias <Box> {categories.length} </Box> </Typography>  
                     </CardContent>
                 </CardActionArea>
             </Card>
@@ -49,7 +49,7 @@ function ProductsCatQ () {
            <Card className="card">
                 <CardActionArea>
                     <CardContent>   
-                        <Typography>   {element.name}: {element.countCat} </Typography>       
+                        <Typography variant="h6">   {element.name}: {element.countCat} </Typography>       
                     </CardContent>
                 </CardActionArea>
             </Card>

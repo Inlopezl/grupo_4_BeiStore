@@ -6,6 +6,8 @@ import Box from '@mui/material/Box';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';  
+import CardHeader from '@mui/material/CardHeader';
+import Avatar from '@mui/material/Avatar';
 
 function LastProduct () {
 
@@ -29,9 +31,17 @@ function LastProduct () {
     <Fragment>
         <Paper elevation={3} boxshadow={1} border={5} >
             <Card>
+                <Typography variant="h6" sx={{textAlign: 'center'}}> Ultimo producto  </Typography>
                 <CardActionArea>
+                <CardHeader
+                    avatar={
+                    <Avatar src={products.image}  aria-label="recipe"/>
+                    }
+                    title={products.name}
+                    subheader={products.brand}
+                />
                     <CardContent>
-                        <Typography sx={{textAlign: 'center'}}> Ultimo producto <Box> {products.name}</Box> </Typography>
+                        
                     </CardContent>
                 </CardActionArea>
             </Card>
