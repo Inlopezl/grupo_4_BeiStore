@@ -1,5 +1,14 @@
 
 
+
+
+
+
+
+
+
+
+
 DROP DATABASE IF EXISTS beistore_db;
 CREATE DATABASE beistore_db;
 USE beistore_db;
@@ -102,5 +111,30 @@ INSERT INTO `product_category` VALUES ( 1, 1, 1 ), (2, 3, 1);
 
 /*******************************************/
 
+DROP TABLE IF EXISTS `items`;
 
+CREATE TABLE `items` (
+  	`id` int(10) unsigned PRIMARY KEY AUTO_INCREMENT,
+	quantity int(10) unsigned ,
+  	product_id int(10) unsigned ,
+	FOREIGN KEY(product_id) REFERENCES products(id)
+);
 
+INSERT INTO `items` VALUES ( 1, 2, 1 ), (2, 5, 1 );
+
+/*******************************************/
+
+DROP TABLE IF EXISTS `cart`;
+
+CREATE TABLE `cart` (
+  	`id` int(10) unsigned PRIMARY KEY AUTO_INCREMENT,
+	item_id int(10) unsigned ,
+  	user_id int(10) unsigned ,
+  	paid int(1) unsigned,
+	FOREIGN KEY(item_id) REFERENCES items(id),
+  	FOREIGN KEY(user_id) REFERENCES users(id)
+);
+
+INSERT INTO `cart` VALUES ( 1, 1, 1 , true), (2, 2, 1, false);
+
+/*******************************************/

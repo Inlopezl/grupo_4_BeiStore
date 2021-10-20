@@ -20,7 +20,14 @@
                     <p class="dato">$<%= producto.price %></p>
                     <p class="name-dato">Descuento</p>             
                     <p class="dato"> <%= producto.off %>% </p>
-                    <button type="submit">Agregar al Carrito</button>
+                    <form action="/products/cart/upload" method="POST" enctype="multipart/form-data">
+                        <fieldset>
+                            <label for="quantity">Cantidad del producto: </label>
+                            <input type="number" name="quantity" min="1" value="1" id="quantity" required>
+                            <input type="hidden" name="id" value="<%= producto.id %>" >
+                        </fieldset>
+                        <button type="submit">Agregar al Carrito</button>
+                    </form>
                 </article>
             </section>
         <% } else { %>

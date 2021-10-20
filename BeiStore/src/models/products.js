@@ -166,6 +166,20 @@ models = {
             console.log(error);
         }
         return true;
+    },
+    itemUpload: ( dato) =>{
+        // try {
+        //     const items = await db.Cart.findAll({
+        //         include: [{association: 'user'},{association: 'item'}]
+        //     })
+        //     return items
+        // } catch (error) {
+        //     console.log(error);
+        // }
+        db.Items.create({
+            quantity: dato.quantity,
+            product_id: dato.id
+        })
     }
 }
 module.exports = models;

@@ -28,6 +28,27 @@ main section{
     justify-content: space-around;
     align-items: flex-start;
 }
+.product form{
+    width: 100%;
+}
+.product form fieldset{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.product form input{
+    width: 20%;
+    padding: 10px;
+    border: 0px;
+    border-radius: 8px;
+    background-color: #fff;
+    margin: 5px 0px;
+}
+.product form label{
+    color: #fff;
+    font-weight: bold;
+}
 h2{
     font-weight: bold;
     color: #fff;
