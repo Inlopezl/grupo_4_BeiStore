@@ -11,11 +11,10 @@
         <!-- categorias -->
         <section class="category flex justAround">
             <h2 class="title textL widthFull marginTB">Categorias</h2>
-            <% let categorias = ['Destacado', 'PC', 'otra categoria', 'otra categoria', 'otra categoria'] %> 
-            <% categorias.forEach(element => { %>
+            <% categories.forEach(element => { %>
                 <article class="flex justCenter textC">
                     <img src="/images/categorias/articulo1.jpg" alt="articulo">
-                    <a href="/" class="blanco bgcAzul widthFull title padding"><%= element  %></a> 
+                    <a href="/" class="blanco bgcAzul widthFull title padding mys"><%= element  %></a> 
                 </article>
             <% }) %>
         </section>

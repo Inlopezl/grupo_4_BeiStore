@@ -32,14 +32,14 @@ window.addEventListener('load', async () => {
         let error = false
         error = enviarError(target.value == '','Debe ingresar un email' , fieldset, small)
         error = error? enviarError(!regex.test(target.value) ,'Formato de email invalido' , fieldset, small) : false
-        // error = error? enviarError(emails.includes(target.value),'El email ya esta registrado' , fieldset, small) : false
-        error = error? emails.forEach(email => {
-            const regex = new RegExp(email, "gi");
-            enviarError(regex.test(target.value),'El email ya esta registrado' , fieldset, small)
-            if (error) {
-                return error
+        const emailEnBase = error? emails.map(email => {
+            const regexCompare = new RegExp(email, "gi");
+            const encontro = enviarError(regexCompare.test(target.value),'El email ya esta registrado' , fieldset, small)
+            if (encontro) {
+                return encontro
             }
-        }): false
+        }).includes(undefined) : false
+        error = error? enviarError(emailEnBase,'El email ya esta registrado' , fieldset, small) : false
         errores[0] = error
     })
     firstName.addEventListener('blur', (e)=> {

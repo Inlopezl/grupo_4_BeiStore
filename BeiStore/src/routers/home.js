@@ -6,6 +6,5 @@ const test = require('../controllers/testController');
 
 router.get('/', controller.index);
 router.get('/home', controller.index);
-router.get( '/test' , test.test)
 module.exports = router;
 

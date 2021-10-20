@@ -7,6 +7,14 @@ models = {
         let directory = path.resolve(__dirname, "../data/products.json");
         return directory;
     },
+    category: async () =>{
+        try {
+            const categories = await db.Categories.findAll()
+            return categories
+        } catch (error) {
+            console.log(error);
+        }
+    },
     all: async () => {
         try {
             const products = await db.Products.findAll({
