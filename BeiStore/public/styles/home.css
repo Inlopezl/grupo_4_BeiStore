@@ -23,6 +23,8 @@ main article a{
     .category article a{
         background-color: #fff;
         color: #021140;
+        position: absolute;
+        top: 40%;
     }
     .category article img{
         display: block;
@@ -32,6 +34,7 @@ main article a{
     }
     .category article{
         width: 30%;
+        position: relative;
     }
 }
 @media (min-width:1024px) {
