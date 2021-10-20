@@ -20,6 +20,18 @@ footer form input {
 footer section{
     width: 90%;
 }
+footer section article i {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+.info article{
+    color: #021140;
+    transition: all .35s;
+}
+.info article:hover{
+    color: #fff;
+    
+}
 
 
 @media (min-width:768px)  {
