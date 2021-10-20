@@ -162,6 +162,9 @@ models = {
                 }
             })
 
+            console.log('pase por aca');
+            console.log(producto);
+
         } catch (error) {
             console.log(error);
         }

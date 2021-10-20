@@ -5,10 +5,18 @@ window.addEventListener('load', () => {
     const price = document.querySelector('input[name = price]')
     const categories = document.querySelectorAll('input[name = category]')
     const brand = document.querySelector('select[name = brand]')
+    const imagenesViejas = document.querySelectorAll('input[name = imagenesViejas]')
+    const deleteImage = document.querySelectorAll('input[name = deleteImage]')
     const forms = document.forms
     const formEdit = forms['edit']
     const formCreate = forms['create']
-    let  errores = [false, false, false, false, false, false]
+    let  errores
+    if (formCreate) {
+        errores = [false, false, false, false, false, false]
+    } 
+    if (formEdit) {
+        errores = [true, true, true, true, true, true]
+    } 
 
     name.addEventListener('blur', (e) =>{
         let target = e.target
@@ -19,7 +27,6 @@ window.addEventListener('load', () => {
         error = error? enviarError(target.value.length < 5, 'El nombre debe tener al menos 5 caracteres', fieldset, small ) : false
 
         errores[0] = error
-        return true
     })
 
     price.addEventListener('blur', (e) => {
@@ -58,16 +65,42 @@ window.addEventListener('load', () => {
         errores[4] = error
     })
 
-
+    if(formEdit){
+        deleteImage.forEach(images => {
+            images.addEventListener('change', (e)=>{
+                let target = e.target
+                let valueImage = image.files
+                let fieldset = target.parentNode.parentNode;
+                let small = fieldset.querySelector('small')
+                let error = false
+                let imagenesDelete = [...deleteImage].map(img => img.checked)
+                imagenesDelete = imagenesDelete.filter(img => img).length
+                if(deleteImage && imagenesViejas){
+                    error = enviarError(imagenesDelete == imagenesViejas.length && valueImage.length == 0,'El producto no se puede quedar sin imagenes', fieldset, small)
+                }
+                errores[6] = error
+            })
+        })
+    }
     
     image.addEventListener('change', (e) => {
         let target = e.target
         let value = target.files
         let fieldset = target.parentNode;
         let small = fieldset.querySelector('small')
+        let error = true
         const fileAvailable = ['jpg', 'jpeg', 'png', 'gif']
-        let error = false
-        error = enviarError(value.length == 0,'Debe ingresar una Imagen', fieldset, small )
+        if (formCreate) {
+            error = enviarError(value.length == 0, 'El producton necesita una imagen', fieldset, small)
+        }
+        if (formEdit) {
+            let imagenesDelete = [...deleteImage].map(img => img.checked)
+            imagenesDelete = imagenesDelete.filter(img => img).length
+            if (imagenesDelete == imagenesViejas.length) {
+                error = enviarError(value.length == 0, 'El producton necesita una imagen', deleteImage[0].parentNode.parentNode, deleteImage[0].parentNode.parentNode.querySelector('small'))
+                errores[6] = true
+            }
+        }
         if(error){
             for(let i = 0; i < value.length ; i ++){
                 let extFile = (/[.]/.exec(value[i].name)) ? /[^.]+$/.exec(value[i].name)[0] : undefined
@@ -96,6 +129,7 @@ window.addEventListener('load', () => {
     }
     if(formEdit){
         formEdit.addEventListener('submit', (e)=> {
+            console.log(errores);
             if(errores.includes(false)){
                 e.preventDefault()
                 const form = e.target
