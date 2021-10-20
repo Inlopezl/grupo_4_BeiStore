@@ -11,6 +11,7 @@ const models = {
                     id: user.id,
                     firstName: user.firstName,
                     email: user.email,
+                    avatar: "http://localhost:8080/images/avatars/"+user.avatar,
                     detail: req.protocol + '://' + req.get('host') + req.originalUrl + user.id
                 })
             });

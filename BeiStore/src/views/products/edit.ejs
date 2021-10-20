@@ -20,7 +20,7 @@
                     </fieldset>
                 
                     <fieldset  class=" <%= error && errores.description? 'error' : '' %>  ">
-                        <textarea name="description" cols="30" rows="10" placeholder="Descricion" ><%= locals.oldData && oldData.description ? oldData.description: producto.description %></textarea>
+                        <textarea name="description" cols="30" rows="10" placeholder="Descripción" ><%= locals.oldData && oldData.description ? oldData.description: producto.description %></textarea>
                         <i class="fas fa-exclamation-circle"></i>
                         <small><%= ( error && errores.description) ? errores.description.msg : '' %></small>
                     </fieldset>
@@ -96,6 +96,6 @@
             </section>
         </main>
         <%- include('../partials/footer') %>
-        <script src="/js/products/validation.js"></script>
+         <script src="/js/products/validation.js"></script>
     </body>
 </html>

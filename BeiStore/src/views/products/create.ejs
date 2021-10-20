@@ -20,7 +20,7 @@
                     </fieldset>
                 
                     <fieldset  class=" <%= error && errores.description? 'error' : '' %>  ">
-                        <textarea name="description" cols="30" rows="10" placeholder="Descricion" ><%=locals.oldData && oldData.description ? oldData.description: '' %></textarea>
+                        <textarea name="description" cols="30" rows="10" placeholder="Descripción" ><%=locals.oldData && oldData.description ? oldData.description: '' %></textarea>
                         <i class="fas fa-exclamation-circle"></i>
                         <small><%= ( error && errores.description) ? errores.description.msg : '' %></small>
                     </fieldset>

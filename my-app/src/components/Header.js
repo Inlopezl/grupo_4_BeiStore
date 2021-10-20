@@ -4,9 +4,9 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import "../css/main.css"
+import logo from "../beistore-text.png"
+import LaunchIcon from '@mui/icons-material/Launch';
 
 function Header() {
     return (
@@ -14,13 +14,10 @@ function Header() {
         <header>
             
             <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar className="toolbar">
-          
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Beistore
-          </Typography>
-          <Button color="inherit" href="http://localhost:8080/"><Typography variant="h7">Volver</Typography></Button>
+        <AppBar position="static">
+          <Toolbar className="toolbar">
+           <img src={logo} alt="logo" />       
+          <Button color="inherit" href="http://localhost:8080/"  className="exit" > <Box> <Typography variant="h7 "> <LaunchIcon className="icon"/> Volver</Typography> </Box> </Button>
         </Toolbar>
       </AppBar>
     </Box>

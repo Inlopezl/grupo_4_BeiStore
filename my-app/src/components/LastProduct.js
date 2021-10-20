@@ -2,10 +2,11 @@ import React  from "react";
 import { Fragment, useState, useEffect } from "react";
 import Paper from '@mui/material/Paper';
 import Card from '@mui/material/Card';
-import Box from '@mui/material/Box';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
+import CardHeader from '@mui/material/CardHeader';
 import Typography from '@mui/material/Typography';  
+import Avatar from '@mui/material/Avatar';
 
 function LastProduct () {
 
@@ -29,9 +30,17 @@ function LastProduct () {
     <Fragment>
         <Paper elevation={3} boxshadow={1} border={5} >
             <Card>
-                <CardActionArea>
+                <Typography variant="h6" sx={{textAlign: 'center'}}> Ultimo producto </Typography>
+                <CardActionArea href={products.detail}>
+                <CardHeader 
+                    avatar={
+                    <Avatar src={products.image}  aria-label="recipe"/>
+                    }
+                    title={products.name}
+                    subheader={products.brand}
+                />
                     <CardContent>
-                        <Typography sx={{textAlign: 'center'}}> Ultimo producto <Box> {products.name}</Box> </Typography>
+                        
                     </CardContent>
                 </CardActionArea>
             </Card>

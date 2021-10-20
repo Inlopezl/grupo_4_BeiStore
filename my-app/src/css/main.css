@@ -1,10 +1,33 @@
+body{margin:0}
+
+
+
 main{ 
     background-color: lightgray;
 }
+main .masonry {
+    padding: 0px 15px;
+
+}
+
+header img{ max-width: 8vw;
+            max-height: 8vh;
+}
+
+header .exit{
+    width: 10px;
+    height: 10px;}
 
 main .divider{
     height: 5vh
 }
 .toolbar {
     background-color: #3805F2;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.icon{
+    font-size: 10px;
 }

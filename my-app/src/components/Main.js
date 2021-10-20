@@ -11,8 +11,6 @@ import DataGrid from "./DataGrid" // Tabla de datos
 import Masonry from '@mui/lab/Masonry';
 import MasonryItem from '@mui/lab/MasonryItem';
 import Divider from '@mui/material/Divider';
-import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
-import Theme from './Theme.js'
 import '../css/main.css';
 
 
@@ -25,7 +23,8 @@ function Main() {
 
 
         <main>
-
+        
+            <section className="masonry">
             <Divider className="divider">  </Divider>
 
             <Masonry columns={3} spacing={2}>
@@ -37,7 +36,7 @@ function Main() {
             </Masonry>  
 
             <Divider className="divider">  </Divider>
-
+            </section>
         </main>
         
         

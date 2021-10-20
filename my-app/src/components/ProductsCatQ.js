@@ -5,8 +5,10 @@ import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
+import CardHeader from '@mui/material/CardHeader';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
+import CategoryIcon from '@mui/icons-material/Category';
 import '../css/main.css';
 
 
@@ -35,9 +37,10 @@ function ProductsCatQ () {
         <Paper elevation={3} boxshadow={1} border={5}>
 
             <Card className="card">
+                <CardHeader title="Categorias"/>
                 <CardActionArea>
                     <CardContent>       
-                       <Typography sx={{textAlign: 'center'}}> Categorias <Box> {categories.length} </Box> </Typography>  
+                       <Typography variant="h3" sx={{textAlign: 'center'}}><Box> {categories.length} <CategoryIcon className="icon"/> </Box> </Typography>  
                     </CardContent>
                 </CardActionArea>
             </Card>
@@ -49,7 +52,7 @@ function ProductsCatQ () {
            <Card className="card">
                 <CardActionArea>
                     <CardContent>   
-                        <Typography>   {element.name}: {element.countCat} </Typography>       
+                        <Typography variant="h6">   {element.name}: {element.countCat} </Typography>       
                     </CardContent>
                 </CardActionArea>
             </Card>
