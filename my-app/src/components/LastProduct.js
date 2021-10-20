@@ -2,7 +2,6 @@ import React  from "react";
 import { Fragment, useState, useEffect } from "react";
 import Paper from '@mui/material/Paper';
 import Card from '@mui/material/Card';
-import Box from '@mui/material/Box';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
@@ -31,7 +30,7 @@ function LastProduct () {
     <Fragment>
         <Paper elevation={3} boxshadow={1} border={5} >
             <Card>
-                <Typography variant="h6" sx={{textAlign: 'center'}}> Ultimo producto  </Typography>
+                <Typography variant="h6" sx={{textAlign: 'center'}}> Ultimo producto </Typography>
                 <CardActionArea>
                 <CardHeader 
                     avatar={

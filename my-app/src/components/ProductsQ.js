@@ -33,7 +33,7 @@ function ProductsQ () {
             <CardHeader title="Productos"/>
                 <CardActionArea>
                     <CardContent>                                      
-                         <Box> <Typography variant="h3"> {products.count}  <ShoppingCartIcon/></Typography></Box> 
+                         <Box> <Typography variant="h3"> {products.count}  <ShoppingCartIcon className="icon"/></Typography></Box> 
                     </CardContent>
                 </CardActionArea>
             </Card>

@@ -35,7 +35,7 @@ function UsersQ () {
                     <CardHeader title="Usuarios"/>
                     <CardActionArea>
                         <CardContent>                
-                           <Typography variant="h3"> <Box>{users.count} <PersonIcon/></Box></Typography>
+                           <Typography variant="h3"> <Box>{users.count} <PersonIcon className="icon"/></Box></Typography>
                         </CardContent>
                     </CardActionArea>
                 </Card>

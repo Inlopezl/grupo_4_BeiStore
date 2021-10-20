@@ -40,7 +40,7 @@ function ProductsCatQ () {
                 <CardHeader title="Categorias"/>
                 <CardActionArea>
                     <CardContent>       
-                       <Typography variant="h3" sx={{textAlign: 'center'}}><Box> {categories.length} <CategoryIcon/> </Box> </Typography>  
+                       <Typography variant="h3" sx={{textAlign: 'center'}}><Box> {categories.length} <CategoryIcon className="icon"/> </Box> </Typography>  
                     </CardContent>
                 </CardActionArea>
             </Card>

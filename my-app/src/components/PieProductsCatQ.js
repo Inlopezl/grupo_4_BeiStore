@@ -27,9 +27,7 @@ function PieProductsCatQ () {
     }, [])
     let result = []
     result.push(['Categoria', 'Productos'])
-
     let dato = categories.map((category) => result.push([category.name , category.countCat]));
-    console.log(result)
     return(
     <Fragment>
         <Paper elevation={3} boxshadow={1} border={5}  >

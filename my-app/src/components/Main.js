@@ -11,8 +11,6 @@ import DataGrid from "./DataGrid" // Tabla de datos
 import Masonry from '@mui/lab/Masonry';
 import MasonryItem from '@mui/lab/MasonryItem';
 import Divider from '@mui/material/Divider';
-import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
-import Theme from './Theme.js'
 import '../css/main.css';
 
 
