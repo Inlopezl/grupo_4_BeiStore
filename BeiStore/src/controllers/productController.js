@@ -47,6 +47,10 @@ module.exports = {
             console.log(error);
         }
     },
+    indexEditList:async (req, res)=>{
+        const productos = await product.all()
+        return res.render('products/list', { productos, titleProduct: 'Lista de Productos', edit: true })
+    },
     indexList:async (req, res) => {
         try {
             const products = await product.all()

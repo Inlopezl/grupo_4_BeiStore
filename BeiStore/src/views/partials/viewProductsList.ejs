@@ -3,12 +3,18 @@
     <% productos.forEach(producto => { %>
         <article class="card-product bgcAzul flex justBet cajaResponsive marginTB">
             <img src="/images/productos/<%= producto.images[0].name%>" alt="destacado">
-            <a href="/products/<%= producto.id%>" class="widthFull blanco title marginTB">
-                <p class="name-producto textC"><%= producto.name%></p>
-            </a>
-            <p class="blanco">$ <%= producto.price %></p>
-            <p class="cian"> <%= producto.off %>%</p>
-            <button class="btnCian">Comprar</button>
+            <% if (locals.edit) { %> 
+                <a href="/products/edit/<%= producto.id%>" class="widthFull blanco title marginTB">
+                    <p class="name-producto textC"><%= producto.name%></p>
+                </a>
+            <% } else {%>
+                <a href="/products/<%= producto.id%>" class="widthFull blanco title marginTB">
+                    <p class="name-producto textC"><%= producto.name%></p>
+                </a>
+                <p class="blanco">$ <%= producto.price %></p>
+                <p class="cian"> <%= producto.off %>%</p>
+                <% } %>
+                <button class="btnCian"><%= locals.edit ? 'Editar': 'Comprar' %></button>
         </article>
     <% }) %>
 </section>
