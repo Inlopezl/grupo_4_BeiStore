@@ -1,9 +1,8 @@
 const user = require('../../models/users');
-module.exports = (req, res, next) =>{
+module.exports = async (req, res, next) =>{
     res.locals.isLogged = false;
-
     if(req.cookies.userEmail){
-        let userLogged = user.findByEmail( req.cookies.userEmail);
+        let userLogged = await user.findByEmail(req.cookies.userEmail);
         req.session.userLogged = userLogged;
     }
 
