@@ -78,7 +78,7 @@ module.exports = {
                 console.log(req.body);
                 console.log(req.files);
                 product.new(req.body, req.files);
-                return res.redirect('/products/')
+                return res.redirect('/products')
             }
         } catch (error) {
             console.log(error);

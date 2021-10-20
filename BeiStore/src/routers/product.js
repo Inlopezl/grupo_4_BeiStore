@@ -5,6 +5,8 @@ const isAdmin = require('../middlewares/users/isAdminMw');
 const CreateVerificator = require('../middlewares/products/createVerificator')
 
 const controller = require('../controllers/productController');
+// lista de productos
+router.get('/', controller.indexList); 
 
 // Vista Crear Producto
 router.get('/create',[isAdmin],controller.indexCreate);
@@ -12,8 +14,6 @@ router.get('/create',[isAdmin],controller.indexCreate);
 // Guardar Producto
 router.post('/create', [ isAdmin, multerFolder('product', 'productos/').any(), CreateVerificator ], controller.save);
 
-// lista de productos
-router.get('/', controller.indexList); 
 
 // vista editar producto 
 router.get('/edit/',[isAdmin], controller.indexEditList);
